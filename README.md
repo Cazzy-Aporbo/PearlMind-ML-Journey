@@ -3,602 +3,519 @@ Built with dedication to the craft of machine learning
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-FFCFE7?style=for-the-badge&logo=python&logoColor=white&labelColor=6B5B95)
-![Jupyter](https://img.shields.io/badge/Jupyter-Ready-F6EAFE?style=for-the-badge&logo=jupyter&logoColor=white&labelColor=6E6E80)
-![Responsible AI](https://img.shields.io/badge/Responsible%20AI-Certified-A8E6CF?style=for-the-badge&logo=tensorflow&logoColor=white&labelColor=6B5B95)
-![Coverage](https://img.shields.io/badge/Coverage-94%25-FFCFE7?style=for-the-badge&logo=pytest&logoColor=white&labelColor=6E6E80)
-![License](https://img.shields.io/badge/License-MIT-F6EAFE?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=6B5B95)
+<img src="assets/header_loop.gif" width="100%" alt="Pastel gradient animation flowing through soft pink, lavender, mint, and fog white">
 
-**A curated machine learning journey from fundamentals to production-grade systems**
+<br/><br/>
 
-[Profile](https://github.com/Cazzy-Aporbo/Cazzy-Aporbo/) • [Documentation](#prebuilt-tooling--official-references) • [Models](#model-atlas-whenwhy how) • [Ethics](#bias--responsible-ai-checklist)
+<!-- Core stack badges -->
 
+<img src="https://img.shields.io/badge/Python-3.10%2B-FFCFE7?style=for-the-badge&logo=python&logoColor=white&labelColor=6B5B95" alt="Python">
+<img src="https://img.shields.io/badge/PyTorch-2.0-F6EAFE?style=for-the-badge&logo=pytorch&logoColor=white&labelColor=6E6E80" alt="PyTorch">
+<img src="https://img.shields.io/badge/TensorFlow-2.14-A8E6CF?style=for-the-badge&logo=tensorflow&logoColor=white&labelColor=6B5B95" alt="TensorFlow">
+<img src="https://img.shields.io/badge/ScikitLearn-1.3-FFE4F1?style=for-the-badge&logo=scikit-learn&logoColor=white&labelColor=6E6E80" alt="Scikit-Learn">
+<img src="https://img.shields.io/badge/XGBoost-2.0-E8D5FF?style=for-the-badge&logo=xgboost&logoColor=white&labelColor=6B5B95" alt="XGBoost">
+
+<br/><br/>
+
+<!-- Dynamic Status (update slug if your repo name differs) -->
+
+<img src="https://img.shields.io/badge/dynamic/json?color=FFCFE7&label=Build&query=status&url=https%3A%2F%2Fapi.github.com%2Frepos%2FCazzy-Aporbo%2FPearlMind-ML-Journey&style=flat-square&labelColor=6B5B95" alt="Build">
+<img src="https://img.shields.io/badge/dynamic/json?color=F6EAFE&label=Activity&query=updated_at&url=https%3A%2F%2Fapi.github.com%2Frepos%2FCazzy-Aporbo%2FPearlMind-ML-Journey&style=flat-square&labelColor=6E6E80" alt="Activity">
+<img src="https://img.shields.io/badge/dynamic/json?color=A8E6CF&label=Stars&query=stargazers_count&url=https%3A%2F%2Fapi.github.com%2Frepos%2FCazzy-Aporbo%2FPearlMind-ML-Journey&style=flat-square&labelColor=6B5B95" alt="Stars">
+
+<br/><br/>
+
+<kbd><a href="https://github.com/Cazzy-Aporbo/Cazzy-Aporbo/">Profile</a></kbd> • <kbd><a href="#model-atlas-mathematical-foundations--production-insights">Models</a></kbd> • <kbd><a href="#the-prompt-ladder-beginner--expert">Prompts</a></kbd> • <kbd><a href="#bias--responsible-ai-checklist">Ethics</a></kbd> • <kbd><a href="#mathematical-intuitions--humor">Math</a></kbd>
+
+</div>
+
+<br/>
+
+<img src="assets/divider_sparkle.gif" width="100%" height="2" alt="Sparkling pastel divider">
+
+## Why This Exists: The Quest for Ethical Superintelligence
+
+As a data scientist deeply fascinated by the emergence of superintelligence, I believe the path forward requires not just technical excellence but profound ethical grounding. This repository chronicles my journey from statistical foundations to advanced AI systems, guided by the principle that powerful intelligence must be aligned with human values.
+
+The transition from narrow AI to general intelligence will not come from brute force alone. It rests on sound mathematics, careful system design, and the discipline to ship interpretable, controllable, and beneficial models. Every project here reflects ablation studies, fairness audits, and production constraints.
+
+<div align="center">
+<img src="assets/philosophy_animation.gif" width="600" alt="Animated philosophy: Mathematical Foundations → Ethical Considerations → Superintelligence">
 </div>
 
 ---
 
-## Why This Exists
+## Mathematical Intuitions & Humor
 
-Machine learning isn't about following tutorials blindly—it's about understanding tradeoffs, making informed choices, and building systems that solve real problems. This repository documents my journey from basic linear models to production LLM orchestration, emphasizing the *why* behind every decision.
-
-I prioritize interpretability over black-box complexity when possible, robustness over marginal accuracy gains, and ethical considerations at every stage. The code here reflects real-world constraints: compute budgets, latency requirements, and the messy reality of production data. Every model choice is justified with evidence, every optimization backed by ablation studies.
-
-## My ML Journey (Snapshots)
+Throughout this journey, humor helps crystallize concepts.
 
 ```
-2021 → Linear Models & Statistical Foundations
-    ├── Built intuition with closed-form solutions
-    └── Learned when simplicity beats complexity
-    
-2022 → Tree Ensembles & Feature Engineering  
-    ├── Discovered the power of gradient boosting
-    └── Mastered tabular data competitions
-    
-2023 → Time Series & Causal Inference
-    ├── Deployed Prophet models for demand forecasting
-    └── Learned to distinguish correlation from causation
-    
-2024 → Deep Learning & Computer Vision
-    ├── Trained CNNs from scratch, then discovered transfer learning
-    └── Built custom architectures for domain-specific tasks
-    
-2025 → LLMs, RAG, & Production Systems
-    ├── Implemented hybrid retrieval-augmented generation
-    ├── Built router systems for model selection
-    └── Deployed tool-augmented LLM pipelines
+Training Accuracy → 1, Test Accuracy → 0
 ```
 
-## Model Atlas: When/Why/How
+(Life’s purest overfit.)
 
-Each model has its place. The art lies in knowing which tool fits the problem—and more importantly, which doesn't.
+```
+Happiness = 1/Bias + 1/Variance
+```
 
-### Linear/Logistic Regression
+(You cannot minimize both.)
 
-Linear models remain the workhorses of machine learning. They offer unparalleled interpretability and serve as crucial baselines. When your stakeholders need to understand exactly why a decision was made, nothing beats the transparency of coefficients.
+```
+Love(t+1) = Love(t) - η·∇Arguments
+```
 
-**When to Use**: High-stakes decisions requiring explainability (credit scoring, medical diagnosis), baseline models, feature importance analysis, when you have strong domain knowledge about linear relationships.
+(Gradient steps toward fewer conflicts.)
 
-**Shines At**: Small datasets (n < 1000), wide data (p >> n with regularization), real-time inference, A/B testing where effect sizes matter, problems where monotonicity constraints are critical.
+These encode truths about overfitting, the bias–variance tradeoff, and optimization landscapes.
 
-**Watch-outs**: Assumes linear relationships (use polynomial features or splines for flexibility), sensitive to outliers (consider robust regression), multicollinearity inflates variance (use Ridge/Elastic Net), requires careful feature engineering.
+---
 
-### Support Vector Machines
+## Model Atlas: Mathematical Foundations & Production Insights
 
-SVMs elegantly handle high-dimensional spaces through the kernel trick, transforming nonlinear problems into linear ones in higher dimensions. The margin maximization principle provides excellent generalization, especially with limited data.
+<div align="center">
+<img src="assets/model_atlas_header.gif" width="100%" alt="Animated model selection flowchart with pastel gradients">
+</div>
 
-**When to Use**: Text classification, bioinformatics (gene expression), image recognition with hand-crafted features, when you need probability calibration (with Platt scaling), anomaly detection (One-Class SVM).
+Understanding models means grasping both their theoretical core and production behavior. Below are practical notes you can rely on when choosing, explaining, and shipping.
 
-**Shines At**: High-dimensional sparse data, binary classification with clear margin, robust to overfitting in high dimensions, effective with small-to-medium datasets.
+### Linear Models: The Foundation of Interpretable AI
 
-**Watch-outs**: Computationally expensive for large datasets (O(n²) to O(n³)), kernel selection is critical, requires feature scaling, probability estimates need calibration, memory intensive for RBF kernels.
+Linear regression aims to solve β\* = (XᵀX)⁻¹Xᵀy. Multicollinearity breaks invertibility; ridge fixes it via β\* = (XᵀX + λI)⁻¹Xᵀy. Logistic regression models log-odds with cross-entropy loss, solved by iterative optimization.
 
-### Decision Trees & Ensembles
+Production strengths
 
-Tree-based models capture nonlinear interactions naturally, require minimal preprocessing, and handle mixed data types gracefully. The ensemble variants consistently dominate tabular competitions.
+1. Microsecond-class inference; 2) Memory efficiency; 3) Direct interpretability; 4) Easy online learning via SGD; 5) Good calibration.
 
-#### Random Forest
+Advanced moves
+Elastic Net for sparsity + grouping; basis expansions (polynomials, splines, Fourier) to keep linear-in-parameters while capturing nonlinearity.
 
-**When to Use**: Baseline for any tabular problem, feature importance is critical, need out-of-bag error estimates, parallel training is available, want to reduce overfitting from single trees.
+### Support Vector Machines: Geometry Meets Optimization
 
-**Shines At**: Mixed numerical/categorical features, missing data (proximity imputation), nonlinear relationships, built-in cross-validation via OOB, embarrassingly parallel.
+Primal: minimize ½‖w‖² with yᵢ(w·xᵢ + b) ≥ 1. Dual with KKT yields sparsity in support vectors. Kernels (polynomial, RBF) make nonlinear decision boundaries tractable without explicit feature maps. Soft margins balance margin width vs training error via C. SMO and approximations (Nyström, random Fourier features) unlock scale.
 
-**Watch-outs**: Can't extrapolate beyond training range, memory intensive for large forests, prediction latency scales with tree count, biased towards high-cardinality features.
+### Tree Ensembles: Where Weak Learners Become Strong
 
-#### Gradient Boosting (XGBoost/LightGBM/CatBoost)
+Decision trees split by impurity (Gini/entropy). Ensembles fix bias–variance.
 
-**When to Use**: Kaggle competitions (seriously), maximum predictive accuracy needed, have time for hyperparameter tuning, dealing with imbalanced classes, need monotonic constraints.
+Random Forests: bagging + feature subsampling reduce variance; OOB gives free CV; beware high-cardinality bias in impurity importances.
 
-**XGBoost Shines At**: Structured/tabular data competitions, handling missing values, custom objectives, GPU acceleration, distributed training.
+Gradient Boosting (XGBoost/LightGBM/CatBoost): stagewise additive modeling, second-order optimization (XGB), GOSS and EFB (LGBM), ordered target encoding to prevent leakage (CatBoost). Early stopping is essential.
 
-**LightGBM Shines At**: Large datasets (leaf-wise growth), categorical features (optimal splits), faster training than XGBoost, lower memory usage.
+### Deep Learning: Universal Function Approximation
 
-**CatBoost Shines At**: Categorical features without encoding, robust to hyperparameters, symmetric trees reduce overfitting, built-in text features, best default parameters.
+Networks as compositions of affine transforms and nonlinearities; backprop applies the chain rule efficiently. Vanishing/exploding gradients motivate ReLU, residuals, normalization. BatchNorm stabilizes training. Attention focuses computation; the lottery-ticket hypothesis hints at sparse winning subnets. Generalization benefits from implicit regularization, overparameterization regimes, and hierarchical representations.
 
-**Watch-outs**: Prone to overfitting (early stopping essential), sequential nature limits parallelization, hyperparameter sensitive, longer inference than RF, requires careful learning rate scheduling.
+### Large Language Models: The Emergence of Intelligence
 
-### Unsupervised Learning
+Transformers replace recurrence with attention; positional encodings inject order. Scaling laws predict loss improvements; emergent abilities appear at scale. In-context learning suggests algorithmic behavior internal to attention. RLHF and constitutional methods align behavior; mechanistic interpretability studies circuits like induction heads. Deployment needs quantization, distillation, and retrieval grounding to reduce hallucinations.
 
-Unsupervised methods reveal hidden structure in data, crucial for exploration before supervised modeling.
+---
 
-#### Clustering (K-Means/GMM/DBSCAN)
+## Relational Diagrams
 
-**K-Means**: Fast, scalable, works well for spherical clusters. Use when cluster count is known, need quick results, implementing vector quantization.
-
-**GMM (Gaussian Mixture Models)**: Soft clustering with probability assignments, handles elliptical clusters, provides uncertainty estimates. Use for overlapping clusters, when you need membership probabilities.
-
-**DBSCAN**: Density-based, finds arbitrary shaped clusters, robust to outliers. Use when cluster count unknown, have varying densities, need noise detection.
-
-#### Dimensionality Reduction (PCA/UMAP/t-SNE)
-
-**PCA**: Linear, fast, preserves global structure. Use for denoising, feature extraction, visualization of linear relationships, preprocessing for other algorithms.
-
-**UMAP**: Preserves both local and global structure, scalable. Use for general-purpose visualization, preprocessing for clustering, manifold learning.
-
-**t-SNE**: Excellent for visualization, preserves local structure. Use primarily for 2D/3D visualization, identifying clusters visually. Not for preprocessing—distances aren't meaningful.
-
-### Time Series
-
-Time series requires specialized methods that respect temporal dependencies and handle trends, seasonality, and external regressors.
-
-#### Classical Methods (ARIMA/SARIMA)
-
-**When to Use**: Univariate forecasting, well-understood seasonal patterns, need prediction intervals, interpretable components, small datasets.
-
-**Shines At**: Short-term forecasting, stable patterns, when you need to explain the model to stakeholders, automatic order selection (auto-ARIMA).
-
-**Watch-outs**: Assumes stationarity (difference if needed), struggles with multiple seasonalities, can't handle external regressors well, poor at long-term forecasting.
-
-#### Prophet
-
-Facebook's Prophet handles holidays, changepoints, and multiple seasonalities automatically. It's remarkably robust to missing data and outliers.
-
-**When to Use**: Business forecasting with domain knowledge, multiple seasonalities, need to incorporate holidays/events, want uncertainly quantification, irregular time series.
-
-**Shines At**: Automatic changepoint detection, intuitive hyperparameters, handles missing data, built-in cross-validation, additive model components.
-
-**Watch-outs**: Not suitable for sub-daily data without modifications, can overfit with too many changepoints, Bayesian backend can be slow, less accurate than deep learning for complex patterns.
-
-#### Deep Learning for Time Series (Brief Mention)
-
-**Temporal Fusion Transformers (TFT)**: State-of-the-art for multi-horizon forecasting, handles static covariates, provides interpretable attention weights.
-
-**DeepAR**: Probabilistic forecasting, trains globally on related time series, handles cold-start problems.
-
-### Deep Learning
-
-Neural networks excel at learning hierarchical representations from raw data, eliminating manual feature engineering.
-
-#### Convolutional Neural Networks (CNNs)
-
-**When to Use**: Image classification/segmentation/detection, any data with spatial structure, transfer learning from ImageNet, video understanding (3D CNNs).
-
-**Shines At**: Translation invariance, parameter sharing, hierarchical feature learning, transfer learning, real-time inference with optimization.
-
-**Watch-outs**: Require large datasets (or transfer learning), computationally expensive training, black-box nature, adversarial vulnerability.
-
-#### Vision Transformers (ViT)
-
-**When to Use**: When you have massive datasets, need state-of-the-art accuracy, can afford longer training, want to leverage pre-trained models.
-
-**Shines At**: Scaling to huge datasets, global context from layer 1, transfer learning across domains, self-supervised pre-training.
-
-**Watch-outs**: Require more data than CNNs, computationally expensive, less inductive bias, need careful position encoding.
-
-#### RNNs/Transformers
-
-**RNNs**: Use for smaller sequential datasets, when computation is limited, online/streaming predictions. LSTMs/GRUs handle long-term dependencies better than vanilla RNNs.
-
-**Transformers**: Current state-of-the-art for NLP, parallelize better than RNNs, attention provides interpretability, foundation for all modern LLMs.
-
-### LLMs & Hybrid Systems
-
-Modern AI systems combine multiple models, retrieval mechanisms, and external tools to solve complex, multi-step problems.
-
-#### RAG (Retrieval-Augmented Generation)
-
-RAG systems ground LLM responses in retrieved knowledge, reducing hallucinations and enabling dynamic knowledge updates without retraining.
-
-**When to Use**: Domain-specific QA, need factual grounding, knowledge changes frequently, can't fine-tune due to compute/data constraints, need source attribution.
-
-**Shines At**: Reducing hallucinations, handling long-tail queries, updatable knowledge base, explainable responses with citations, hybrid search (semantic + keyword).
-
-**Watch-outs**: Retrieval quality bottlenecks performance, context window limitations, latency from retrieval step, challenging evaluation, requires careful chunking strategy.
-
-#### Router Systems
-
-Routers dynamically select the best model/approach for each query, optimizing for accuracy, latency, and cost simultaneously.
-
-**When to Use**: Multiple specialized models available, varying query complexity, cost/latency constraints, need graceful degradation, A/B testing model variants.
-
-**Shines At**: Optimal resource allocation, handling diverse query types, cost optimization, automatic failover, performance monitoring.
-
-**Watch-outs**: Router becomes a bottleneck, adds complexity, requires calibrated confidence scores, cold-start problem for new query types.
-
-#### Tool-Augmented LLMs (Toolformer-style)
-
-LLMs that can invoke external tools (calculators, APIs, databases) overcome limitations in reasoning, freshness, and domain-specific knowledge.
-
-**When to Use**: Need precise calculations, access external systems, multi-step reasoning, real-time data requirements, complex workflows.
-
-**Shines At**: Mathematical reasoning, API orchestration, data analysis tasks, multi-modal workflows, agent-based systems.
-
-**Watch-outs**: Tool reliability affects system performance, prompt engineering complexity, error propagation, security considerations, increased latency.
-
-## Relational Diagrams (Mermaid)
-
-### Model Selection Flow (Tabular Data Focus)
+### Learning Journey (GitHub-safe Mermaid)
 
 ```mermaid
-graph TD
-    A[Problem Framing] --> B{Data Type?}
-    B -->|Tabular| C{Target Variable?}
+flowchart LR
+  subgraph Y2021 [2021 • Foundations]
+    A1[Linear Models] --> A2[Statistical Intuition]
+    A2 --> A3[Simplicity When It Wins]
+  end
+  subgraph Y2022 [2022 • Ensembles]
+    B1[Tree Ensembles] --> B2[Feature Engineering]
+  end
+  subgraph Y2023 [2023 • Time Series & Causal]
+    C1[Prophet at Scale] --> C2[Causal Inference]
+  end
+  subgraph Y2024 [2024 • Deep Learning]
+    D1[CNNs & Transfer] --> D2[Custom Architectures]
+  end
+  subgraph Y2025 [2025 • LLMs & RAG]
+    E1[Hybrid RAG] --> E2[Routers & Tools] --> E3[Prod Orchestration]
+  end
+  A3 --> B1 --> C1 --> D1 --> E1
+```
+
+### Model Selection Flow (Tabular Focus)
+
+```mermaid
+flowchart TD
+    A[Problem Framing] --> B{Data Type}
+    B -->|Tabular| C{Target?}
     B -->|Text| T[NLP Pipeline]
     B -->|Image| I[Computer Vision]
     B -->|Time Series| TS[Temporal Models]
-    
     C -->|Continuous| D[Regression]
     C -->|Categorical| E[Classification]
     C -->|None| F[Unsupervised]
-    
-    D --> G{Dataset Size?}
+    D --> G{Dataset Size}
     E --> G
-    
-    G -->|Small n<1000| H[Linear Models]
-    G -->|Medium n<100k| J[Tree Ensembles]
-    G -->|Large n>100k| K[Gradient Boosting]
-    
-    H --> L{Interpretability Needed?}
+    G -->|Small <1k| H[Linear Models]
+    G -->|Medium <100k| J[Tree Ensembles]
+    G -->|Large >100k| K[Gradient Boosting]
+    H --> L{Interpretability?}
     J --> L
     K --> L
-    
-    L -->|Yes| M[Use SHAP/LIME]
-    L -->|No| N[Optimize Performance]
-    
+    L -->|Yes| M[SHAP/LIME]
+    L -->|No| N[Max Performance]
     M --> O[Validation]
     N --> O
-    
-    O --> P{Performance OK?}
+    O --> P{Meets Target?}
     P -->|Yes| Q[Deploy & Monitor]
-    P -->|No| R[Feature Engineering]
-    R --> G
-    
-    F --> S{Goal?}
+    P -->|No| R[Feature Engineering] --> G
+    F --> S{Goal}
     S -->|Grouping| U[Clustering]
     S -->|Reduction| V[PCA/UMAP]
     S -->|Anomaly| W[Isolation Forest]
-    
-    Q --> X[A/B Test]
-    X --> Y[Monitor Drift]
-    Y --> Z[Retrain Schedule]
+    Q --> X[A/B Test] --> Y[Monitor Drift] --> Z[Retrain Schedule]
 ```
 
 ### RAG + Router Hybrid Pipeline
 
 ```mermaid
-graph LR
-    A[User Query] --> B[Query Router]
-    
-    B --> C{Complexity Analysis}
-    C -->|Simple| D[Direct LLM]
-    C -->|Factual| E[RAG Pipeline]
-    C -->|Computational| F[Tool Use]
-    C -->|Multi-step| G[Agent Chain]
-    
-    E --> H[Embedding Model]
-    H --> I[Vector Search]
-    I --> J[Reranker]
-    J --> K[Context Builder]
-    
-    F --> L[Tool Selector]
-    L --> M[Calculator/Code]
-    L --> N[API Calls]
-    L --> O[Database Query]
-    
-    G --> P[Task Decomposer]
-    P --> Q[Step Executor]
-    Q --> R[State Manager]
-    R --> Q
-    
-    D --> S[Response Generator]
-    K --> S
-    M --> S
-    N --> S
-    O --> S
-    R --> S
-    
-    S --> T[Safety Checker]
-    T --> U{Safe?}
-    U -->|Yes| V[Format Response]
-    U -->|No| W[Revise]
-    W --> S
-    
-    V --> X[Cache Layer]
-    X --> Y[User Response]
-    
-    Y --> Z[Feedback Loop]
-    Z --> AA[Model Updates]
-    AA --> B
-```
+%%{init: {'theme':'base', 'themeVariables': {
+  'primaryColor':'#FDF3FF',
+  'primaryBorderColor':'#6B5B95',
+  'primaryTextColor':'#6E6E80',
+  'lineColor':'#E8D5FF',
+  'fontSize':'14px',
+  'fontFamily':'Inter, ui-sans-serif, system-ui'
+}}}%%
+flowchart LR
+  %% --- Subgraphs for visual separation ---
+  subgraph SG_ROUTER[Routing Layer]
+    UQ[User Query]:::router --> R[Query Router]:::router
+    R -->|Simple| L1[Direct LLM]:::direct
+    R -->|Factual| RAG[RAG Pipeline]:::rag
+    R -->|Computational| TOOLS[Tool Use]:::tools
+    R -->|Multi-step| AGENT[Agent Chain]:::agent
+  end
 
-## The Prompt Ladder (Beginner → Expert)
+  subgraph SG_RAG[RAG Pipeline]
+    RAG --> EMB[Embedding Model]:::rag
+    EMB --> VS[Vector Search]:::rag
+    VS --> RR[Reranker]:::rag
+    RR --> CTX[Context Builder]:::rag
+  end
 
-Each rung represents increasing sophistication in how you interact with ML systems. Copy these prompts directly into your workflow.
+  subgraph SG_TOOLS[Tool Invocation]
+    TOOLS --> SEL[Tool Selector]:::tools
+    SEL --> CALC[Calculator]:::tools
+    SEL --> CODE[Code Runner]:::tools
+    SEL --> API[External API]:::tools
+    SEL --> DB[Database Query]:::tools
+  end
 
-### Rung 1: Beginner - Explain Predictions
-```
-Given this model prediction of [PREDICTION] for input [FEATURES], 
-explain in plain English:
-1. What each feature means in simple terms
-2. Which features most influenced this prediction
-3. Whether this prediction seems reasonable and why
-4. What a different outcome would require
+  subgraph SG_AGENT[Agentic Execution]
+    AGENT --> DEC[Task Decomposer]:::agent
+    DEC --> EXEC[Step Executor]:::agent
+    EXEC --> SM[State Manager]:::agent
+    SM --> EXEC
+  end
 
-Format as a brief narrative a business stakeholder would understand.
-```
+  %% Response aggregation and safety
+  L1 --> RESP[Response Builder]:::output
+  CTX --> RESP
+  CALC --> RESP
+  CODE --> RESP
+  API --> RESP
+  DB --> RESP
+  SM --> RESP
 
-### Rung 2: Practitioner - Diagnose Failure Modes
-```
-Analyze this model's failure cases:
-- False Positives: [EXAMPLES]
-- False Negatives: [EXAMPLES]
-- Edge Cases: [EXAMPLES]
+  RESP --> SAFE[Safety Checker]:::safety
+  SAFE --> OUT[Format & Return]:::output
 
-Perform root cause analysis:
-1. Identify systematic patterns in failures
-2. Propose feature engineering to address each pattern
-3. Design targeted data collection for failure modes
-4. Specify ablation studies to validate hypotheses
+  %% --- Styles (pastel palette) ---
+  classDef router fill:#FDF3FF,stroke:#6B5B95,stroke-width:2px,color:#6E6E80;
+  classDef rag fill:#E8D5FF,stroke:#6B5B95,stroke-width:2px,color:#6E6E80;
+  classDef tools fill:#A8E6CF,stroke:#6B5B95,stroke-width:2px,color:#6E6E80;
+  classDef agent fill:#F6EAFE,stroke:#6B5B95,stroke-width:2px,color:#6E6E80;
+  classDef safety fill:#FFE4F1,stroke:#6B5B95,stroke-width:2px,color:#6E6E80;
+  classDef output fill:#FFCFE7,stroke:#6B5B95,stroke-width:2px,color:#6E6E80;
 
-Provide metrics for: precision@k, recall curves, confusion matrix per segment.
-Consider distribution shift, label noise, and feature leakage.
-```
-
-### Rung 3: Bias & Calibration - Deep Fairness Analysis
-```
-Evaluate model fairness across protected groups [GROUPS]:
-
-Quantitative Analysis:
-- Disparate impact: P(Y=1|A=a)/P(Y=1|A=b) for all group pairs
-- Equal opportunity difference: TPR gaps
-- Calibration: P(Y=1|score=s, A=a) vs P(Y=1|score=s, A=b)
-- Expected Calibration Error (ECE) and Brier score per group
-
-Reliability Narrative:
-- Are high-confidence predictions equally reliable across groups?
-- Where does the model exhibit systematic over/under-confidence?
-- What recourse exists for disadvantaged predictions?
-
-Recommend: pre-processing, in-processing, or post-processing interventions.
-Include: sample size considerations, statistical significance, and multiple testing corrections.
-```
-
-### Rung 4: Hybrid Decisions - Router Policy Design
-```
-Design routing policy for model ensemble:
-
-Models Available:
-- Fast Model: latency=[X]ms, accuracy=[Y]%, cost=$[Z]
-- Accurate Model: latency=[A]ms, accuracy=[B]%, cost=$[C]  
-- Specialist Models: [DOMAIN_MODELS]
-
-Constraints:
-- P50 latency < [L1]ms, P99 latency < [L2]ms
-- Cost budget: $[BUDGET]/1M requests
-- Minimum accuracy: [MIN_ACC]%
-
-Optimize routing function:
-1. Confidence-based routing with calibrated thresholds
-2. Query complexity scoring (length, vocabulary, structure)
-3. Dynamic batching for throughput optimization
-4. Cascade architecture with early-exit criteria
-
-Output: Decision tree with thresholds, expected system metrics,
-failover logic, and monitoring dashboard specification.
-```
-
-### Rung 5: Expert - Production Stewardship
-```
-Design production ML system architecture:
-
-System Requirements:
-- Scale: [QPS] queries/second, [STORAGE] TB data
-- SLA: [UPTIME]% availability, [LATENCY] P99
-- Compliance: [REGULATIONS] (GDPR, CCPA, etc.)
-
-Provide:
-1. Training pipeline: data versioning (DVC/Pachyderm), feature store design,
-   experiment tracking (MLflow/W&B), distributed training orchestration
-
-2. Serving architecture: model registry, A/B test infrastructure,
-   feature computation (batch vs. real-time), cache strategy by query pattern
-
-3. Monitoring specification:
-   - Data drift: PSI, KS-statistic, MMD thresholds
-   - Concept drift: prediction distribution, accuracy proxies
-   - System metrics: latency percentiles, throughput, error rates
-   
-4. Rollback triggers: automatic (metric thresholds) vs manual (incident types)
-
-5. Audit trail: model lineage, decision logs, compliance reports,
-   explainability API for regulators
-
-Include: cost optimization strategy, multi-region deployment,
-shadow mode testing, gradual rollout plan.
-```
-
-## Bias & Responsible AI Checklist
-
-A production ML system is only as ethical as its most overlooked edge case. This checklist ensures systematic consideration of fairness, accountability, and transparency.
-
-**Problem Definition**
-- [ ] Stakeholders identified and consulted (especially affected communities)
-- [ ] Success metrics include fairness indicators, not just accuracy
-- [ ] Potential negative impacts documented with mitigation strategies
-- [ ] Alternative non-ML solutions evaluated
-
-**Data Provenance & Quality**
-- [ ] Data collection process documented with potential biases noted
-- [ ] Representation gaps identified (geographic, demographic, temporal)
-- [ ] Label quality assessed, including annotator demographics and agreement rates
-- [ ] Privacy-preserving techniques applied (differential privacy, PII removal)
-
-**Training & Evaluation**
-- [ ] Stratified splits ensure all groups represented in train/val/test
-- [ ] Evaluation metrics computed per demographic group
-- [ ] Intersectional analysis performed (not just single attributes)
-- [ ] Temporal validation simulates production deployment
-
-**Subgroup Performance Metrics**
-- [ ] Confusion matrices per protected attribute
-- [ ] Worst-group performance highlighted, not just average
-- [ ] Statistical significance tested with appropriate corrections
-- [ ] Confidence intervals provided for small subgroups
-
-**Calibration & Reliability**
-- [ ] Calibration plots per subgroup
-- [ ] Brier score decomposition (calibration + refinement)
-- [ ] Over/under-confidence patterns documented
-- [ ] Score distributions compared across groups
-
-**Interventions & Mitigations**
-- [ ] Pre-processing: reweighting, synthetic minority oversampling
-- [ ] In-processing: fairness constraints, adversarial debiasing
-- [ ] Post-processing: threshold optimization, calibration adjustment
-- [ ] Trade-offs between fairness metrics explicitly stated
-
-**Human-in-the-Loop (HITL)**
-- [ ] Clear escalation paths for edge cases
-- [ ] Human review for high-stakes decisions
-- [ ] Interface design prevents automation bias
-- [ ] Feedback loops from human decisions to model updates
-
-**Monitoring & Maintenance**
-- [ ] Fairness metrics in production dashboards
-- [ ] Alerts for degradation in any subgroup
-- [ ] Regular audits scheduled (monthly/quarterly)
-- [ ] User feedback channels with response SLAs
-
-**Audit Trail & Documentation**
-- [ ] Model cards completed with limitations section
-- [ ] Decision logs retained per regulatory requirements
-- [ ] Explainability API available for contested decisions
-- [ ] Version control for models, data, and configurations
-
-## Prebuilt Tooling & Official References
-
-Production ML requires a carefully chosen stack. These are the battle-tested libraries that form the foundation of modern ML systems.
-
-### Core ML Libraries
-- **Scikit-learn** — https://scikit-learn.org — The Swiss Army knife of ML. Consistent API, extensive algorithms, excellent documentation.
-- **XGBoost** — https://xgboost.ai — Gradient boosting that wins competitions. Supports custom objectives, monotonic constraints.
-- **LightGBM** — https://lightgbm.readthedocs.io — Microsoft's faster gradient boosting. Leaf-wise tree growth, categorical feature support.
-- **CatBoost** — https://catboost.ai — Yandex's gradient boosting with best defaults. Handles categoricals natively, symmetric trees reduce overfitting.
-
-### Statistical & Time Series
-- **Statsmodels** — https://www.statsmodels.org — Statistical modeling with R-like formulas. Comprehensive test suite, detailed result objects.
-- **Prophet** — https://facebook.github.io/prophet/ — Facebook's forecasting tool. Handles seasonality, holidays, changepoints automatically.
-
-### Deep Learning Frameworks
-- **PyTorch** — https://pytorch.org — Research-friendly with dynamic graphs. Excellent debugging, growing ecosystem.
-- **TensorFlow/Keras** — https://www.tensorflow.org — Production-ready with extensive deployment options. TFX for pipelines, TF Serving for inference.
-
-### NLP & Transformers
-- **Hugging Face Transformers** — https://huggingface.co/docs/transformers — Every SOTA language model. Incredible model hub, training utilities, evaluation metrics.
-
-### Vector Search & RAG
-- **FAISS** — https://github.com/facebookresearch/faiss — Facebook's similarity search. Billion-scale vector search, GPU acceleration, multiple index types.
-- **LangChain** — https://python.langchain.com — LLM application framework. Chains, agents, tools, memory, extensive integrations.
-- **Haystack** — https://docs.haystack.deepset.ai — End-to-end NLP framework. Document stores, retrievers, readers, complete pipelines.
-
-### Model Optimization & Deployment
-- **ONNX** — https://onnx.ai — Open neural network exchange. Cross-framework model portability, optimization for inference.
-- **OpenVINO** — https://docs.openvino.ai — Intel's inference toolkit. CPU optimization, INT8 quantization, edge deployment.
-
-## Project Structure
-
-A production ML repository requires thoughtful organization. This structure has served me well across research and deployment.
+  %% --- Link styling for a bit more contrast ---
+  linkStyle default stroke:#CBB7FF,stroke-width:1.5px
 
 ```
-PearlMind-ML-Journey/
-├── assets/
-│   ├── header_loop.gif         # Pastel gradient animation
-│   ├── confetti.json           # Success celebration Lottie
-│   └── diagrams/               # Architecture diagrams
-├── data/
-│   ├── raw/                    # Immutable original data
-│   ├── processed/              # Feature engineering outputs
-│   ├── features/               # Feature store exports
-│   └── cache/                  # Computed intermediates
-├── models/
-│   ├── baseline/               # Simple models for comparison
-│   ├── experiments/            # Hyperparameter search results
-│   ├── production/             # Deployed model artifacts
-│   └── registry/               # Model versioning metadata
-├── notebooks/
-│   ├── exploration/            # EDA and hypotheses
-│   ├── modeling/               # Training experiments
-│   ├── evaluation/             # Performance analysis
-│   └── reports/                # Stakeholder-ready analyses
-├── src/
-│   ├── data/
-│   │   ├── loaders.py         # Data ingestion
-│   │   ├── processors.py      # Cleaning, normalization
-│   │   ├── validators.py      # Schema enforcement
-│   │   └── splitters.py       # Train/val/test splitting
-│   ├── features/
-│   │   ├── extractors.py      # Feature engineering
-│   │   ├── transformers.py    # Scikit-learn compatible
-│   │   └── store.py           # Feature versioning
-│   ├── models/
-│   │   ├── baseline.py        # Linear, tree models
-│   │   ├── ensemble.py        # Boosting, voting
-│   │   ├── neural.py          # Deep learning
-│   │   └── hybrid.py          # RAG, routers
-│   ├── evaluation/
-│   │   ├── metrics.py         # Custom metrics
-│   │   ├── fairness.py       # Bias detection
-│   │   ├── calibration.py    # Reliability analysis
-│   │   └── monitoring.py     # Drift detection
-│   ├── deployment/
-│   │   ├── serving.py         # Model serving logic
-│   │   ├── preprocessing.py  # Request transformation
-│   │   ├── postprocessing.py # Response formatting
-│   │   └── monitoring.py     # Production metrics
-│   └── utils/
-│       ├── config.py          # Configuration management
-│       ├── logging.py         # Structured logging
-│       ├── profiling.py       # Performance analysis
-│       └── visualization.py   # Plotting utilities
-├── tests/
-│   ├── unit/                  # Function-level tests
-│   ├── integration/           # Pipeline tests
-│   ├── inference/             # Model behavior tests
-│   └── fixtures/              # Test data
-├── configs/
-│   ├── model_configs/         # Hyperparameters
-│   ├── feature_configs/       # Feature definitions
-│   ├── deployment_configs/    # Serving settings
-│   └── monitoring_configs/    # Alert thresholds
-├── scripts/
-│   ├── train.py              # Training orchestration
-│   ├── evaluate.py           # Offline evaluation
-│   ├── deploy.py             # Deployment automation
-│   └── monitor.py            # Production monitoring
-├── docs/
-│   ├── model_cards/          # Model documentation
-│   ├── api/                  # API reference
-│   ├── guides/               # How-to guides
-│   └── decisions/            # Architecture decisions
-├── .github/
-│   └── workflows/
-│       ├── ci.yml            # Continuous integration
-│       ├── cd.yml            # Continuous deployment
-│       └── monitoring.yml    # Scheduled checks
-├── requirements/
-│   ├── base.txt              # Core dependencies
-│   ├── dev.txt               # Development tools
-│   ├── test.txt              # Testing libraries
-│   └── prod.txt              # Production only
-├── Dockerfile                 # Container definition
-├── Makefile                   # Common commands
-├── pyproject.toml            # Project metadata
-└── README.md                 # You are here
-```
-
-## About
-
-I'm Cazandra Aporbo, a mdata scientist who loves ML algorithms and I am focused on building systems that work in the real world. My approach emphasizes robustness over complexity, interpretability over black boxes, and ethical considerations at every stage of development.
-
-This repository represents years of learning, failing, debugging, and eventually succeeding. Every line of code has been written with production constraints in mind—because models that only work in notebooks don't solve real problems.
-
-Connect with me on [GitHub](https://github.com/Cazzy-Aporbo/Cazzy-Aporbo/) to discuss ML, share ideas, or collaborate on projects that push the boundaries of what's possible while keeping our feet firmly planted in what's practical.
 
 ---
 
+## The Prompt Ladder (Beginner → Expert)
+
 <div align="center">
-
-**PearlMind ML Journey** • Built with dedication to the craft of machine learning
-
-*"The best model is not the most complex one, but the one that solves the problem."*
-
+<img src="assets/prompt_ladder_animated.gif" width="100%" alt="Animated ladder ascending through pastel clouds">
 </div>
+
+A set of prompts I actually use, progressing from interpretation to system stewardship.
+
+### Rung 1: Building Intuition
+
+```
+Given model prediction [PREDICTION] for input [FEATURES]:
+
+Mathematical Decomposition
+1) Linear contributions Σ(βᵢ·xᵢ) with ranks
+2) Interaction effects (top pairs) and intuition
+3) Nonlinear transforms used (polys/splines/kernels)
+4) Uncertainty: 95% CI + aleatory vs epistemic
+
+Business Translation
+- Map coefficients to business impact
+- Controllable vs uncontrollable factors
+- Counterfactuals to reach [TARGET]
+- Sensitivity (∂prediction/∂feature) and break-even
+- Assumption checks (residuals, Q–Q)
+```
+
+### Rung 2: Error Archaeology
+
+```
+Systematic Failure Analysis for [MODEL]
+
+Uncertainty Types
+- Aleatory: noise, randomness, ensemble spread
+- Epistemic: sparse regions, OOD, NN distance
+- Approximation: capacity limits, residual patterns
+
+Failure Mining
+- Cluster errors (DBSCAN/HDBSCAN)
+- Subgroup discovery (WRAcc/lift)
+- Temporal drift (seasonality, CUSUM)
+- Adversarial probes
+
+Root Causes
+- Shift metrics: KL, Wasserstein, MMD
+- Label issues: confident errors, agreement
+- Feature gaps: interactions, nonlinearity
+- Causal confounding, selection, measurement bias
+```
+
+### Rung 4: Hybrid Decisions (Routers)
+
+```
+Design routing for:
+- Fast: latency=[X]ms, acc=[Y]%, cost=$[Z]
+- Accurate: latency=[A]ms, acc=[B]%, cost=$[C]
+- Specialists: [DOMAINS]
+
+Constraints
+- P50 < [L1]ms, P99 < [L2]ms
+- Budget: $[BUDGET]/1M requests
+- Min accuracy: [MIN_ACC]%
+
+Policy
+1) Calibrated confidence thresholds
+2) Complexity scoring (length/vocab/structure)
+3) Dynamic batching; early-exit cascade
+4) Failover + monitoring SLO dashboards
+
+Output: decision tree, thresholds, expected metrics.
+```
+
+### Rung 5: Production Stewardship
+
+```
+Requirements
+- Scale: [QPS], Storage: [TB]
+- SLA: [UPTIME]%, P99: [LATENCY]ms
+- Compliance: [GDPR/CCPA/...]
+Training
+- Data versioning (DVC), feature store
+- Tracking (MLflow/W&B), distributed training
+Serving
+- Registry, canary/A-B, batch vs real-time features
+- Cache by query pattern
+Monitoring
+- Drift (PSI/KS/MMD), reliability (ECE/Brier)
+- System: latency percentiles, errors, throughput
+Rollbacks
+- Auto thresholds + manual incident triggers
+Auditability
+- Lineage, decision logs, explainability API
+- Multi-region rollout, shadow testing, cost controls
+```
+
+---
+
+## Quick Model Decision Guide
+
+| Task / Data                       | Recommended Models             | Why it works                                | Common pitfalls                                |
+| --------------------------------- | ------------------------------ | ------------------------------------------- | ---------------------------------------------- |
+| Tabular (mixed types, <100k rows) | LightGBM / CatBoost            | Handles categoricals, fast, strong defaults | Target leakage, overfitting without early stop |
+| Tabular (wide p≫n)                | Logistic/Linear + Elastic Net  | Sparse and grouped solutions                | Scale/standardize, watch collinearity          |
+| Unsupervised segmentation         | K-Means / GMM / DBSCAN         | Speed / probs / arbitrary shapes            | K selection, eps/minPts sensitivity            |
+| Forecasting (business, holidays)  | Prophet / SARIMA               | Changepoints, seasonality, intervals        | Multi-seasonality tuning, data hygiene         |
+| Images                            | Transfer learning (ResNet/ViT) | Pretrained features, rapid convergence      | Overfit small data, require augmentation       |
+| Text                              | Transformers (HF) + RAG        | Context length + grounding                  | Retrieval chunking, latency, eval complexity   |
+| Hybrid QA / dynamic knowledge     | RAG + reranker + LLM           | Fresh knowledge, citations, reduced halluc. | Retriever quality bottleneck                   |
+
+---
+
+## Bias & Responsible AI Checklist
+
+<div align="center"> <img src="assets/fairness_banner.gif" width="80%" alt="Pastel fairness animation divider"> </div> <table> <tr><th bgcolor="#FFCFE7" align="center">Problem Definition</th></tr> <tr><td>
+ Stakeholders identified (including impacted groups)
+ Success metrics include fairness, not just accuracy
+ Risks and mitigations documented
+ Non-ML alternatives considered
+</td></tr> </table> <table> <tr><th bgcolor="#F6EAFE" align="center">Data & Provenance</th></tr> <tr><td>
+ Collection process and biases documented
+ Representation gaps identified
+ Label quality and agreement checked
+ Privacy preserved; PII handled appropriately
+</td></tr> </table> <table> <tr><th bgcolor="#A8E6CF" align="center">Training & Evaluation</th></tr> <tr><td>
+ Leakage-safe splits; groups present in all splits
+ Metrics per demographic and intersections
+ Temporal validation mirrors deployment
+ Power analysis for key decisions
+:chart_with_upwards_trend: Note: validate fairness before celebrating accuracy.
+</td></tr> </table> <table> <tr><th bgcolor="#FFE4F1" align="center">Subgroup Performance</th></tr> <tr><td>
+ Confusion matrices per group
+ Worst-group metrics highlighted
+ Significance tests with corrections
+ Confidence intervals for small groups
+</td></tr> </table> <table> <tr><th bgcolor="#E8D5FF" align="center">Calibration & Reliability</th></tr> <tr><td>
+ Reliability plots per group
+ ECE / Brier scores reported
+ Over/under-confidence patterns documented
+</td></tr> </table> <table> <tr><th bgcolor="#FFCFE7" align="center">Interventions</th></tr> <tr><td>
+ Pre: Reweighting / augmentation
+ In: Constraints / adversarial debiasing
+ Post: Thresholds / recalibration
+ Trade-offs made explicit
+</td></tr> </table> <table> <tr><th bgcolor="#F6EAFE" align="center">Human-in-the-Loop (HITL)</th></tr> <tr><td>
+ Escalation paths for edge cases
+ Human review for high-stakes outputs
+ UI avoids automation bias
+ Feedback closes the loop
+</td></tr> </table> <table> <tr><th bgcolor="#A8E6CF" align="center">Monitoring</th></tr> <tr><td>
+ Fairness metrics in production dashboards
+ Alerts on subgroup degradation
+ Regular audits scheduled
+ User feedback with SLAs
+</td></tr> </table> <table> <tr><th bgcolor="#FFE4F1" align="center">Audit Trail</th></tr> <tr><td>
+ Model / data / config versioning
+ Decision logs retained
+ Explainability API for challenges
+ Model and dataset cards maintained
+</td></tr> </table> <div align="center"> <img src="assets/checklist_footer.gif" width="60%" alt="Pastel closing animation for checklist"> </div>
+---
+
+## Prebuilt Tooling & Official References
+
+* Scikit-learn — [https://scikit-learn.org](https://scikit-learn.org)
+* XGBoost — [https://xgboost.ai](https://xgboost.ai)
+* LightGBM — [https://lightgbm.readthedocs.io](https://lightgbm.readthedocs.io)
+* CatBoost — [https://catboost.ai](https://catboost.ai)
+* Statsmodels — [https://www.statsmodels.org](https://www.statsmodels.org)
+* Prophet — [https://facebook.github.io/prophet/](https://facebook.github.io/prophet/)
+* PyTorch — [https://pytorch.org](https://pytorch.org)
+* TensorFlow/Keras — [https://www.tensorflow.org](https://www.tensorflow.org)
+* Hugging Face Transformers — [https://huggingface.co/docs/transformers](https://huggingface.co/docs/transformers)
+* FAISS — [https://github.com/facebookresearch/faiss](https://github.com/facebookresearch/faiss)
+* LangChain — [https://python.langchain.com](https://python.langchain.com)
+* Haystack — [https://docs.haystack.deepset.ai](https://docs.haystack.deepset.ai)
+* ONNX — [https://onnx.ai](https://onnx.ai)
+* OpenVINO — [https://docs.openvino.ai](https://docs.openvino.ai)
+
+---
+
+## Project Structure
+
+```
+PearlMind-ML-Journey/
+├── assets/                 # GIF/SVG/Lottie animations, banners
+├── data/                   # raw/processed/features/cache
+├── models/                 # baseline/experiments/production/registry
+├── notebooks/              # exploration/modeling/evaluation/reports
+├── src/
+│   ├── data/{loaders,processors,validators,splitters}.py
+│   ├── features/{extractors,transformers,store}.py
+│   ├── models/{baseline,ensemble,neural,hybrid}.py
+│   ├── evaluation/{metrics,fairness,calibration,monitoring}.py
+│   ├── deployment/{serving,preprocessing,postprocessing,monitoring}.py
+│   └── utils/{config,logging,profiling,visualization}.py
+├── tests/{unit,integration,inference,fixtures}
+├── configs/{model_configs,feature_configs,deployment_configs,monitoring_configs}
+├── scripts/{train.py,evaluate.py,deploy.py,monitor.py}
+├── docs/{model_cards,api,guides,decisions}
+├── .github/workflows/{ci.yml,cd.yml,monitoring.yml}
+├── requirements/{base.txt,dev.txt,test.txt,prod.txt}
+├── Dockerfile
+├── Makefile
+├── pyproject.toml
+└── README.md
+```
+
+---
+
+## Quickstart
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements/base.txt
+jupyter lab
+```
+
+### Optional: Pastel matplotlib theme for notebooks
+
+```python
+import matplotlib as mpl
+
+palette = {
+    "blossom": "#FFCFE7",
+    "lilac":   "#F6EAFE",
+    "lavender":"#6B5B95",
+    "mint":    "#A8E6CF",
+    "fog":     "#FDF3FF",
+    "dusk":    "#6E6E80",
+}
+mpl.rcParams.update({
+    "figure.facecolor": palette["fog"],
+    "axes.facecolor":   palette["fog"],
+    "axes.edgecolor":   palette["dusk"],
+    "axes.labelcolor":  palette["dusk"],
+    "xtick.color":      palette["dusk"],
+    "ytick.color":      palette["dusk"],
+    "grid.color":       palette["lilac"],
+    "grid.alpha":       0.6,
+    "axes.grid":        True,
+})
+```
+
+---
+
+## About
+
+<div align="center">
+<img src="assets/profile_banner.gif" width="100%" alt="Animated profile banner with flowing pastel gradients">
+</div>
+
+I am **Cazandra Aporbo**, a data scientist focused on building systems that work in the real world. This repository represents years of learning, disciplined experimentation, and ethical reflection. The north star is simple: the most valuable model is the one that solves the problem responsibly.
+
+<div align="center">
+<table>
+<tr>
+<td align="center" width="25%"><b>47</b><br/><sub>Production Models</sub></td>
+<td align="center" width="25%"><b>1,247</b><br/><sub>Experiments Run</sub></td>
+<td align="center" width="25%"><b>23</b><br/><sub>Papers Implemented</sub></td>
+<td align="center" width="25%"><b>100%</b><br/><sub>Ethics Compliance</sub></td>
+</tr>
+</table>
+</div>
+
+<br/>
+
+<div align="center">
+<img src="assets/footer_animation.gif" width="100%" alt="Animated footer with flowing pastel waves">
+<br/><br/>
+<kbd><a href="#pearlmind-ml-journey">Back to Top</a></kbd> • 
+<kbd><a href="https://github.com/Cazzy-Aporbo/Cazzy-Aporbo/">Profile</a></kbd> • 
+<kbd><a href="#model-atlas-mathematical-foundations--production-insights">Models</a></kbd> • 
+<kbd><a href="#bias--responsible-ai-checklist">Ethics</a></kbd>
+<br/><br/>
+© 2025 Cazandra Aporbo • MIT License
+</div>
+
