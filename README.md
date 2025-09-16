@@ -114,7 +114,7 @@ Transformers replace recurrence with attention; positional encodings inject orde
 
 ## Relational Diagrams
 
-### Learning Journey (GitHub-safe Mermaid)
+### Learning Journey
 
 ```mermaid
 flowchart LR
@@ -137,7 +137,7 @@ flowchart LR
   A3 --> B1 --> C1 --> D1 --> E1
 ```
 
-### Model Selection Flow (Tabular Focus)
+### Model Selection Flow 
 
 ```mermaid
 flowchart TD
