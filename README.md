@@ -23,21 +23,17 @@
 <!-- Animated typing with ML insights -->
 <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=500&size=19&duration=3500&pause=1000&color=6B5B95&center=true&vCenter=true&multiline=true&width=900&height=100&lines=Building+interpretable+models+that+work+in+production;Every+model+tested+for+fairness+and+bias+before+deployment;From+linear+regression+to+LLMs+with+RAG+architectures;Mathematical+rigor+meets+ethical+AI+development" alt="Typing Animation"/>
 
-<!-- GitHub Stats Cards with custom theme -->
-<img src="https://github-readme-stats.vercel.app/api?username=Cazzy-Aporbo&show_icons=true&theme=default&hide_border=true&bg_color=FDF3FF&title_color=6B5B95&text_color=6E6E80&icon_color=FFCFE7&ring_color=F6EAFE&include_all_commits=true&count_private=true" width="49%" alt="GitHub Stats"/>
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Cazzy-Aporbo&theme=default&hide_border=true&background=FDF3FF&stroke=E8D5FF&ring=FFCFE7&fire=F6EAFE&currStreakLabel=6B5B95&currStreakNum=6B5B95&dates=6E6E80&sideNums=6B5B95&sideLabels=6E6E80" width="49%" alt="Streak Stats"/>
-
 <!-- Sophisticated divider -->
 <img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=24,25,26,27,28&height=2" alt="Divider"/>
 
 <!-- Activity Graph -->
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=Cazzy-Aporbo&theme=minimal&bg_color=FDF3FF&color=6B5B95&line=FFCFE7&point=F6EAFE&hide_border=true&height=250" width="100%" alt="Activity Graph"/>
 
-<kbd><a href="#model-atlas-mathematical-foundations--production-insights">📊 Models</a></kbd> • 
-<kbd><a href="#the-prompt-ladder-beginner--expert">🪜 Prompts</a></kbd> • 
-<kbd><a href="#bias--responsible-ai-checklist">⚖️ Ethics</a></kbd> • 
-<kbd><a href="#mathematical-intuitions--humor">🧮 Math</a></kbd> • 
-<kbd><a href="https://github.com/Cazzy-Aporbo">👤 Profile</a></kbd>
+<kbd><a href="#model-atlas-mathematical-foundations--production-insights">Models</a></kbd> • 
+<kbd><a href="#the-prompt-ladder-beginner--expert">Prompts</a></kbd> • 
+<kbd><a href="#bias--responsible-ai-checklist">Ethics</a></kbd> • 
+<kbd><a href="#mathematical-intuitions--humor">Math</a></kbd> • 
+<kbd><a href="https://github.com/Cazzy-Aporbo">Profile</a></kbd>
 
 </div>
 
@@ -289,7 +285,9 @@ The transition from narrow AI to general intelligence will not come from brute f
 
 ---
 
-## Mathematical Intuitions & Humor
+<div align="center">
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=gradient&customColorList=25,26,27,28,29&height=120&section=header&text=Mathematical%20Intuitions&fontSize=40&animation=twinkling&fontAlignY=65&fontColor=6B5B95&desc=Where%20Humor%20Crystallizes%20Concepts&descAlignY=85&descSize=16" alt="Mathematical Intuitions"/>
+</div>
 
 Throughout this journey, humor helps crystallize concepts.
 
@@ -338,93 +336,8 @@ These encode truths about overfitting, the bias–variance tradeoff, and optimiz
 
 ---
 
-## Model Atlas: Mathematical Foundations & Production Insights
-
 <div align="center">
-<!-- Animated Model Cards with 3D effect -->
-<svg width="100%" height="250" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250">
-  <defs>
-    <linearGradient id="card1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FFCFE7" />
-      <stop offset="100%" style="stop-color:#F6EAFE" />
-    </linearGradient>
-    <linearGradient id="card2-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#F6EAFE" />
-      <stop offset="100%" style="stop-color:#A8E6CF" />
-    </linearGradient>
-    <linearGradient id="card3-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#A8E6CF" />
-      <stop offset="100%" style="stop-color:#FFE4F1" />
-    </linearGradient>
-    <linearGradient id="card4-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FFE4F1" />
-      <stop offset="100%" style="stop-color:#E8D5FF" />
-    </linearGradient>
-    <filter id="card-shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.2"/>
-    </filter>
-  </defs>
-  
-  <!-- Card 1: Linear Models -->
-  <g transform="translate(50, 80)">
-    <rect width="150" height="100" fill="url(#card1-grad)" rx="10" filter="url(#card-shadow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="4s" repeatCount="indefinite"/>
-    </rect>
-    <text x="75" y="50" text-anchor="middle" font-family="system-ui" font-size="14" fill="#6B5B95" font-weight="600">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="4s" repeatCount="indefinite"/>
-      Linear Models
-    </text>
-    <text x="75" y="70" text-anchor="middle" font-family="system-ui" font-size="11" fill="#6E6E80">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="4s" repeatCount="indefinite"/>
-      Foundation
-    </text>
-  </g>
-  
-  <!-- Card 2: Tree Ensembles -->
-  <g transform="translate(230, 80)">
-    <rect width="150" height="100" fill="url(#card2-grad)" rx="10" filter="url(#card-shadow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="4s" begin="0.5s" repeatCount="indefinite"/>
-    </rect>
-    <text x="75" y="50" text-anchor="middle" font-family="system-ui" font-size="14" fill="#6B5B95" font-weight="600">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="4s" begin="0.5s" repeatCount="indefinite"/>
-      Tree Ensembles
-    </text>
-    <text x="75" y="70" text-anchor="middle" font-family="system-ui" font-size="11" fill="#6E6E80">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="4s" begin="0.5s" repeatCount="indefinite"/>
-      Power
-    </text>
-  </g>
-  
-  <!-- Card 3: Deep Learning -->
-  <g transform="translate(410, 80)">
-    <rect width="150" height="100" fill="url(#card3-grad)" rx="10" filter="url(#card-shadow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="4s" begin="1s" repeatCount="indefinite"/>
-    </rect>
-    <text x="75" y="50" text-anchor="middle" font-family="system-ui" font-size="14" fill="#6B5B95" font-weight="600">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="4s" begin="1s" repeatCount="indefinite"/>
-      Deep Learning
-    </text>
-    <text x="75" y="70" text-anchor="middle" font-family="system-ui" font-size="11" fill="#6E6E80">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="4s" begin="1s" repeatCount="indefinite"/>
-      Scale
-    </text>
-  </g>
-  
-  <!-- Card 4: LLMs & RAG -->
-  <g transform="translate(590, 80)">
-    <rect width="150" height="100" fill="url(#card4-grad)" rx="10" filter="url(#card-shadow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="4s" begin="1.5s" repeatCount="indefinite"/>
-    </rect>
-    <text x="75" y="50" text-anchor="middle" font-family="system-ui" font-size="14" fill="#6B5B95" font-weight="600">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="4s" begin="1.5s" repeatCount="indefinite"/>
-      LLMs & RAG
-    </text>
-    <text x="75" y="70" text-anchor="middle" font-family="system-ui" font-size="11" fill="#6E6E80">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="4s" begin="1.5s" repeatCount="indefinite"/>
-      Intelligence
-    </text>
-  </g>
-</svg>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=shark&color=gradient&customColorList=24,25,26,27,28,29&height=140&section=header&text=Model%20Atlas&fontSize=45&animation=scaleIn&fontAlignY=70&fontColor=6B5B95&desc=Mathematical%20Foundations%20and%20Production%20Insights&descAlignY=90&descSize=16" alt="Model Atlas"/>
 </div>
 
 Understanding models means grasping both their theoretical core and production behavior. Below are practical notes you can rely on when choosing, explaining, and shipping.
@@ -462,7 +375,9 @@ Transformers replace recurrence with attention; positional encodings inject orde
 
 ---
 
-## Relational Diagrams
+<div align="center">
+<img width="100%" src="https://capsule-render.vercel.app/api?type=transparent&color=gradient&customColorList=28,27,26,25,24&height=130&section=header&text=Relational%20Diagrams&fontSize=40&animation=twinkling&fontAlignY=55&fontColor=6B5B95&desc=Architecture%20and%20Flow%20Visualizations&descAlignY=75&descSize=16" alt="Relational Diagrams"/>
+</div>
 
 ### Learning Journey
 
@@ -592,81 +507,8 @@ flowchart LR
 
 ---
 
-## The Prompt Ladder (Beginner → Expert)
-
 <div align="center">
-<!-- Animated Climbing Ladder -->
-<svg width="100%" height="300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
-  <defs>
-    <linearGradient id="ladder-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#FDF3FF;stop-opacity:0.5" />
-      <stop offset="100%" style="stop-color:#F6EAFE;stop-opacity:0.1" />
-    </linearGradient>
-    <filter id="ladder-shadow">
-      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity="0.15"/>
-    </filter>
-  </defs>
-  
-  <!-- Background -->
-  <rect width="100%" height="300" fill="url(#ladder-gradient)" />
-  
-  <!-- Ladder rails -->
-  <line x1="350" y1="10" x2="350" y2="290" stroke="#E8D5FF" stroke-width="2" opacity="0.5"/>
-  <line x1="450" y1="10" x2="450" y2="290" stroke="#E8D5FF" stroke-width="2" opacity="0.5"/>
-  
-  <!-- Ladder rungs -->
-  <line x1="350" y1="60" x2="450" y2="60" stroke="#E8D5FF" stroke-width="2" opacity="0.5"/>
-  <line x1="350" y1="120" x2="450" y2="120" stroke="#E8D5FF" stroke-width="2" opacity="0.5"/>
-  <line x1="350" y1="180" x2="450" y2="180" stroke="#E8D5FF" stroke-width="2" opacity="0.5"/>
-  <line x1="350" y1="240" x2="450" y2="240" stroke="#E8D5FF" stroke-width="2" opacity="0.5"/>
-  
-  <!-- Animated climbing steps -->
-  <g filter="url(#ladder-shadow)">
-    <!-- Step 1 -->
-    <rect x="320" y="230" width="160" height="35" fill="#FFCFE7" rx="17" opacity="0">
-      <animate attributeName="opacity" values="0;1;1;0" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="y" values="250;230;170;110;50;-20" dur="8s" repeatCount="indefinite"/>
-    </rect>
-    <text x="400" y="252" text-anchor="middle" font-family="system-ui" font-size="13" fill="#6B5B95" font-weight="600" opacity="0">
-      <animate attributeName="opacity" values="0;1;1;0" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="y" values="272;252;192;132;72;2" dur="8s" repeatCount="indefinite"/>
-      Rung 1: Intuition
-    </text>
-    
-    <!-- Step 2 -->
-    <rect x="320" y="170" width="160" height="35" fill="#F6EAFE" rx="17" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="y" values="250;170;110;50;-20" dur="8s" repeatCount="indefinite"/>
-    </rect>
-    <text x="400" y="192" text-anchor="middle" font-family="system-ui" font-size="13" fill="#6B5B95" font-weight="600" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="y" values="272;192;132;72;2" dur="8s" repeatCount="indefinite"/>
-      Rung 2: Error Mining
-    </text>
-    
-    <!-- Step 3 -->
-    <rect x="320" y="110" width="160" height="35" fill="#A8E6CF" rx="17" opacity="0">
-      <animate attributeName="opacity" values="0;0;0;1;1;0" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="y" values="250;110;50;-20" dur="8s" repeatCount="indefinite"/>
-    </rect>
-    <text x="400" y="132" text-anchor="middle" font-family="system-ui" font-size="13" fill="#6B5B95" font-weight="600" opacity="0">
-      <animate attributeName="opacity" values="0;0;0;1;1;0" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="y" values="272;132;72;2" dur="8s" repeatCount="indefinite"/>
-      Rung 4: Routers
-    </text>
-    
-    <!-- Step 4 -->
-    <rect x="320" y="50" width="160" height="35" fill="#E8D5FF" rx="17" opacity="0">
-      <animate attributeName="opacity" values="0;0;0;0;1;1" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="y" values="250;50;-20" dur="8s" repeatCount="indefinite"/>
-    </rect>
-    <text x="400" y="72" text-anchor="middle" font-family="system-ui" font-size="13" fill="#6B5B95" font-weight="600" opacity="0">
-      <animate attributeName="opacity" values="0;0;0;0;1;1" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="y" values="272;72;2" dur="8s" repeatCount="indefinite"/>
-      Rung 5: Production
-    </text>
-  </g>
-</svg>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=cylinder&color=gradient&customColorList=26,27,28,29,24&height=130&section=header&text=The%20Prompt%20Ladder&fontSize=42&animation=blinking&fontAlignY=65&fontColor=6B5B95&desc=From%20Beginner%20to%20Expert&descAlignY=85&descSize=16" alt="Prompt Ladder"/>
 </div>
 
 A set of prompts I actually use, progressing from interpretation to system stewardship.
@@ -760,7 +602,9 @@ Auditability
 
 ---
 
-## Quick Model Decision Guide
+<div align="center">
+<img width="100%" src="https://capsule-render.vercel.app/api?type=slice&color=gradient&customColorList=25,26,27,28,29&height=120&section=header&text=Quick%20Model%20Decision%20Guide&fontSize=36&animation=fadeIn&fontAlignY=65&fontColor=6B5B95&desc=Choose%20the%20Right%20Tool%20for%20the%20Job&descAlignY=85&descSize=16" alt="Model Guide"/>
+</div>
 
 | Task / Data                       | Recommended Models             | Why it works                                | Common pitfalls                                |
 | --------------------------------- | ------------------------------ | ------------------------------------------- | ---------------------------------------------- |
@@ -774,38 +618,9 @@ Auditability
 
 ---
 
-## Bias & Responsible AI Checklist
-
 <div align="center">
-<!-- Animated Fairness Banner -->
-<svg width="100%" height="100" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="fairness-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#FFCFE7">
-        <animate attributeName="stop-color" values="#FFCFE7;#F6EAFE;#A8E6CF;#FFE4F1;#FFCFE7" dur="6s" repeatCount="indefinite" />
-      </stop>
-      <stop offset="50%" style="stop-color:#F6EAFE">
-        <animate attributeName="stop-color" values="#F6EAFE;#A8E6CF;#FFE4F1;#FFCFE7;#F6EAFE" dur="6s" repeatCount="indefinite" />
-      </stop>
-      <stop offset="100%" style="stop-color:#A8E6CF">
-        <animate attributeName="stop-color" values="#A8E6CF;#FFE4F1;#FFCFE7;#F6EAFE;#A8E6CF" dur="6s" repeatCount="indefinite" />
-      </stop>
-    </linearGradient>
-    <filter id="text-shadow">
-      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.3"/>
-    </filter>
-  </defs>
-  
-  <rect width="100%" height="100" fill="url(#fairness-grad)" rx="15" />
-  
-  <text x="50%" y="50%" text-anchor="middle" font-family="system-ui" font-size="28" font-weight="bold" fill="white" filter="url(#text-shadow)">
-    ⚖️ FAIRNESS & ETHICS ⚖️
-    <animate attributeName="font-size" values="28;30;28" dur="3s" repeatCount="indefinite"/>
-  </text>
-</svg>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=egg&color=gradient&customColorList=24,26,28,29,27&height=140&section=header&text=Bias%20and%20Responsible%20AI&fontSize=38&animation=twinkling&fontAlignY=70&fontColor=6B5B95&desc=Ethics%20Compliance%20Checklist&descAlignY=90&descSize=16" alt="Responsible AI"/>
 </div>
-
-<br/>
 
 <table> <tr><th bgcolor="#FFCFE7" align="center">Problem Definition</th></tr> <tr><td>
 ✓ Stakeholders identified (including impacted groups)<br/>
@@ -826,7 +641,7 @@ Auditability
 ✓ Metrics per demographic and intersections<br/>
 ✓ Temporal validation mirrors deployment<br/>
 ✓ Power analysis for key decisions<br/>
-📊 Note: validate fairness before celebrating accuracy.
+Note: validate fairness before celebrating accuracy.
 </td></tr> </table> 
 
 <table> <tr><th bgcolor="#FFE4F1" align="center">Subgroup Performance</th></tr> <tr><td>
@@ -872,7 +687,9 @@ Auditability
 
 ---
 
-## Prebuilt Tooling & Official References
+<div align="center">
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=gradient&customColorList=24,25,26,27,28&height=120&section=header&text=Prebuilt%20Tooling&fontSize=40&animation=blinking&fontAlignY=55&fontColor=6B5B95&desc=Official%20References%20and%20Resources&descAlignY=75&descSize=16" alt="Tooling"/>
+</div>
 
 * Scikit-learn — [https://scikit-learn.org](https://scikit-learn.org)
 * XGBoost — [https://xgboost.ai](https://xgboost.ai)
@@ -891,7 +708,9 @@ Auditability
 
 ---
 
-## Project Structure
+<div align="center">
+<img width="100%" src="https://capsule-render.vercel.app/api?type=transparent&color=gradient&customColorList=25,26,27,28,29&height=120&section=header&text=Project%20Structure&fontSize=40&animation=fadeIn&fontAlignY=55&fontColor=6B5B95" alt="Project Structure"/>
+</div>
 
 ```
 PearlMind-ML-Journey/
@@ -920,7 +739,9 @@ PearlMind-ML-Journey/
 
 ---
 
-## Quickstart
+<div align="center">
+<img width="100%" src="https://capsule-render.vercel.app/api?type=rounded&color=gradient&customColorList=24,25,26,27,28&height=120&section=header&text=Quickstart&fontSize=45&animation=scaleIn&fontAlignY=55&fontColor=6B5B95" alt="Quickstart"/>
+</div>
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
@@ -957,76 +778,8 @@ mpl.rcParams.update({
 
 ---
 
-## About
-
 <div align="center">
-<!-- Animated Profile Section -->
-<svg width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E8D5FF" stroke-width="0.5" opacity="0.3"/>
-    </pattern>
-    <linearGradient id="profile-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FFCFE7;stop-opacity:0.8" />
-      <stop offset="50%" style="stop-color:#F6EAFE;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#A8E6CF;stop-opacity:0.8" />
-    </linearGradient>
-    <filter id="profile-shadow">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.2"/>
-    </filter>
-  </defs>
-  
-  <!-- Background -->
-  <rect width="100%" height="200" fill="url(#grid-pattern)"/>
-  <rect width="100%" height="200" fill="url(#profile-bg)" opacity="0.6"/>
-  
-  <!-- Name -->
-  <text x="50%" y="60" text-anchor="middle" font-family="system-ui" font-size="32" font-weight="bold" fill="#6B5B95" filter="url(#profile-shadow)">
-    Cazandra Aporbo
-  </text>
-  
-  <!-- Title -->
-  <text x="50%" y="90" text-anchor="middle" font-family="system-ui" font-size="16" fill="#6E6E80">
-    Data Scientist • ML Engineer • Ethics Advocate
-  </text>
-  
-  <!-- Animated Stats -->
-  <g transform="translate(200, 140)">
-    <rect x="-40" y="-20" width="80" height="40" fill="#FFCFE7" rx="20" opacity="0.3"/>
-    <text text-anchor="middle" font-family="system-ui" font-size="20" font-weight="bold" fill="#6B5B95">
-      <animate attributeName="fill" values="#6B5B95;#FF69B4;#6B5B95" dur="3s" repeatCount="indefinite"/>
-      47
-    </text>
-    <text y="25" text-anchor="middle" font-family="system-ui" font-size="11" fill="#6E6E80">Models</text>
-  </g>
-  
-  <g transform="translate(320, 140)">
-    <rect x="-40" y="-20" width="80" height="40" fill="#F6EAFE" rx="20" opacity="0.3"/>
-    <text text-anchor="middle" font-family="system-ui" font-size="20" font-weight="bold" fill="#6B5B95">
-      <animate attributeName="fill" values="#6B5B95;#9370DB;#6B5B95" dur="3s" begin="0.5s" repeatCount="indefinite"/>
-      1,247
-    </text>
-    <text y="25" text-anchor="middle" font-family="system-ui" font-size="11" fill="#6E6E80">Experiments</text>
-  </g>
-  
-  <g transform="translate(450, 140)">
-    <rect x="-40" y="-20" width="80" height="40" fill="#A8E6CF" rx="20" opacity="0.3"/>
-    <text text-anchor="middle" font-family="system-ui" font-size="20" font-weight="bold" fill="#6B5B95">
-      <animate attributeName="fill" values="#6B5B95;#48D1CC;#6B5B95" dur="3s" begin="1s" repeatCount="indefinite"/>
-      23
-    </text>
-    <text y="25" text-anchor="middle" font-family="system-ui" font-size="11" fill="#6E6E80">Papers</text>
-  </g>
-  
-  <g transform="translate(570, 140)">
-    <rect x="-40" y="-20" width="80" height="40" fill="#FFE4F1" rx="20" opacity="0.3"/>
-    <text text-anchor="middle" font-family="system-ui" font-size="20" font-weight="bold" fill="#6B5B95">
-      <animate attributeName="fill" values="#6B5B95;#FFB6C1;#6B5B95" dur="3s" begin="1.5s" repeatCount="indefinite"/>
-      100%
-    </text>
-    <text y="25" text-anchor="middle" font-family="system-ui" font-size="11" fill="#6E6E80">Ethics</text>
-  </g>
-</svg>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=26,27,28,29,24&height=180&section=header&text=About%20Me&fontSize=50&animation=fadeIn&fontAlignY=38&fontColor=6B5B95&desc=Cazandra%20Aporbo%20|%20Data%20Scientist%20|%20ML%20Engineer&descAlignY=58&descSize=18" alt="About"/>
 </div>
 
 I am **Cazandra Aporbo**, a data scientist focused on building systems that work in the real world. This repository represents years of learning, disciplined experimentation, and ethical reflection. The north star is simple: the most valuable model is the one that solves the problem responsibly.
@@ -1044,73 +797,15 @@ I am **Cazandra Aporbo**, a data scientist focused on building systems that work
 
 <br/>
 
-<!-- ML Training Progress Animation -->
 <div align="center">
-<svg width="200" height="50" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="30" cy="25" r="8" fill="#FFCFE7">
-    <animate attributeName="r" values="8;12;8" dur="1.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="70" cy="25" r="8" fill="#F6EAFE">
-    <animate attributeName="r" values="8;12;8" dur="1.5s" begin="0.3s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="110" cy="25" r="8" fill="#A8E6CF">
-    <animate attributeName="r" values="8;12;8" dur="1.5s" begin="0.6s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.6s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="150" cy="25" r="8" fill="#FFE4F1">
-    <animate attributeName="r" values="8;12;8" dur="1.5s" begin="0.9s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.9s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="190" cy="25" r="8" fill="#E8D5FF">
-    <animate attributeName="r" values="8;12;8" dur="1.5s" begin="1.2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="1.2s" repeatCount="indefinite"/>
-  </circle>
-</svg>
-</div>
+
+<!-- Animated Training Progress -->
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=2000&pause=500&color=6B5B95&center=true&vCenter=true&multiline=false&width=600&height=30&lines=Training...;Epoch+1+of+1000...;Loss+decreasing...;Model+converging...;Production+ready!" alt="Training Progress"/>
 
 <br/>
 
-<div align="center">
-<!-- Footer Wave Animation -->
-<svg width="100%" height="120" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-  <defs>
-    <linearGradient id="wave-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#FDF3FF;stop-opacity:0" />
-      <stop offset="100%" style="stop-color:#FFCFE7;stop-opacity:0.3" />
-    </linearGradient>
-  </defs>
-  
-  <!-- Wave 1 -->
-  <path fill="url(#wave-grad)">
-    <animate attributeName="d" 
-      values="M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z;
-              M0,60 C200,20 400,100 600,60 C800,20 1000,100 1200,60 L1200,120 L0,120 Z;
-              M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z"
-      dur="6s" repeatCount="indefinite"/>
-  </path>
-  
-  <!-- Wave 2 -->
-  <path fill="#F6EAFE" opacity="0.2">
-    <animate attributeName="d" 
-      values="M0,80 C200,120 400,40 600,80 C800,120 1000,40 1200,80 L1200,120 L0,120 Z;
-              M0,80 C200,40 400,120 600,80 C800,40 1000,120 1200,80 L1200,120 L0,120 Z;
-              M0,80 C200,120 400,40 600,80 C800,120 1000,40 1200,80 L1200,120 L0,120 Z"
-      dur="8s" repeatCount="indefinite"/>
-  </path>
-  
-  <!-- Wave 3 -->
-  <path fill="#A8E6CF" opacity="0.1">
-    <animate attributeName="d" 
-      values="M0,100 C200,110 400,90 600,100 C800,110 1000,90 1200,100 L1200,120 L0,120 Z;
-              M0,100 C200,90 400,110 600,100 C800,90 1000,110 1200,100 L1200,120 L0,120 Z;
-              M0,100 C200,110 400,90 600,100 C800,110 1000,90 1200,100 L1200,120 L0,120 Z"
-      dur="10s" repeatCount="indefinite"/>
-  </path>
-</svg>
-
-<br/>
+<!-- Final animated footer -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=24,25,26,27,28,29&height=200&section=footer&text=Built%20with%20Mathematical%20Rigor&fontSize=30&animation=twinkling&fontAlignY=50&fontColor=6B5B95&desc=From%20Statistical%20Foundations%20to%20Ethical%20AI&descAlignY=70&descSize=16" alt="Footer"/>
 
 <kbd><a href="#pearlmind-ml-journey">Back to Top</a></kbd> • 
 <kbd><a href="https://github.com/Cazzy-Aporbo/Cazzy-Aporbo/">Profile</a></kbd> • 
