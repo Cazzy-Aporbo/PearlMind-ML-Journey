@@ -292,44 +292,26 @@ The transition from narrow AI to general intelligence will not come from brute f
 Throughout this journey, humor helps crystallize concepts.
 
 <div align="center">
-<svg width="100%" height="250" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="code-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FDF3FF;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#F6EAFE;stop-opacity:0.3" />
-    </linearGradient>
-  </defs>
-  
-  <!-- Background -->
-  <rect width="100%" height="250" fill="url(#code-bg)" rx="10" />
-  
-  <!-- Equation 1 -->
-  <text x="50%" y="40" text-anchor="middle" font-family="monospace" font-size="16" fill="#6B5B95" font-weight="600">
-    Training Accuracy → 1, Test Accuracy → 0
-  </text>
-  <text x="50%" y="65" text-anchor="middle" font-family="monospace" font-size="14" fill="#6E6E80">
-    <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite"/>
-    (Life's purest overfit.)
-  </text>
-  
-  <!-- Equation 2 -->
-  <text x="50%" y="110" text-anchor="middle" font-family="monospace" font-size="16" fill="#6B5B95" font-weight="600">
-    Happiness = 1/Bias + 1/Variance
-  </text>
-  <text x="50%" y="135" text-anchor="middle" font-family="monospace" font-size="14" fill="#6E6E80">
-    <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin="1.3s" repeatCount="indefinite"/>
-    (You cannot minimize both.)
-  </text>
-  
-  <!-- Equation 3 -->
-  <text x="50%" y="180" text-anchor="middle" font-family="monospace" font-size="16" fill="#6B5B95" font-weight="600">
-    Love(t+1) = Love(t) - η·∇Arguments
-  </text>
-  <text x="50%" y="205" text-anchor="middle" font-family="monospace" font-size="14" fill="#6E6E80">
-    <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin="2.6s" repeatCount="indefinite"/>
-    (Gradient steps toward fewer conflicts.)
-  </text>
-</svg>
+
+<!-- Pastel palette bases -->
+![Pink](https://img.shields.io/badge/-Pink-FFD6E8?style=for-the-badge)
+![Purple](https://img.shields.io/badge/-Purple-E6CCFF?style=for-the-badge)
+![Teal](https://img.shields.io/badge/-Teal-C6FFF7?style=for-the-badge)
+![Blue](https://img.shields.io/badge/-Blue-A6D8FF?style=for-the-badge)
+![Mint](https://img.shields.io/badge/-Mint-D4FFE4?style=for-the-badge)
+
+<!-- Math formulas as badges -->
+![E=mc²](https://img.shields.io/badge/E%3Dmc%C2%B2-FFCFE7?style=for-the-badge)
+![∑xᵢ](https://img.shields.io/badge/%E2%88%91x%E1%B5%90-A8E6CF?style=for-the-badge)
+![π≈3.14159](https://img.shields.io/badge/%CF%80%E2%89%883.14159-F6EAFE?style=for-the-badge)
+![∂/∂x](https://img.shields.io/badge/%E2%88%82%2F%E2%88%82x-FFEFD5?style=for-the-badge)
+![∞](https://img.shields.io/badge/%E2%88%9E-E0E7FF?style=for-the-badge)
+
+<!-- Humor equations as badges -->
+![Overfit: Train=1, Test=0](https://img.shields.io/badge/Train%3D1%2C%20Test%3D0_(Life%E2%80%99s%20purest%20overfit)-FAD6FF?style=for-the-badge)
+![Bias-Variance](https://img.shields.io/badge/Happiness%3D1%2FBias+1%2FVariance_(Cannot%20minimize%20both)-D6F9FF?style=for-the-badge)
+![Love Gradient](https://img.shields.io/badge/Love(t%2B1)%3DLove(t)%20%E2%88%92%20%CE%B7%C2%B7%E2%88%87Arguments_(Fewer%20conflicts)-FFE3F1?style=for-the-badge)
+
 </div>
 
 These encode truths about overfitting, the bias–variance tradeoff, and optimization landscapes.
