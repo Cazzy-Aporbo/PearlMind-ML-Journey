@@ -1,0 +1,23 @@
+{
+  "num_records": 15015,
+  "columns": [
+    "instruction",
+    "context",
+    "response",
+    "category",
+    "instruction_len",
+    "response_len"
+  ],
+  "null_counts": {
+    "instruction": 0,
+    "context": 0,
+    "response": 0,
+    "category": 0,
+    "instruction_len": 0,
+    "response_len": 0
+  },
+  "instruction_len_mean": 71.84895104895105,
+  "response_len_mean": 358.3884781884782,
+  "instruction_len_median": 54.0,
+  "response_len_median": 186.0
+}
