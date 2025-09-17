@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PearlMind Animations</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #FDF3FF 0%, #F6EAFE 50%, #FFE4F1 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .animation-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(107, 91, 149, 0.1);
+        }
+
+        h2 {
+            color: #6B5B95;
+            margin-bottom: 20px;
+        }
+
+        /* Header Loop Animation */
+        .header-loop {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(270deg, #FFCFE7, #F6EAFE, #A8E6CF, #FFE4F1, #E8D5FF);
+            background-size: 800% 800%;
+            border-radius: 15px;
+            animation: gradientShift 8s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-loop::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+        }
+
+        /* Sparkle Divider */
+        .sparkle-divider {
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #E8D5FF, transparent);
+            position: relative;
+            overflow: hidden;
+            margin: 30px 0;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkleMove 3s linear infinite;
+            box-shadow: 0 0 10px #E8D5FF;
+        }
+
+        .sparkle:nth-child(2) { animation-delay: 0.5s; left: 20%; }
+        .sparkle:nth-child(3) { animation-delay: 1s; left: 40%; }
+        .sparkle:nth-child(4) { animation-delay: 1.5s; left: 60%; }
+        .sparkle:nth-child(5) { animation-delay: 2s; left: 80%; }
+
+        @keyframes sparkleMove {
+            0% {
+                transform: translateY(-10px) translateX(-100px);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10px) translateX(calc(100vw + 100px));
+                opacity: 0;
+            }
+        }
+
+        /* Philosophy Animation */
+        .philosophy-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        .philosophy-node {
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #FFCFE7, #F6EAFE);
+            border-radius: 50px;
+            color: #6B5B95;
+            font-weight: 600;
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+            box-shadow: 0 5px 20px rgba(107, 91, 149, 0.2);
+        }
+
+        .philosophy-node:nth-child(2) { animation-delay: 0.5s; }
+        .philosophy-node:nth-child(3) { animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .arrow {
+            width: 40px;
+            height: 2px;
+            background: #E8D5FF;
+            position: relative;
+            animation: arrowPulse 2s ease-in-out infinite;
+        }
+
+        .arrow::after {
+            content: '▶';
+            position: absolute;
+            right: -10px;
+            top: -8px;
+            color: #E8D5FF;
+        }
+
+        @keyframes arrowPulse {
+            0%, 100% { transform: scaleX(1); opacity: 0.5; }
+            50% { transform: scaleX(1.2); opacity: 1; }
+        }
+
+        /* Model Atlas Animation */
+        .model-atlas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .model-card {
+            padding: 20px;
+            background: linear-gradient(135deg, #A8E6CF, #FFE4F1);
+            border-radius: 15px;
+            text-align: center;
+            color: #6B5B95;
+            font-weight: 500;
+            transform: perspective(1000px) rotateY(0deg);
+            transition: all 0.6s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(107, 91, 149, 0.2);
+        }
+
+        .model-card:hover {
+            transform: perspective(1000px) rotateY(10deg) scale(1.05);
+            box-shadow: 0 8px 30px rgba(107, 91, 149, 0.3);
+        }
+
+        .model-card:nth-child(2) { background: linear-gradient(135deg, #F6EAFE, #FFCFE7); }
+        .model-card:nth-child(3) { background: linear-gradient(135deg, #FFE4F1, #E8D5FF); }
+        .model-card:nth-child(4) { background: linear-gradient(135deg, #E8D5FF, #A8E6CF); }
+
+        /* Prompt Ladder Animation */
+        .prompt-ladder {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ladder-step {
+            position: absolute;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #FFCFE7, #F6EAFE);
+            border-radius: 10px;
+            color: #6B5B95;
+            font-weight: 600;
+            animation: climb 8s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        .ladder-step:nth-child(1) { animation-delay: 0s; }
+        .ladder-step:nth-child(2) { animation-delay: 2s; }
+        .ladder-step:nth-child(3) { animation-delay: 4s; }
+        .ladder-step:nth-child(4) { animation-delay: 6s; }
+
+        @keyframes climb {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            25% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+            75% {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Fairness Banner */
+        .fairness-banner {
+            height: 100px;
+            background: linear-gradient(90deg, #FFCFE7, #F6EAFE, #A8E6CF, #FFE4F1);
+            background-size: 300% 100%;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fairnessWave 6s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fairness-banner::before {
+            content: '⚖️ FAIRNESS & ETHICS ⚖️';
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(107, 91, 149, 0.3);
+            z-index: 1;
+            position: relative;
+        }
+
+        @keyframes fairnessWave {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Loading Dots for ML Training */
+        .ml-training {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 30px;
+        }
+
+        .training-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #E8D5FF;
+            animation: trainPulse 1.5s ease-in-out infinite;
+        }
+
+        .training-dot:nth-child(1) { animation-delay: 0s; background: #FFCFE7; }
+        .training-dot:nth-child(2) { animation-delay: 0.2s; background: #F6EAFE; }
+        .training-dot:nth-child(3) { animation-delay: 0.4s; background: #A8E6CF; }
+        .training-dot:nth-child(4) { animation-delay: 0.6s; background: #FFE4F1; }
+        .training-dot:nth-child(5) { animation-delay: 0.8s; background: #E8D5FF; }
+
+        @keyframes trainPulse {
+            0%, 100% {
+                transform: scale(1) translateY(0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.5) translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        /* Footer Wave Animation */
+        .footer-wave {
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, transparent, #FDF3FF);
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            width: 200%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23FFCFE7"></path></svg>');
+            background-size: 50% 100px;
+            animation: wave 10s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            bottom: 10px;
+            opacity: 0.5;
+            animation-delay: -5s;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23F6EAFE"></path></svg>');
+            background-size: 50% 100px;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Code snippet for easy copying */
+        .code-section {
+            background: #2a2a2a;
+            color: #A8E6CF;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        .code-section code {
+            white-space: pre;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; color: #6B5B95;">PearlMind ML Journey - Animated Components</h1>
+        
+        <!-- Header Loop -->
+        <div class="animation-section">
+            <h2>1. Header Loop Gradient</h2>
+            <div class="header-loop"></div>
+            <p style="color: #6E6E80; margin-top: 15px;">Flowing pastel gradient animation with radial pulse effect</p>
+        </div>
+
+        <!-- Sparkle Divider -->
+        <div class="animation-section">
+            <h2>2. Sparkle Divider</h2>
+            <div class="sparkle-divider">
+                <span class="sparkle"></span>
+                <span class="sparkle"></span>
+                <span class="sparkle"></span>
+                <span class="sparkle"></span>
+                <span class="sparkle"></span>
+            </div>
+            <p style="color: #6E6E80;">Moving sparkles across a gradient line</p>
+        </div>
+
+        <!-- Philosophy Flow -->
+        <div class="animation-section">
+            <h2>3. Philosophy Animation</h2>
+            <div class="philosophy-flow">
+                <div class="philosophy-node">Math Foundations</div>
+                <div class="arrow"></div>
+                <div class="philosophy-node">Ethical AI</div>
+                <div class="arrow"></div>
+                <div class="philosophy-node">Superintelligence</div>
+            </div>
+            <p style="color: #6E6E80; text-align: center;">Floating nodes with pulsing arrows</p>
+        </div>
+
+        <!-- Model Atlas -->
+        <div class="animation-section">
+            <h2>4. Model Atlas Cards</h2>
+            <div class="model-atlas">
+                <div class="model-card">Linear Models</div>
+                <div class="model-card">Tree Ensembles</div>
+                <div class="model-card">Deep Learning</div>
+                <div class="model-card">LLMs & RAG</div>
+            </div>
+            <p style="color: #6E6E80; margin-top: 15px;">Hover over cards for 3D tilt effect</p>
+        </div>
+
+        <!-- Prompt Ladder -->
+        <div class="animation-section">
+            <h2>5. Prompt Ladder</h2>
+            <div class="prompt-ladder">
+                <div class="ladder-step">Beginner</div>
+                <div class="ladder-step">Intermediate</div>
+                <div class="ladder-step">Advanced</div>
+                <div class="ladder-step">Expert</div>
+            </div>
+            <p style="color: #6E6E80; text-align: center;">Climbing ladder animation</p>
+        </div>
+
+        <!-- ML Training Animation -->
+        <div class="animation-section">
+            <h2>6. ML Training Progress</h2>
+            <div class="ml-training">
+                <div class="training-dot"></div>
+                <div class="training-dot"></div>
+                <div class="training-dot"></div>
+                <div class="training-dot"></div>
+                <div class="training-dot"></div>
+            </div>
+            <p style="color: #6E6E80; text-align: center;">Training epoch visualization</p>
+        </div>
+
+        <!-- Fairness Banner -->
+        <div class="animation-section">
+            <h2>7. Fairness & Ethics Banner</h2>
+            <div class="fairness-banner"></div>
+            <p style="color: #6E6E80; margin-top: 15px;">Animated gradient wave with ethics message</p>
+        </div>
+
+        <!-- Footer Wave -->
+        <div class="animation-section">
+            <h2>8. Footer Wave Animation</h2>
+            <div class="footer-wave">
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+            <p style="color: #6E6E80; margin-top: 15px;">Layered wave animation for footer</p>
+        </div>
+
+        <!-- Implementation Guide -->
+        <div class="animation-section" style="background: #2a2a2a;">
+            <h2 style="color: #A8E6CF;">Implementation Guide</h2>
+            <div class="code-section">
+                <code>To use these animations in your README:
+
+1. Save this HTML file and open it in a browser
+2. Use a tool like ShareX, LICEcap, or Kap to record each animation as a GIF
+3. Save GIFs to your /assets folder with appropriate names:
+   - header_loop.gif
+   - divider_sparkle.gif
+   - philosophy_animation.gif
+   - model_atlas_header.gif
+   - prompt_ladder_animated.gif
+   - fairness_banner.gif
+   - footer_animation.gif
+
+Alternative: Convert to SVG animations
+- Extract the CSS animations and convert to SVG <animate> tags
+- This will allow direct embedding in GitHub README
+
+For React/Next.js projects:
+- Convert these to React components with framer-motion
+- Export as animated SVGs or use in documentation site</code>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
