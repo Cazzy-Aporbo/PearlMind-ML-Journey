@@ -1,5 +1,3 @@
-# PearlMind-ML-Journey
-
 <div align="center">
 
 <!-- Sophisticated animated header with gradient waves -->
