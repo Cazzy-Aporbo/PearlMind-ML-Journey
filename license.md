@@ -1,5 +1,3 @@
-# MIT License
-
 <div align="center">
 
 <!-- Sophisticated animated header -->
