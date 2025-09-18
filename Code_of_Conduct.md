@@ -1,5 +1,3 @@
-# Code of Conduct
-
 <div align="center">
 
 <!-- Sophisticated animated header -->
