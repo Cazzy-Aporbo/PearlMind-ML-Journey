@@ -1,5 +1,3 @@
-# Changelog
-
 <div align="center">
 
 <!-- Sophisticated animated header -->
