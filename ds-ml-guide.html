@@ -1,0 +1,2370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Symphony: The Complete Data Science & ML Mastery Platform | Created by Cazzy Aporbo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --tertiary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --dark-bg: #0a0e27;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-primary: #ffffff;
+            --text-secondary: #b8bcc8;
+            --accent-purple: #9333ea;
+            --accent-pink: #ec4899;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --glow-purple: 0 0 40px rgba(147, 51, 234, 0.6);
+            --glow-pink: 0 0 40px rgba(236, 72, 153, 0.6);
+            --glow-blue: 0 0 40px rgba(59, 130, 246, 0.6);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .neural-network {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .neuron {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            box-shadow: var(--glow-purple);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.3; }
+            25% { transform: translateY(-100px) translateX(50px) scale(1.2); opacity: 0.7; }
+            50% { transform: translateY(-50px) translateX(-30px) scale(0.8); opacity: 0.5; }
+            75% { transform: translateY(50px) translateX(-50px) scale(1.1); opacity: 0.6; }
+        }
+
+        .synapse {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(147, 51, 234, 0.5), transparent);
+            transform-origin: left center;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.2; transform: scaleX(1); }
+            50% { opacity: 0.8; transform: scaleX(1.2); }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title {
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 5s ease infinite;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .creator {
+            font-size: 1rem;
+            color: var(--accent-pink);
+            font-weight: 500;
+        }
+
+        /* Navigation Tabs */
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            position: relative;
+            padding: 1.2rem 2.5rem;
+            background: var(--card-bg);
+            border: 2px solid transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .nav-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+
+        .nav-tab:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: var(--accent-purple);
+            box-shadow: var(--glow-purple);
+        }
+
+        .nav-tab:hover::before {
+            opacity: 0.3;
+        }
+
+        .nav-tab.active {
+            background: var(--primary-gradient);
+            box-shadow: var(--glow-purple);
+        }
+
+        /* Page Content */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Learning Cards */
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .concept-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--primary-gradient);
+            border-radius: 25px;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: transparent;
+        }
+
+        .concept-card:hover::before {
+            opacity: 1;
+        }
+
+        .concept-header {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .concept-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Interactive Elements */
+        .interactive-demo {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--tertiary-gradient);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--glow-blue);
+        }
+
+        .control-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Visualization Container */
+        .viz-container {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .viz-canvas {
+            width: 100%;
+            height: 400px;
+        }
+
+        /* Code Examples */
+        .code-container {
+            background: #1a1a2e;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .code-language {
+            background: var(--accent-blue);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .code-copy {
+            background: var(--accent-green);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .code-copy:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+
+        pre {
+            font-family: 'JetBrains Mono', monospace;
+            color: #e9ecef;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        /* Comparison Tables */
+        .comparison-table {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        th {
+            background: var(--primary-gradient);
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1.1rem;
+            first-child: { border-radius: 10px 0 0 10px; }
+            last-child: { border-radius: 0 10px 10px 0; }
+        }
+
+        td {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        tr td:first-child {
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px 0 0 10px;
+        }
+
+        tr td:last-child {
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Memory Techniques */
+        .memory-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .memory-card:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+            box-shadow: var(--glow-pink);
+        }
+
+        .memory-front, .memory-back {
+            backface-visibility: hidden;
+            transition: transform 0.6s;
+        }
+
+        .memory-card.flipped .memory-front {
+            transform: rotateY(180deg);
+        }
+
+        .memory-card.flipped .memory-back {
+            transform: rotateY(0deg);
+        }
+
+        .memory-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotateY(-180deg);
+            padding: 2rem;
+        }
+
+        /* Progress Tracking */
+        .progress-container {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .progress-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-bar-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            height: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--success-gradient);
+            border-radius: 20px;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 1rem;
+        }
+
+        .progress-text {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* Interactive Quiz */
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .quiz-question {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--accent-blue);
+            transform: translateX(10px);
+        }
+
+        .quiz-option.correct {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--accent-green);
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+        }
+
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            font-size: 1.5rem;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: var(--glow-purple);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title { font-size: 3rem; }
+            .concept-grid { grid-template-columns: 1fr; }
+            .nav-container { gap: 1rem; }
+            .nav-tab { padding: 1rem 1.5rem; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation">
+        <div class="neural-network" id="neuralNetwork"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="title">Neural Symphony</h1>
+            <p class="subtitle">The Complete Data Science & Machine Learning Mastery Platform</p>
+            <p class="creator">Created by Cazzy Aporbo</p>
+        </header>
+
+        <nav class="nav-container">
+            <div class="nav-tab active" onclick="showPage('foundations')">Foundations</div>
+            <div class="nav-tab" onclick="showPage('algorithms')">Algorithms</div>
+            <div class="nav-tab" onclick="showPage('ml-theory')">ML Theory</div>
+            <div class="nav-tab" onclick="showPage('deep-learning')">Deep Learning</div>
+            <div class="nav-tab" onclick="showPage('visualization')">Visualization</div>
+            <div class="nav-tab" onclick="showPage('production')">Production</div>
+            <div class="nav-tab" onclick="showPage('playground')">Playground</div>
+        </nav>
+
+        <!-- Foundations Page -->
+        <div id="foundations" class="page active">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem; text-align: center; background: var(--secondary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Mathematical Foundations</h2>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3 class="concept-header">Linear Algebra Intuition</h3>
+                    <div class="concept-description">
+                        Linear algebra forms the backbone of machine learning. Think of matrices as transformations in space - they rotate, scale, and skew data. When we multiply matrices, we're composing transformations, like applying Instagram filters in sequence.
+                    </div>
+                    
+                    <div class="interactive-demo">
+                        <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">Matrix Transformation Visualizer</h4>
+                        <div class="demo-controls">
+                            <button class="control-btn" onclick="transformMatrix('rotate')">Rotate</button>
+                            <button class="control-btn" onclick="transformMatrix('scale')">Scale</button>
+                            <button class="control-btn" onclick="transformMatrix('shear')">Shear</button>
+                            <button class="control-btn" onclick="transformMatrix('reset')">Reset</button>
+                        </div>
+                        <canvas class="viz-canvas" id="matrixCanvas"></canvas>
+                    </div>
+
+                    <div class="comparison-table">
+                        <h4 style="margin-bottom: 1rem; color: var(--accent-pink);">Matrix Operations Comparison</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Operation</th>
+                                    <th>NumPy</th>
+                                    <th>JAX</th>
+                                    <th>PyTorch</th>
+                                    <th>Speed</th>
+                                    <th>Best Use Case</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Matrix Multiply</td>
+                                    <td>np.matmul(A, B)</td>
+                                    <td>jax.numpy.matmul(A, B)</td>
+                                    <td>torch.matmul(A, B)</td>
+                                    <td>PyTorch (GPU) > JAX > NumPy</td>
+                                    <td>PyTorch for deep learning, JAX for research</td>
+                                </tr>
+                                <tr>
+                                    <td>Eigendecomposition</td>
+                                    <td>np.linalg.eig(A)</td>
+                                    <td>jax.numpy.linalg.eig(A)</td>
+                                    <td>torch.linalg.eig(A)</td>
+                                    <td>NumPy (CPU optimized)</td>
+                                    <td>NumPy for precision, others for batched ops</td>
+                                </tr>
+                                <tr>
+                                    <td>SVD</td>
+                                    <td>np.linalg.svd(A)</td>
+                                    <td>jax.numpy.linalg.svd(A)</td>
+                                    <td>torch.svd(A)</td>
+                                    <td>JAX (JIT compiled) > Others</td>
+                                    <td>JAX for repeated computations</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="memory-card" onclick="flipCard(this)">
+                        <div class="memory-front">
+                            <h4 style="color: var(--accent-yellow); margin-bottom: 1rem;">Memory Technique: The SVD Story</h4>
+                            <p>Click to reveal the mnemonic device for remembering SVD...</p>
+                        </div>
+                        <div class="memory-back">
+                            <h4 style="color: var(--accent-green);">Remember SVD as "Super Valuable Decomposition"</h4>
+                            <p>U = "User preferences" (left singular vectors)</p>
+                            <p>Σ = "Sigma strength" (singular values = importance)</p>
+                            <p>V^T = "Variable features" (right singular vectors)</p>
+                            <p>Together: Users have Strength in certain Variables!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concept-card">
+                    <h3 class="concept-header">Probability Theory Deep Dive</h3>
+                    <div class="concept-description">
+                        Probability isn't just about dice and cards. In ML, it's about quantifying uncertainty. Every prediction is a probability distribution, every model parameter has uncertainty. Understanding this transforms how you approach machine learning.
+                    </div>
+                    
+                    <div class="interactive-demo">
+                        <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">Central Limit Theorem Simulator</h4>
+                        <div class="demo-controls">
+                            <button class="control-btn" onclick="runCLT('uniform')">Uniform Distribution</button>
+                            <button class="control-btn" onclick="runCLT('exponential')">Exponential</button>
+                            <button class="control-btn" onclick="runCLT('bimodal')">Bimodal</button>
+                            <button class="control-btn" onclick="increaseSamples()">Increase Samples</button>
+                        </div>
+                        <canvas class="viz-canvas" id="cltCanvas"></canvas>
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.03); border-radius: 15px; padding: 1.5rem; margin: 1.5rem 0;">
+                        <h4 style="color: var(--accent-green); margin-bottom: 1rem;">The Intuition Behind Bayes' Theorem</h4>
+                        <p style="line-height: 1.8; color: var(--text-secondary);">
+                            Bayes' theorem is about updating beliefs. Imagine you're a detective: you have a prior belief about who committed the crime (prior probability), then you find new evidence (likelihood), and you update your belief (posterior). The formula P(A|B) = P(B|A)P(A)/P(B) is just saying: "New belief = How well evidence fits × Old belief ÷ How common the evidence is."
+                        </p>
+                        <div style="margin-top: 1rem; padding: 1rem; background: rgba(147, 51, 234, 0.1); border-radius: 10px;">
+                            <strong>Real-world example:</strong> Spam filtering. Prior: 30% of emails are spam. Evidence: Email contains "winner". Likelihood: 80% of spam has "winner", 5% of legitimate emails have "winner". Using Bayes: If an email has "winner", probability it's spam = (0.8 × 0.3) / (0.8 × 0.3 + 0.05 × 0.7) = 87%!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <h3 class="progress-header">Your Learning Progress</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="foundationsProgress" style="width: 0%">
+                        <span class="progress-text">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Algorithms Page -->
+        <div id="algorithms" class="page">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem; text-align: center; background: var(--tertiary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Algorithm Mastery</h2>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3 class="concept-header">Dynamic Programming Patterns</h3>
+                    <div class="concept-description">
+                        Dynamic Programming is about breaking problems into overlapping subproblems. The key insight: solve each subproblem once, remember the answer, and reuse it. It's like building a pyramid - you can't place the top stone without the foundation.
+                    </div>
+
+                    <div class="interactive-demo">
+                        <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">DP Pattern Recognizer</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                            <div style="background: rgba(147, 51, 234, 0.1); padding: 1rem; border-radius: 10px;">
+                                <strong>Pattern 1: Linear DP</strong>
+                                <p style="font-size: 0.9rem; margin-top: 0.5rem;">State depends on previous states linearly. Example: Fibonacci, climbing stairs.</p>
+                            </div>
+                            <div style="background: rgba(236, 72, 153, 0.1); padding: 1rem; border-radius: 10px;">
+                                <strong>Pattern 2: Grid DP</strong>
+                                <p style="font-size: 0.9rem; margin-top: 0.5rem;">2D problems with path finding. Example: Unique paths, minimum path sum.</p>
+                            </div>
+                            <div style="background: rgba(59, 130, 246, 0.1); padding: 1rem; border-radius: 10px;">
+                                <strong>Pattern 3: Interval DP</strong>
+                                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Problems on ranges/intervals. Example: Matrix chain, burst balloons.</p>
+                            </div>
+                            <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: 10px;">
+                                <strong>Pattern 4: Tree DP</strong>
+                                <p style="font-size: 0.9rem; margin-top: 0.5rem;">DP on tree structures. Example: Diameter, max path sum.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <h4 class="quiz-question">Which DP pattern would you use for the "Edit Distance" problem?</h4>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="checkAnswer(this, false)">Linear DP - comparing characters sequentially</div>
+                            <div class="quiz-option" onclick="checkAnswer(this, true)">Grid DP - comparing two strings character by character</div>
+                            <div class="quiz-option" onclick="checkAnswer(this, false)">Interval DP - finding optimal intervals</div>
+                            <div class="quiz-option" onclick="checkAnswer(this, false)">Tree DP - strings form a tree structure</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concept-card">
+                    <h3 class="concept-header">Graph Algorithms Visualization</h3>
+                    <div class="concept-description">
+                        Graphs are everywhere - social networks, maps, dependencies. Understanding graph algorithms means understanding relationships and connections. Each algorithm reveals different aspects of these relationships.
+                    </div>
+
+                    <div class="interactive-demo">
+                        <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">Interactive Graph Explorer</h4>
+                        <div class="demo-controls">
+                            <button class="control-btn" onclick="runBFS()">Run BFS</button>
+                            <button class="control-btn" onclick="runDFS()">Run DFS</button>
+                            <button class="control-btn" onclick="runDijkstra()">Run Dijkstra</button>
+                            <button class="control-btn" onclick="findMST()">Find MST</button>
+                        </div>
+                        <canvas class="viz-canvas" id="graphCanvas"></canvas>
+                    </div>
+
+                    <div class="comparison-table">
+                        <h4 style="margin-bottom: 1rem; color: var(--accent-pink);">Graph Libraries Comparison</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Library</th>
+                                    <th>Strengths</th>
+                                    <th>Weaknesses</th>
+                                    <th>Best For</th>
+                                    <th>Performance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>NetworkX</td>
+                                    <td>Easy to use, comprehensive algorithms</td>
+                                    <td>Slow for large graphs</td>
+                                    <td>Analysis, prototyping</td>
+                                    <td>★★☆☆☆</td>
+                                </tr>
+                                <tr>
+                                    <td>igraph</td>
+                                    <td>Fast, memory efficient</td>
+                                    <td>Less Pythonic API</td>
+                                    <td>Large-scale analysis</td>
+                                    <td>★★★★☆</td>
+                                </tr>
+                                <tr>
+                                    <td>graph-tool</td>
+                                    <td>Very fast, parallel algorithms</td>
+                                    <td>Complex installation</td>
+                                    <td>Research, huge graphs</td>
+                                    <td>★★★★★</td>
+                                </tr>
+                                <tr>
+                                    <td>DGL/PyG</td>
+                                    <td>Deep learning on graphs</td>
+                                    <td>Overkill for simple tasks</td>
+                                    <td>Graph neural networks</td>
+                                    <td>★★★★☆</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ML Theory Page -->
+        <div id="ml-theory" class="page">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem; text-align: center; background: var(--warning-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Machine Learning Theory</h2>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3 class="concept-header">Bias-Variance Decomposition</h3>
+                    <div class="concept-description">
+                        The bias-variance tradeoff is ML's fundamental dilemma. Bias is systematic error - your model's assumptions are wrong. Variance is sensitivity to data fluctuations. The art is finding the sweet spot where total error is minimized.
+                    </div>
+
+                    <div class="interactive-demo">
+                        <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">Bias-Variance Interactive Explorer</h4>
+                        <div class="demo-controls">
+                            <label style="color: var(--text-secondary);">Model Complexity: <input type="range" id="complexity" min="1" max="20" value="5" onchange="updateBiasVariance(this.value)"></label>
+                            <span id="complexityValue" style="margin-left: 1rem; color: var(--accent-yellow);">5</span>
+                        </div>
+                        <canvas class="viz-canvas" id="biasVarianceCanvas"></canvas>
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.03); border-radius: 15px; padding: 1.5rem; margin: 1.5rem 0;">
+                        <h4 style="color: var(--accent-green); margin-bottom: 1rem;">The Restaurant Analogy</h4>
+                        <p style="line-height: 1.8; color: var(--text-secondary);">
+                            Think of bias and variance like a chef learning to cook:
+                        </p>
+                        <ul style="margin-top: 1rem; line-height: 2;">
+                            <li><strong style="color: var(--accent-pink);">High Bias:</strong> Chef only knows how to make sandwiches. No matter what ingredients you give, you get a sandwich. Consistent but wrong!</li>
+                            <li><strong style="color: var(--accent-blue);">High Variance:</strong> Chef tries to make exactly what the last customer ordered. Changes completely with each new customer. Inconsistent!</li>
+                            <li><strong style="color: var(--accent-green);">Just Right:</strong> Chef knows core techniques and adapts reasonably to ingredients. Flexible but principled!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="concept-card">
+                    <h3 class="concept-header">Regularization Techniques</h3>
+                    <div class="concept-description">
+                        Regularization prevents overfitting by adding constraints. It's like telling a student "explain it simply" - forcing simplicity often reveals true understanding. Each technique has its own philosophy and use case.
+                    </div>
+
+                    <div class="comparison-table">
+                        <h4 style="margin-bottom: 1rem; color: var(--accent-pink);">Regularization Methods Comparison</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>How It Works</th>
+                                    <th>Effect</th>
+                                    <th>When to Use</th>
+                                    <th>Gotchas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>L1 (Lasso)</td>
+                                    <td>Adds |w| penalty</td>
+                                    <td>Sparse weights (many zeros)</td>
+                                    <td>Feature selection needed</td>
+                                    <td>Can be unstable with correlated features</td>
+                                </tr>
+                                <tr>
+                                    <td>L2 (Ridge)</td>
+                                    <td>Adds w² penalty</td>
+                                    <td>Small, distributed weights</td>
+                                    <td>Multicollinearity present</td>
+                                    <td>Doesn't eliminate features</td>
+                                </tr>
+                                <tr>
+                                    <td>Elastic Net</td>
+                                    <td>Combines L1 + L2</td>
+                                    <td>Balanced sparsity and smoothness</td>
+                                    <td>Best of both worlds needed</td>
+                                    <td>Two hyperparameters to tune</td>
+                                </tr>
+                                <tr>
+                                    <td>Dropout</td>
+                                    <td>Randomly zeros neurons</td>
+                                    <td>Ensemble of subnetworks</td>
+                                    <td>Deep neural networks</td>
+                                    <td>Different rates for different layers</td>
+                                </tr>
+                                <tr>
+                                    <td>Early Stopping</td>
+                                    <td>Stop training early</td>
+                                    <td>Implicit regularization</td>
+                                    <td>Always useful</td>
+                                    <td>Need validation set</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="memory-card" onclick="flipCard(this)">
+                        <div class="memory-front">
+                            <h4 style="color: var(--accent-yellow); margin-bottom: 1rem;">Memory Technique: The Regularization Restaurant</h4>
+                            <p>Click to reveal the mnemonic for remembering regularization types...</p>
+                        </div>
+                        <div class="memory-back">
+                            <h4 style="color: var(--accent-green);">The Menu Metaphor</h4>
+                            <p><strong>L1 (Lasso):</strong> Like a minimalist menu - removes dishes entirely</p>
+                            <p><strong>L2 (Ridge):</strong> Like portion control - keeps everything but smaller</p>
+                            <p><strong>Dropout:</strong> Like rotating chefs - different team each night</p>
+                            <p><strong>Early Stopping:</strong> Like stopping cooking before overdone</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deep Learning Page -->
+        <div id="deep-learning" class="page">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem; text-align: center; background: var(--success-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Deep Learning Architecture</h2>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3 class="concept-header">Attention Mechanisms Explained</h3>
+                    <div class="concept-description">
+                        Attention revolutionized AI. Instead of processing sequences step-by-step, attention lets models look at everything simultaneously and decide what's important. It's like reading: your eyes jump to relevant words rather than reading every letter.
+                    </div>
+
+                    <div class="interactive-demo">
+                        <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">Self-Attention Visualizer</h4>
+                        <p style="margin-bottom: 1rem;">Enter a sentence to see attention weights:</p>
+                        <input type="text" id="attentionInput" placeholder="The cat sat on the mat" style="width: 100%; padding: 1rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px; color: white; margin-bottom: 1rem;">
+                        <button class="control-btn" onclick="visualizeAttention()">Visualize Attention</button>
+                        <canvas class="viz-canvas" id="attentionCanvas"></canvas>
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.03); border-radius: 15px; padding: 1.5rem; margin: 1.5rem 0;">
+                        <h4 style="color: var(--accent-green); margin-bottom: 1rem;">The Cocktail Party Analogy</h4>
+                        <p style="line-height: 1.8; color: var(--text-secondary);">
+                            Attention is like being at a cocktail party. You can hear multiple conversations, but you focus on the relevant one. The attention mechanism does three things:
+                        </p>
+                        <ol style="margin-top: 1rem; line-height: 2;">
+                            <li><strong style="color: var(--accent-pink);">Query:</strong> "What am I looking for?" (your interest)</li>
+                            <li><strong style="color: var(--accent-blue);">Key:</strong> "What's being offered?" (conversation topics)</li>
+                            <li><strong style="color: var(--accent-yellow);">Value:</strong> "What's the actual content?" (conversation details)</li>
+                        </ol>
+                        <p style="margin-top: 1rem;">The model computes attention scores (how relevant each word is to each other word), then uses these scores to weight the values. It's parallel processing with selective focus!</p>
+                    </div>
+                </div>
+
+                <div class="concept-card">
+                    <h3 class="concept-header">Optimization Landscapes</h3>
+                    <div class="concept-description">
+                        Training neural networks is navigating a complex landscape. Imagine hiking in fog - you can only see nearby terrain. Optimizers are your navigation strategies, each with different approaches to finding the lowest valley.
+                    </div>
+
+                    <div class="interactive-demo">
+                        <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">Optimizer Race</h4>
+                        <div class="demo-controls">
+                            <button class="control-btn" onclick="startOptimizerRace()">Start Race</button>
+                            <button class="control-btn" onclick="resetOptimizers()">Reset</button>
+                        </div>
+                        <canvas class="viz-canvas" id="optimizerCanvas"></canvas>
+                    </div>
+
+                    <div class="comparison-table">
+                        <h4 style="margin-bottom: 1rem; color: var(--accent-pink);">Optimizer Comparison</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Optimizer</th>
+                                    <th>Key Idea</th>
+                                    <th>Pros</th>
+                                    <th>Cons</th>
+                                    <th>Best For</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>SGD</td>
+                                    <td>Follow gradient directly</td>
+                                    <td>Simple, generalizes well</td>
+                                    <td>Slow, can get stuck</td>
+                                    <td>Fine-tuning, simple problems</td>
+                                </tr>
+                                <tr>
+                                    <td>Momentum</td>
+                                    <td>Remember past gradients</td>
+                                    <td>Accelerates convergence</td>
+                                    <td>Can overshoot</td>
+                                    <td>Most standard tasks</td>
+                                </tr>
+                                <tr>
+                                    <td>Adam</td>
+                                    <td>Adaptive learning rates</td>
+                                    <td>Fast, works out-of-box</td>
+                                    <td>Can overfit, memory heavy</td>
+                                    <td>Default choice, transformers</td>
+                                </tr>
+                                <tr>
+                                    <td>AdamW</td>
+                                    <td>Adam + weight decay fix</td>
+                                    <td>Better generalization</td>
+                                    <td>Slightly slower</td>
+                                    <td>Modern best practice</td>
+                                </tr>
+                                <tr>
+                                    <td>LAMB</td>
+                                    <td>Layer-wise adaptation</td>
+                                    <td>Large batch training</td>
+                                    <td>Complex implementation</td>
+                                    <td>Distributed training</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization Page -->
+        <div id="visualization" class="page">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem; text-align: center; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Data Visualization Mastery</h2>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3 class="concept-header">Choosing the Right Visualization</h3>
+                    <div class="concept-description">
+                        Visualization is storytelling with data. Each chart type reveals different insights. The key is matching your story to the right visual metaphor. Bad visualizations hide truth; great ones reveal it instantly.
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.03); border-radius: 15px; padding: 1.5rem; margin: 1.5rem 0;">
+                        <h4 style="color: var(--accent-green); margin-bottom: 1rem;">The Visualization Decision Tree</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <strong style="color: var(--accent-pink);">Showing Relationships?</strong>
+                                <ul style="margin-top: 0.5rem; line-height: 1.8;">
+                                    <li>2 variables → Scatter plot</li>
+                                    <li>3+ variables → Bubble chart, 3D scatter</li>
+                                    <li>Many relationships → Heatmap, network graph</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong style="color: var(--accent-blue);">Showing Comparisons?</strong>
+                                <ul style="margin-top: 0.5rem; line-height: 1.8;">
+                                    <li>Few categories → Bar chart</li>
+                                    <li>Many categories → Treemap, sunburst</li>
+                                    <li>Parts of whole → Pie (avoid!), donut, stacked bar</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong style="color: var(--accent-yellow);">Showing Change Over Time?</strong>
+                                <ul style="margin-top: 0.5rem; line-height: 1.8;">
+                                    <li>Single series → Line chart</li>
+                                    <li>Multiple series → Multi-line, area chart</li>
+                                    <li>Many time points → Horizon chart, sparklines</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong style="color: var(--accent-green);">Showing Distribution?</strong>
+                                <ul style="margin-top: 0.5rem; line-height: 1.8;">
+                                    <li>Single variable → Histogram, density plot</li>
+                                    <li>Multiple groups → Box plot, violin plot</li>
+                                    <li>2D distribution → Hexbin, contour plot</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-table">
+                        <h4 style="margin-bottom: 1rem; color: var(--accent-pink);">Visualization Libraries Deep Dive</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Library</th>
+                                    <th>Philosophy</th>
+                                    <th>Strengths</th>
+                                    <th>Weaknesses</th>
+                                    <th>Hidden Gem Feature</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Matplotlib</td>
+                                    <td>Full control, MATLAB-like</td>
+                                    <td>Customizable, publication-ready</td>
+                                    <td>Verbose, steep learning curve</td>
+                                    <td>3D projections with mplot3d</td>
+                                </tr>
+                                <tr>
+                                    <td>Seaborn</td>
+                                    <td>Statistical visualizations</td>
+                                    <td>Beautiful defaults, statistical</td>
+                                    <td>Less flexible for custom plots</td>
+                                    <td>PairGrid for custom pair plots</td>
+                                </tr>
+                                <tr>
+                                    <td>Plotly</td>
+                                    <td>Interactive web graphics</td>
+                                    <td>Interactivity, 3D support</td>
+                                    <td>Large file sizes, rendering speed</td>
+                                    <td>Dash for full web apps</td>
+                                </tr>
+                                <tr>
+                                    <td>Altair</td>
+                                    <td>Declarative (Vega-Lite)</td>
+                                    <td>Clean syntax, automatic typing</td>
+                                    <td>Limited customization</td>
+                                    <td>Automatic data transformations</td>
+                                </tr>
+                                <tr>
+                                    <td>Bokeh</td>
+                                    <td>Large data, streaming</td>
+                                    <td>Server apps, real-time updates</td>
+                                    <td>Complex for simple plots</td>
+                                    <td>DataShader integration</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Production Page -->
+        <div id="production" class="page">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem; text-align: center; background: var(--secondary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Production ML & Engineering</h2>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3 class="concept-header">Model Deployment Strategies</h3>
+                    <div class="concept-description">
+                        Deploying ML models is where science meets engineering. A model that works in Jupyter might fail in production. Understanding deployment patterns, monitoring, and maintenance is crucial for real-world impact.
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.03); border-radius: 15px; padding: 1.5rem; margin: 1.5rem 0;">
+                        <h4 style="color: var(--accent-green); margin-bottom: 1rem;">The Production Checklist</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <strong style="color: var(--accent-pink);">Before Deployment:</strong>
+                                <ul style="margin-top: 0.5rem; line-height: 1.8;">
+                                    <li>Data drift detection setup</li>
+                                    <li>Model versioning system</li>
+                                    <li>A/B testing framework</li>
+                                    <li>Rollback strategy</li>
+                                    <li>Performance benchmarks</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong style="color: var(--accent-blue);">After Deployment:</strong>
+                                <ul style="margin-top: 0.5rem; line-height: 1.8;">
+                                    <li>Real-time monitoring</li>
+                                    <li>Alert thresholds</li>
+                                    <li>Feedback loops</li>
+                                    <li>Regular retraining</li>
+                                    <li>Performance degradation tracking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-table">
+                        <h4 style="margin-bottom: 1rem; color: var(--accent-pink);">Deployment Options Comparison</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>Complexity</th>
+                                    <th>Scalability</th>
+                                    <th>Cost</th>
+                                    <th>Best For</th>
+                                    <th>Gotchas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>REST API</td>
+                                    <td>Low</td>
+                                    <td>Medium</td>
+                                    <td>$</td>
+                                    <td>Simple models, low traffic</td>
+                                    <td>Latency, no batching</td>
+                                </tr>
+                                <tr>
+                                    <td>Batch Processing</td>
+                                    <td>Low</td>
+                                    <td>High</td>
+                                    <td>$</td>
+                                    <td>Periodic predictions</td>
+                                    <td>Not real-time</td>
+                                </tr>
+                                <tr>
+                                    <td>Streaming</td>
+                                    <td>High</td>
+                                    <td>High</td>
+                                    <td>$$$</td>
+                                    <td>Real-time requirements</td>
+                                    <td>Complex architecture</td>
+                                </tr>
+                                <tr>
+                                    <td>Edge Deployment</td>
+                                    <td>Medium</td>
+                                    <td>N/A</td>
+                                    <td>$</td>
+                                    <td>Privacy, offline use</td>
+                                    <td>Model size constraints</td>
+                                </tr>
+                                <tr>
+                                    <td>Serverless</td>
+                                    <td>Low</td>
+                                    <td>Auto</td>
+                                    <td>$$</td>
+                                    <td>Variable traffic</td>
+                                    <td>Cold starts, size limits</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="concept-card">
+                    <h3 class="concept-header">Data Pipeline Architecture</h3>
+                    <div class="concept-description">
+                        Data pipelines are the circulatory system of ML. They must handle volume, velocity, and variety while maintaining quality. A robust pipeline is the difference between a prototype and a production system.
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.03); border-radius: 15px; padding: 1.5rem; margin: 1.5rem 0;">
+                        <h4 style="color: var(--accent-green); margin-bottom: 1rem;">The Data Pipeline Patterns</h4>
+                        <p style="line-height: 1.8; color: var(--text-secondary);">
+                            <strong style="color: var(--accent-pink);">Lambda Architecture:</strong> Combines batch (accurate) and stream (fast) processing. Like having both a newspaper (complete) and Twitter (immediate).
+                        </p>
+                        <p style="line-height: 1.8; color: var(--text-secondary); margin-top: 1rem;">
+                            <strong style="color: var(--accent-blue);">Kappa Architecture:</strong> Stream-only processing. Everything is a stream. Like treating everything as breaking news.
+                        </p>
+                        <p style="line-height: 1.8; color: var(--text-secondary); margin-top: 1rem;">
+                            <strong style="color: var(--accent-yellow);">Data Mesh:</strong> Decentralized, domain-oriented. Each team owns their data products. Like neighborhoods managing their own infrastructure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Playground -->
+        <div id="playground" class="page">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem; text-align: center; background: var(--success-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Interactive Playground</h2>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3 class="concept-header">Neural Network Builder</h3>
+                    <div class="concept-description">
+                        Build your own neural network architecture by dragging and connecting layers. See how data flows through the network and how different architectures affect learning.
+                    </div>
+                    
+                    <div class="interactive-demo">
+                        <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">Drag-and-Drop Network Designer</h4>
+                        <div class="demo-controls">
+                            <button class="control-btn" onclick="addLayer('dense')">Add Dense Layer</button>
+                            <button class="control-btn" onclick="addLayer('conv')">Add Conv Layer</button>
+                            <button class="control-btn" onclick="addLayer('dropout')">Add Dropout</button>
+                            <button class="control-btn" onclick="trainNetwork()">Train Network</button>
+                        </div>
+                        <canvas class="viz-canvas" id="networkCanvas"></canvas>
+                    </div>
+                </div>
+
+                <div class="concept-card">
+                    <h3 class="concept-header">Algorithm Complexity Analyzer</h3>
+                    <div class="concept-description">
+                        Visualize how different algorithms scale with input size. See Big O notation come to life with real-time performance measurements.
+                    </div>
+                    
+                    <div class="interactive-demo">
+                        <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">Complexity Visualizer</h4>
+                        <div class="demo-controls">
+                            <button class="control-btn" onclick="measureComplexity('bubble')">Bubble Sort O(n²)</button>
+                            <button class="control-btn" onclick="measureComplexity('merge')">Merge Sort O(n log n)</button>
+                            <button class="control-btn" onclick="measureComplexity('quick')">Quick Sort O(n log n)</button>
+                            <button class="control-btn" onclick="measureComplexity('linear')">Linear Search O(n)</button>
+                        </div>
+                        <canvas class="viz-canvas" id="complexityCanvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <div class="fab" onclick="toggleDarkMode()">🌙</div>
+        <div class="fab" onclick="showProgress()">📊</div>
+        <div class="fab" onclick="startQuiz()">🎯</div>
+    </div>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Remove active from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Mark tab as active
+            event.target.classList.add('active');
+            
+            // Initialize page-specific animations
+            initializePageAnimations(pageId);
+        }
+
+        // Initialize Neural Network Background
+        function createNeuralBackground() {
+            const container = document.getElementById('neuralNetwork');
+            const neurons = 30;
+            const synapses = 20;
+            
+            // Create neurons
+            for (let i = 0; i < neurons; i++) {
+                const neuron = document.createElement('div');
+                neuron.className = 'neuron';
+                neuron.style.left = Math.random() * 100 + '%';
+                neuron.style.top = Math.random() * 100 + '%';
+                neuron.style.animationDelay = Math.random() * 20 + 's';
+                container.appendChild(neuron);
+            }
+            
+            // Create synapses
+            for (let i = 0; i < synapses; i++) {
+                const synapse = document.createElement('div');
+                synapse.className = 'synapse';
+                synapse.style.left = Math.random() * 100 + '%';
+                synapse.style.top = Math.random() * 100 + '%';
+                synapse.style.width = Math.random() * 200 + 100 + 'px';
+                synapse.style.transform = `rotate(${Math.random() * 360}deg)`;
+                synapse.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(synapse);
+            }
+        }
+
+        // Matrix Transformation Visualizer
+        function initMatrixVisualizer() {
+            const canvas = document.getElementById('matrixCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 400;
+            
+            // Draw grid
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.lineWidth = 1;
+            
+            const gridSize = 20;
+            for (let x = 0; x < canvas.width; x += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+            
+            for (let y = 0; y < canvas.height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+            
+            // Draw initial square
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(canvas.width/2 - 50, canvas.height/2 - 50, 100, 100);
+        }
+
+        function transformMatrix(type) {
+            const canvas = document.getElementById('matrixCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            initMatrixVisualizer();
+            
+            ctx.save();
+            ctx.translate(canvas.width/2, canvas.height/2);
+            
+            switch(type) {
+                case 'rotate':
+                    ctx.rotate(Math.PI / 4);
+                    break;
+                case 'scale':
+                    ctx.scale(1.5, 1.5);
+                    break;
+                case 'shear':
+                    ctx.transform(1, 0.5, 0.5, 1, 0, 0);
+                    break;
+                case 'reset':
+                    ctx.restore();
+                    initMatrixVisualizer();
+                    return;
+            }
+            
+            ctx.strokeStyle = '#f093fb';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(-50, -50, 100, 100);
+            ctx.restore();
+        }
+
+        // CLT Simulator
+        function runCLT(distribution) {
+            const canvas = document.getElementById('cltCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 400;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Generate samples
+            const samples = [];
+            const sampleSize = 30;
+            const numSamples = 1000;
+            
+            for (let i = 0; i < numSamples; i++) {
+                let sum = 0;
+                for (let j = 0; j < sampleSize; j++) {
+                    switch(distribution) {
+                        case 'uniform':
+                            sum += Math.random();
+                            break;
+                        case 'exponential':
+                            sum += -Math.log(1 - Math.random());
+                            break;
+                        case 'bimodal':
+                            sum += Math.random() < 0.5 ? Math.random() * 0.3 : 0.7 + Math.random() * 0.3;
+                            break;
+                    }
+                }
+                samples.push(sum / sampleSize);
+            }
+            
+            // Draw histogram
+            const bins = 30;
+            const min = Math.min(...samples);
+            const max = Math.max(...samples);
+            const binWidth = (max - min) / bins;
+            const histogram = new Array(bins).fill(0);
+            
+            samples.forEach(sample => {
+                const binIndex = Math.min(Math.floor((sample - min) / binWidth), bins - 1);
+                histogram[binIndex]++;
+            });
+            
+            const maxCount = Math.max(...histogram);
+            const barWidth = canvas.width / bins;
+            
+            ctx.fillStyle = '#4facfe';
+            histogram.forEach((count, i) => {
+                const height = (count / maxCount) * (canvas.height - 40);
+                ctx.fillRect(i * barWidth, canvas.height - height - 20, barWidth - 2, height);
+            });
+            
+            // Draw normal curve overlay
+            ctx.strokeStyle = '#f5576c';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            const mean = samples.reduce((a, b) => a + b) / samples.length;
+            const variance = samples.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / samples.length;
+            const stdDev = Math.sqrt(variance);
+            
+            for (let x = 0; x < canvas.width; x++) {
+                const value = min + (x / canvas.width) * (max - min);
+                const y = (1 / (stdDev * Math.sqrt(2 * Math.PI))) * 
+                         Math.exp(-0.5 * Math.pow((value - mean) / stdDev, 2));
+                const scaledY = canvas.height - 20 - (y * (canvas.height - 40) * bins * binWidth / 0.4);
+                
+                if (x === 0) {
+                    ctx.moveTo(x, scaledY);
+                } else {
+                    ctx.lineTo(x, scaledY);
+                }
+            }
+            ctx.stroke();
+        }
+
+        // Quiz functionality
+        function checkAnswer(element, isCorrect) {
+            const options = element.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+                updateProgress('foundations', 10);
+            } else {
+                element.classList.add('incorrect');
+            }
+        }
+
+        // Progress tracking
+        function updateProgress(section, amount) {
+            const progressBar = document.getElementById(section + 'Progress');
+            if (progressBar) {
+                const currentWidth = parseInt(progressBar.style.width) || 0;
+                const newWidth = Math.min(currentWidth + amount, 100);
+                progressBar.style.width = newWidth + '%';
+                progressBar.querySelector('.progress-text').textContent = newWidth + '%';
+                
+                // Save to localStorage
+                localStorage.setItem(section + 'Progress', newWidth);
+            }
+        }
+
+        // Card flipping
+        function flipCard(element) {
+            element.classList.toggle('flipped');
+        }
+
+        // Copy code functionality
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            });
+        }
+
+        // Initialize page animations
+        function initializePageAnimations(pageId) {
+            switch(pageId) {
+                case 'foundations':
+                    initMatrixVisualizer();
+                    runCLT('uniform');
+                    break;
+                case 'algorithms':
+                    // Initialize graph visualizer
+                    break;
+                case 'ml-theory':
+                    // Initialize bias-variance visualizer
+                    break;
+            }
+        }
+
+        // Load saved progress
+        function loadProgress() {
+            const sections = ['foundations', 'algorithms', 'ml-theory', 'deep-learning'];
+            sections.forEach(section => {
+                const saved = localStorage.getItem(section + 'Progress');
+                if (saved) {
+                    const progressBar = document.getElementById(section + 'Progress');
+                    if (progressBar) {
+                        progressBar.style.width = saved + '%';
+                        progressBar.querySelector('.progress-text').textContent = saved + '%';
+                    }
+                }
+            });
+        }
+
+        // Graph Visualization Functions
+        let graphNodes = [];
+        let graphEdges = [];
+        
+        function initGraphCanvas() {
+            const canvas = document.getElementById('graphCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 400;
+            
+            // Create sample graph
+            graphNodes = [
+                {x: 100, y: 100, label: 'A', visited: false, distance: Infinity},
+                {x: 300, y: 80, label: 'B', visited: false, distance: Infinity},
+                {x: 500, y: 120, label: 'C', visited: false, distance: Infinity},
+                {x: 150, y: 250, label: 'D', visited: false, distance: Infinity},
+                {x: 350, y: 280, label: 'E', visited: false, distance: Infinity},
+                {x: 450, y: 250, label: 'F', visited: false, distance: Infinity}
+            ];
+            
+            graphEdges = [
+                {from: 0, to: 1, weight: 4},
+                {from: 0, to: 3, weight: 2},
+                {from: 1, to: 2, weight: 5},
+                {from: 1, to: 4, weight: 3},
+                {from: 3, to: 4, weight: 1},
+                {from: 4, to: 5, weight: 6},
+                {from: 2, to: 5, weight: 2}
+            ];
+            
+            drawGraph(ctx);
+        }
+        
+        function drawGraph(ctx) {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            
+            // Draw edges
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 2;
+            graphEdges.forEach(edge => {
+                const from = graphNodes[edge.from];
+                const to = graphNodes[edge.to];
+                ctx.beginPath();
+                ctx.moveTo(from.x, from.y);
+                ctx.lineTo(to.x, to.y);
+                ctx.stroke();
+                
+                // Draw weight
+                ctx.fillStyle = '#f5576c';
+                ctx.font = '14px Inter';
+                const midX = (from.x + to.x) / 2;
+                const midY = (from.y + to.y) / 2;
+                ctx.fillText(edge.weight, midX, midY);
+            });
+            
+            // Draw nodes
+            graphNodes.forEach(node => {
+                ctx.fillStyle = node.visited ? '#10b981' : '#667eea';
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 20, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 16px Inter';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(node.label, node.x, node.y);
+                
+                // Show distance for Dijkstra
+                if (node.distance !== Infinity && node.distance !== undefined) {
+                    ctx.fillStyle = '#f59e0b';
+                    ctx.font = '12px Inter';
+                    ctx.fillText(`d:${node.distance}`, node.x, node.y - 35);
+                }
+            });
+        }
+        
+        async function runBFS() {
+            const canvas = document.getElementById('graphCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            // Reset nodes
+            graphNodes.forEach(node => node.visited = false);
+            
+            const queue = [0];
+            graphNodes[0].visited = true;
+            
+            while (queue.length > 0) {
+                const currentIdx = queue.shift();
+                
+                // Find neighbors
+                graphEdges.forEach(edge => {
+                    let neighborIdx = -1;
+                    if (edge.from === currentIdx && !graphNodes[edge.to].visited) {
+                        neighborIdx = edge.to;
+                    } else if (edge.to === currentIdx && !graphNodes[edge.from].visited) {
+                        neighborIdx = edge.from;
+                    }
+                    
+                    if (neighborIdx !== -1) {
+                        graphNodes[neighborIdx].visited = true;
+                        queue.push(neighborIdx);
+                    }
+                });
+                
+                drawGraph(ctx);
+                await new Promise(resolve => setTimeout(resolve, 500));
+            }
+        }
+        
+        async function runDFS() {
+            const canvas = document.getElementById('graphCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            // Reset nodes
+            graphNodes.forEach(node => node.visited = false);
+            
+            const stack = [0];
+            
+            while (stack.length > 0) {
+                const currentIdx = stack.pop();
+                
+                if (!graphNodes[currentIdx].visited) {
+                    graphNodes[currentIdx].visited = true;
+                    
+                    // Find neighbors
+                    graphEdges.forEach(edge => {
+                        if (edge.from === currentIdx && !graphNodes[edge.to].visited) {
+                            stack.push(edge.to);
+                        } else if (edge.to === currentIdx && !graphNodes[edge.from].visited) {
+                            stack.push(edge.from);
+                        }
+                    });
+                    
+                    drawGraph(ctx);
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                }
+            }
+        }
+        
+        async function runDijkstra() {
+            const canvas = document.getElementById('graphCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            // Reset nodes
+            graphNodes.forEach((node, i) => {
+                node.visited = false;
+                node.distance = i === 0 ? 0 : Infinity;
+            });
+            
+            const unvisited = [...graphNodes.map((_, i) => i)];
+            
+            while (unvisited.length > 0) {
+                // Find node with minimum distance
+                let minIdx = -1;
+                let minDist = Infinity;
+                unvisited.forEach(idx => {
+                    if (graphNodes[idx].distance < minDist) {
+                        minDist = graphNodes[idx].distance;
+                        minIdx = idx;
+                    }
+                });
+                
+                if (minIdx === -1) break;
+                
+                // Remove from unvisited
+                unvisited.splice(unvisited.indexOf(minIdx), 1);
+                graphNodes[minIdx].visited = true;
+                
+                // Update distances
+                graphEdges.forEach(edge => {
+                    let neighborIdx = -1;
+                    let weight = edge.weight;
+                    
+                    if (edge.from === minIdx) {
+                        neighborIdx = edge.to;
+                    } else if (edge.to === minIdx) {
+                        neighborIdx = edge.from;
+                    }
+                    
+                    if (neighborIdx !== -1 && !graphNodes[neighborIdx].visited) {
+                        const newDist = graphNodes[minIdx].distance + weight;
+                        if (newDist < graphNodes[neighborIdx].distance) {
+                            graphNodes[neighborIdx].distance = newDist;
+                        }
+                    }
+                });
+                
+                drawGraph(ctx);
+                await new Promise(resolve => setTimeout(resolve, 700));
+            }
+        }
+        
+        function findMST() {
+            // Kruskal's algorithm visualization
+            alert('MST Visualization: This would show Kruskal\'s algorithm building a minimum spanning tree step by step, highlighting each edge as it\'s added to the MST. The total weight would be displayed.');
+        }
+
+        // Bias-Variance Visualization
+        function updateBiasVariance(complexity) {
+            document.getElementById('complexityValue').textContent = complexity;
+            
+            const canvas = document.getElementById('biasVarianceCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 400;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw axes
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(50, canvas.height - 50);
+            ctx.lineTo(canvas.width - 50, canvas.height - 50);
+            ctx.moveTo(50, 50);
+            ctx.lineTo(50, canvas.height - 50);
+            ctx.stroke();
+            
+            // Calculate bias and variance based on complexity
+            const x = parseInt(complexity);
+            const bias = Math.exp(-x/4) * 300;
+            const variance = (x/20) * (x/20) * 300;
+            const totalError = Math.sqrt(bias*bias + variance*variance) / Math.sqrt(2);
+            
+            // Draw curves
+            const points = 20;
+            
+            // Bias curve (decreasing)
+            ctx.strokeStyle = '#f5576c';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            for (let i = 0; i <= points; i++) {
+                const xi = i;
+                const yi = Math.exp(-xi/4) * 300;
+                const px = 50 + (i/points) * (canvas.width - 100);
+                const py = canvas.height - 50 - yi;
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+            ctx.fillStyle = '#f5576c';
+            ctx.fillText('Bias²', canvas.width - 100, 100);
+            
+            // Variance curve (increasing)
+            ctx.strokeStyle = '#4facfe';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            for (let i = 0; i <= points; i++) {
+                const xi = i;
+                const yi = (xi/20) * (xi/20) * 300;
+                const px = 50 + (i/points) * (canvas.width - 100);
+                const py = canvas.height - 50 - yi;
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+            ctx.fillStyle = '#4facfe';
+            ctx.fillText('Variance', canvas.width - 100, canvas.height - 100);
+            
+            // Total error curve
+            ctx.strokeStyle = '#10b981';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            for (let i = 0; i <= points; i++) {
+                const xi = i;
+                const biasi = Math.exp(-xi/4) * 300;
+                const variancei = (xi/20) * (xi/20) * 300;
+                const yi = Math.sqrt(biasi*biasi + variancei*variancei) / Math.sqrt(2);
+                const px = 50 + (i/points) * (canvas.width - 100);
+                const py = canvas.height - 50 - yi;
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+            ctx.fillStyle = '#10b981';
+            ctx.fillText('Total Error', canvas.width/2, 80);
+            
+            // Current point
+            const px = 50 + (x/points) * (canvas.width - 100);
+            ctx.fillStyle = '#f59e0b';
+            ctx.beginPath();
+            ctx.arc(px, canvas.height - 50 - totalError, 8, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Labels
+            ctx.fillStyle = 'white';
+            ctx.font = '14px Inter';
+            ctx.fillText('Model Complexity →', canvas.width/2 - 50, canvas.height - 20);
+            ctx.save();
+            ctx.translate(20, canvas.height/2);
+            ctx.rotate(-Math.PI/2);
+            ctx.fillText('Error →', 0, 0);
+            ctx.restore();
+        }
+
+        // Attention Visualization
+        function visualizeAttention() {
+            const input = document.getElementById('attentionInput').value || 'The cat sat on the mat';
+            const words = input.split(' ');
+            
+            const canvas = document.getElementById('attentionCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 400;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            const cellSize = Math.min(50, canvas.width / (words.length + 1));
+            const startX = (canvas.width - cellSize * words.length) / 2;
+            const startY = 100;
+            
+            // Generate mock attention weights
+            const attentionWeights = [];
+            for (let i = 0; i < words.length; i++) {
+                attentionWeights[i] = [];
+                for (let j = 0; j < words.length; j++) {
+                    // Create some realistic-looking attention patterns
+                    if (i === j) {
+                        attentionWeights[i][j] = 0.3 + Math.random() * 0.7;
+                    } else if (Math.abs(i - j) === 1) {
+                        attentionWeights[i][j] = 0.2 + Math.random() * 0.3;
+                    } else {
+                        attentionWeights[i][j] = Math.random() * 0.2;
+                    }
+                }
+            }
+            
+            // Draw attention matrix
+            for (let i = 0; i < words.length; i++) {
+                for (let j = 0; j < words.length; j++) {
+                    const weight = attentionWeights[i][j];
+                    const opacity = weight;
+                    
+                    ctx.fillStyle = `rgba(147, 51, 234, ${opacity})`;
+                    ctx.fillRect(startX + j * cellSize, startY + i * cellSize, cellSize - 2, cellSize - 2);
+                    
+                    // Add weight value
+                    ctx.fillStyle = weight > 0.5 ? 'white' : '#aaa';
+                    ctx.font = '10px Inter';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(weight.toFixed(2), startX + j * cellSize + cellSize/2, startY + i * cellSize + cellSize/2);
+                }
+            }
+            
+            // Draw word labels
+            ctx.fillStyle = 'white';
+            ctx.font = '12px Inter';
+            for (let i = 0; i < words.length; i++) {
+                // Top labels
+                ctx.save();
+                ctx.translate(startX + i * cellSize + cellSize/2, startY - 10);
+                ctx.rotate(-Math.PI/4);
+                ctx.textAlign = 'right';
+                ctx.fillText(words[i], 0, 0);
+                ctx.restore();
+                
+                // Left labels
+                ctx.textAlign = 'right';
+                ctx.fillText(words[i], startX - 10, startY + i * cellSize + cellSize/2);
+            }
+            
+            // Title
+            ctx.fillStyle = '#4facfe';
+            ctx.font = 'bold 16px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText('Self-Attention Weights Matrix', canvas.width/2, 50);
+            
+            // Explanation
+            ctx.fillStyle = '#aaa';
+            ctx.font = '12px Inter';
+            ctx.fillText('Brighter = stronger attention between words', canvas.width/2, canvas.height - 20);
+        }
+
+        // Optimizer Race
+        let optimizerPositions = {};
+        let animationId = null;
+        
+        function startOptimizerRace() {
+            const canvas = document.getElementById('optimizerCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 400;
+            
+            // Initialize positions
+            optimizerPositions = {
+                sgd: {x: 50, y: 200, vx: 0, vy: 0, color: '#f5576c', name: 'SGD'},
+                momentum: {x: 50, y: 200, vx: 0, vy: 0, color: '#667eea', name: 'Momentum'},
+                adam: {x: 50, y: 200, vx: 0, vy: 0, color: '#10b981', name: 'Adam'},
+                adamw: {x: 50, y: 200, vx: 0, vy: 0, color: '#f59e0b', name: 'AdamW'}
+            };
+            
+            // Create loss landscape
+            const landscape = (x, y) => {
+                const x0 = canvas.width - 100;
+                const y0 = 200;
+                return Math.sqrt((x - x0) * (x - x0) + (y - y0) * (y - y0));
+            };
+            
+            // Animation loop
+            const animate = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw target
+                ctx.fillStyle = '#4facfe';
+                ctx.beginPath();
+                ctx.arc(canvas.width - 100, 200, 20, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 12px Inter';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('MIN', canvas.width - 100, 200);
+                
+                // Update and draw optimizers
+                let allReached = true;
+                Object.keys(optimizerPositions).forEach((key, idx) => {
+                    const opt = optimizerPositions[key];
+                    
+                    // Calculate gradient
+                    const gradX = (landscape(opt.x + 1, opt.y) - landscape(opt.x - 1, opt.y)) / 2;
+                    const gradY = (landscape(opt.x, opt.y + 1) - landscape(opt.x, opt.y - 1)) / 2;
+                    
+                    // Update based on optimizer type
+                    const lr = 0.01;
+                    switch(key) {
+                        case 'sgd':
+                            opt.x -= lr * gradX * 10;
+                            opt.y -= lr * gradY * 10;
+                            break;
+                        case 'momentum':
+                            opt.vx = 0.9 * opt.vx - lr * gradX * 15;
+                            opt.vy = 0.9 * opt.vy - lr * gradY * 15;
+                            opt.x += opt.vx;
+                            opt.y += opt.vy;
+                            break;
+                        case 'adam':
+                        case 'adamw':
+                            opt.vx = 0.9 * opt.vx - lr * gradX * 20;
+                            opt.vy = 0.9 * opt.vy - lr * gradY * 20;
+                            opt.x += opt.vx;
+                            opt.y += opt.vy;
+                            break;
+                    }
+                    
+                    // Add some noise for realism
+                    opt.y += (Math.random() - 0.5) * 2;
+                    
+                    // Draw optimizer
+                    ctx.fillStyle = opt.color;
+                    ctx.beginPath();
+                    ctx.arc(opt.x, opt.y + idx * 30 - 45, 8, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // Label
+                    ctx.fillStyle = opt.color;
+                    ctx.font = '12px Inter';
+                    ctx.textAlign = 'left';
+                    ctx.fillText(opt.name, opt.x + 15, opt.y + idx * 30 - 45);
+                    
+                    if (Math.abs(opt.x - (canvas.width - 100)) > 30) {
+                        allReached = false;
+                    }
+                });
+                
+                if (!allReached) {
+                    animationId = requestAnimationFrame(animate);
+                } else {
+                    ctx.fillStyle = '#10b981';
+                    ctx.font = 'bold 16px Inter';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Race Complete! Adam/AdamW typically converge fastest', canvas.width/2, 350);
+                }
+            };
+            
+            if (animationId) cancelAnimationFrame(animationId);
+            animate();
+        }
+        
+        function resetOptimizers() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            const canvas = document.getElementById('optimizerCanvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        }
+
+        // Network Builder Functions
+        let networkLayers = [];
+        
+        function addLayer(type) {
+            const canvas = document.getElementById('networkCanvas');
+            if (!canvas) return;
+            
+            networkLayers.push({
+                type: type,
+                neurons: type === 'conv' ? 32 : 128,
+                activation: 'relu'
+            });
+            
+            drawNetwork();
+            
+            // Show layer info
+            const info = document.createElement('div');
+            info.style.cssText = 'background: rgba(255,255,255,0.1); padding: 10px; margin: 10px 0; border-radius: 10px;';
+            info.innerHTML = `<strong>Added ${type} layer</strong> - ${type === 'conv' ? '32 filters' : '128 neurons'}`;
+            canvas.parentElement.appendChild(info);
+            setTimeout(() => info.remove(), 3000);
+        }
+        
+        function drawNetwork() {
+            const canvas = document.getElementById('networkCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 400;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            const layerWidth = canvas.width / (networkLayers.length + 2);
+            
+            // Draw input layer
+            ctx.fillStyle = '#667eea';
+            for (let i = 0; i < 5; i++) {
+                ctx.beginPath();
+                ctx.arc(layerWidth/2, 80 + i * 50, 10, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.fillStyle = 'white';
+            ctx.font = '12px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText('Input', layerWidth/2, 320);
+            
+            // Draw network layers
+            networkLayers.forEach((layer, idx) => {
+                const x = layerWidth * (idx + 1.5);
+                const color = layer.type === 'conv' ? '#f5576c' : 
+                              layer.type === 'dropout' ? '#f59e0b' : '#10b981';
+                
+                ctx.fillStyle = color;
+                const neurons = layer.type === 'dropout' ? 3 : 5;
+                for (let i = 0; i < neurons; i++) {
+                    ctx.beginPath();
+                    ctx.arc(x, 80 + i * 50, 10, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                
+                ctx.fillStyle = 'white';
+                ctx.fillText(layer.type.toUpperCase(), x, 320);
+            });
+            
+            // Draw output layer
+            const outputX = layerWidth * (networkLayers.length + 1.5);
+            ctx.fillStyle = '#4facfe';
+            ctx.beginPath();
+            ctx.arc(outputX, 200, 15, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = 'white';
+            ctx.fillText('Output', outputX, 320);
+            
+            // Draw connections
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.lineWidth = 1;
+            
+            // Simplified connection drawing (would be too many to show all)
+            for (let i = 0; i <= networkLayers.length; i++) {
+                const fromX = layerWidth * (i + 0.5);
+                const toX = layerWidth * (i + 1.5);
+                
+                for (let j = 0; j < 3; j++) {
+                    ctx.beginPath();
+                    ctx.moveTo(fromX, 80 + j * 50);
+                    ctx.lineTo(toX, 130 + j * 40);
+                    ctx.stroke();
+                }
+            }
+        }
+        
+        function trainNetwork() {
+            if (networkLayers.length === 0) {
+                alert('Please add some layers first!');
+                return;
+            }
+            
+            const canvas = document.getElementById('networkCanvas');
+            const info = document.createElement('div');
+            info.style.cssText = 'background: rgba(16,185,129,0.2); padding: 15px; margin: 10px 0; border-radius: 10px;';
+            info.innerHTML = `
+                <strong>Training Started!</strong><br>
+                Architecture: Input → ${networkLayers.map(l => l.type).join(' → ')} → Output<br>
+                <div style="margin-top: 10px;">
+                    Epoch 1/10 - Loss: 2.302 - Accuracy: 11.3%<br>
+                    <div style="background: rgba(255,255,255,0.1); height: 20px; border-radius: 10px; overflow: hidden; margin-top: 5px;">
+                        <div style="background: linear-gradient(90deg, #10b981, #4facfe); height: 100%; width: 10%; transition: width 2s;"></div>
+                    </div>
+                </div>
+            `;
+            canvas.parentElement.appendChild(info);
+            
+            // Simulate training progress
+            let epoch = 1;
+            const interval = setInterval(() => {
+                epoch++;
+                const loss = (2.302 * Math.exp(-epoch/3)).toFixed(3);
+                const acc = Math.min(99.2, 11.3 * Math.log(epoch + 1) * 2).toFixed(1);
+                info.querySelector('div > div').innerHTML = `
+                    Epoch ${epoch}/10 - Loss: ${loss} - Accuracy: ${acc}%<br>
+                    <div style="background: rgba(255,255,255,0.1); height: 20px; border-radius: 10px; overflow: hidden; margin-top: 5px;">
+                        <div style="background: linear-gradient(90deg, #10b981, #4facfe); height: 100%; width: ${epoch*10}%; transition: width 0.5s;"></div>
+                    </div>
+                `;
+                
+                if (epoch >= 10) {
+                    clearInterval(interval);
+                    info.style.background = 'rgba(16,185,129,0.4)';
+                    setTimeout(() => info.remove(), 5000);
+                }
+            }, 1000);
+        }
+
+        // Complexity Analyzer
+        function measureComplexity(algorithm) {
+            const canvas = document.getElementById('complexityCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 400;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw axes
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(50, canvas.height - 50);
+            ctx.lineTo(canvas.width - 50, canvas.height - 50);
+            ctx.moveTo(50, 50);
+            ctx.lineTo(50, canvas.height - 50);
+            ctx.stroke();
+            
+            // Generate complexity curves
+            const n_values = [];
+            const times = [];
+            
+            for (let n = 1; n <= 100; n += 5) {
+                n_values.push(n);
+                let time;
+                switch(algorithm) {
+                    case 'bubble':
+                        time = n * n;
+                        break;
+                    case 'merge':
+                    case 'quick':
+                        time = n * Math.log2(n);
+                        break;
+                    case 'linear':
+                        time = n;
+                        break;
+                }
+                times.push(time);
+            }
+            
+            // Normalize times to fit canvas
+            const maxTime = Math.max(...times);
+            const scale = (canvas.height - 100) / maxTime;
+            
+            // Draw curve
+            ctx.strokeStyle = algorithm === 'bubble' ? '#f5576c' : 
+                            algorithm === 'linear' ? '#10b981' : '#667eea';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            n_values.forEach((n, i) => {
+                const x = 50 + (n / 100) * (canvas.width - 100);
+                const y = canvas.height - 50 - (times[i] * scale);
+                
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            });
+            ctx.stroke();
+            
+            // Labels
+            ctx.fillStyle = 'white';
+            ctx.font = '14px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText('Input Size (n) →', canvas.width/2, canvas.height - 20);
+            
+            ctx.save();
+            ctx.translate(20, canvas.height/2);
+            ctx.rotate(-Math.PI/2);
+            ctx.fillText('Time →', 0, 0);
+            ctx.restore();
+            
+            // Algorithm name and complexity
+            const complexityText = {
+                'bubble': 'Bubble Sort - O(n²)',
+                'merge': 'Merge Sort - O(n log n)',
+                'quick': 'Quick Sort - O(n log n) average',
+                'linear': 'Linear Search - O(n)'
+            };
+            
+            ctx.fillStyle = ctx.strokeStyle;
+            ctx.font = 'bold 16px Inter';
+            ctx.fillText(complexityText[algorithm], canvas.width/2, 30);
+            
+            // Show actual measurements
+            const measurements = document.createElement('div');
+            measurements.style.cssText = 'background: rgba(255,255,255,0.1); padding: 15px; margin: 10px 0; border-radius: 10px;';
+            measurements.innerHTML = `
+                <strong>Performance Analysis:</strong><br>
+                n=10: ${algorithm === 'bubble' ? '100' : algorithm === 'linear' ? '10' : '33'} operations<br>
+                n=100: ${algorithm === 'bubble' ? '10,000' : algorithm === 'linear' ? '100' : '664'} operations<br>
+                n=1000: ${algorithm === 'bubble' ? '1,000,000' : algorithm === 'linear' ? '1,000' : '9,965'} operations<br>
+                <span style="color: ${algorithm === 'bubble' ? '#f5576c' : '#10b981'};">
+                    ${algorithm === 'bubble' ? '⚠️ Exponential growth - avoid for large datasets!' : '✓ Scales well with input size'}
+                </span>
+            `;
+            canvas.parentElement.appendChild(measurements);
+            setTimeout(() => measurements.remove(), 5000);
+        }
+
+        // Increase samples for CLT
+        let sampleSize = 30;
+        function increaseSamples() {
+            sampleSize += 20;
+            const canvas = document.getElementById('cltCanvas');
+            if (canvas) {
+                const info = document.createElement('div');
+                info.style.cssText = 'position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px;';
+                info.innerHTML = `Sample Size: ${sampleSize}`;
+                canvas.parentElement.appendChild(info);
+                setTimeout(() => info.remove(), 2000);
+                
+                runCLT('uniform');
+            }
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            createNeuralBackground();
+            initializePageAnimations('foundations');
+            loadProgress();
+        });
+
+        // Initialize specific page animations
+        function initializePageAnimations(pageId) {
+            switch(pageId) {
+                case 'foundations':
+                    initMatrixVisualizer();
+                    runCLT('uniform');
+                    break;
+                case 'algorithms':
+                    initGraphCanvas();
+                    break;
+                case 'ml-theory':
+                    updateBiasVariance(5);
+                    break;
+                case 'deep-learning':
+                    visualizeAttention();
+                    break;
+                case 'playground':
+                    drawNetwork();
+                    break;
+            }
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
