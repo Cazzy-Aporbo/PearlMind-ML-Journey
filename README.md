@@ -10,6 +10,11 @@
 
 <div align="center">
 
+### [View Data Science & Machine Learning Guide](https://htmlpreview.github.io/?https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey/blob/main/ds-ml-guide.html)
+<sub>Educational platform featuring data science methodologies, machine learning algorithms, statistical foundations, and practical implementation strategies with interactive examples</sub>
+
+<div align="center">
+
  ### [View Data Science & Machine Learning Platform](https://htmlpreview.github.io/?https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey/blob/main/ds-ml-guide.html)
 <sub>Interactive educational platform featuring comprehensive data science, machine learning theory, and advanced algorithm visualizations with real-time demonstrations</sub>
 
