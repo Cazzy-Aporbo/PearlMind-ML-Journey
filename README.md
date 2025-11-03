@@ -3,7 +3,14 @@
 <!-- Sophisticated animated header with gradient waves -->
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=24,25,26,27,28,29&height=280&section=header&text=PearlMind%20ML%20Journey&fontSize=75&animation=fadeIn&fontAlignY=38&desc=From%20Mathematical%20Foundations%20to%20Ethical%20Superintelligence&descAlignY=58&descSize=20&fontColor=6B5B95" alt="Header"/>
 
-### [View Data Science & Machine Learning Platform](https://htmlpreview.github.io/?https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey/blob/main/ds-ml-guide.html)
+<div align="center">
+  
+ ### [View PearlMind Interactive Animations](https://htmlpreview.github.io/?https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey/blob/main/pearlmind_animations.html)
+<sub>Visualization platform showcasing advanced mathematical concepts, neural network architectures, and machine learning algorithms through interactive animations</sub>
+
+<div align="center">
+
+ ### [View Data Science & Machine Learning Platform](https://htmlpreview.github.io/?https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey/blob/main/ds-ml-guide.html)
 <sub>Interactive educational platform featuring comprehensive data science, machine learning theory, and advanced algorithm visualizations with real-time demonstrations</sub>
 
 <!-- Professional ML/AI badges with pastel theme -->
