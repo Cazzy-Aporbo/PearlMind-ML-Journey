@@ -7,7 +7,7 @@
 
 # A model is an argument. Give it something to answer for.
 
-I’m Cazandra Aporbo. PearlMind is where I work through machine learning in public: the arithmetic, the code, the awkward results, and the decisions a score cannot make for us. It is also part of the learning behind my work at [LOOPCHii](https://github.com/loopchii).
+I’m Cazandra Aporbo. PearlMind is where I work through machine learning in public: the arithmetic, the code, the awkward results, and the decisions a score cannot make for us. It is also part of the learning behind my work at [![LOOPCHii](web/assets/loopchii-wordmark.svg)](https://github.com/loopchii).
 
 Start with a small question. Make your prediction before running the code. Then inspect what changed. The aim is not to collect model names; it is to understand enough to notice when a model is answering the wrong question.
 
@@ -78,6 +78,6 @@ The [teaching guide](docs/LEARNING_GUIDE.md) includes a plain-language entrance,
 
 A small counterexample is a welcome contribution. So is a clearer explanation, a failing test, or an accessibility improvement. [Contribution guide](CONTRIBUTING.md) · [Report a problem](https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey/issues/new/choose)
 
-[Meet Cazandra](https://github.com/Cazzy-Aporbo) → [Explore LOOPCHii](https://github.com/loopchii) → [Research, software and design](https://www.loopchii.com/)
+[Meet Cazandra](https://github.com/Cazzy-Aporbo) → [Explore the research & innovation studio](https://github.com/loopchii) → [Research, software and design](https://www.loopchii.com/)
 
-<sub>MIT-licensed project code. External datasets and referenced work retain their own terms. Public learning work; no proprietary LOOPCHii architecture is disclosed here.</sub>
+<sub>MIT-licensed project code. External datasets and referenced work retain their own terms.</sub>
