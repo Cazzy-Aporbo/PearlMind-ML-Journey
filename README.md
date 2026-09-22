@@ -7,7 +7,7 @@
 
 # A model is an argument. Give it something to answer for.
 
-I’m Cazandra Aporbo. PearlMind is where I work through machine learning in public: the arithmetic, the code, the awkward results, and the decisions a score cannot make for us. It is also part of the learning behind my work at [![LOOPCHii](web/assets/loopchii-wordmark.svg)](https://github.com/loopchii).
+PearlMind is my open machine-learning notebook: the arithmetic, the code, the awkward results, and the decisions a score cannot make for us. I’m Cazandra Aporbo; this learning also informs my work at [![LOOPCHii](web/assets/loopchii-wordmark.svg)](https://github.com/loopchii).
 
 Start with a small question. Make your prediction before running the code. Then inspect what changed. The aim is not to collect model names; it is to understand enough to notice when a model is answering the wrong question.
 
@@ -27,6 +27,14 @@ Start with a small question. Make your prediction before running the code. Then 
 | What changes when work is distributed? | [Weighted gradients and bounded tools](src/pearlmind/lessons/systems.py) | A reproducible arithmetic comparison and explicit decision traces |
 
 The [source atlas](https://cazzy-aporbo.github.io/PearlMind-ML-Journey/#atlas) connects files, imports and definitions. It distinguishes tested paths from extended studies and references. The [original model atlas](docs/original-model-atlas.md) remains available, including its earlier ambitions; it is not the installation guide.
+
+## Connect the terms to the calculation
+
+Use the [concept dictionary](docs/CONCEPTS.md) when a familiar word starts doing unfamiliar work. It connects definitions and related language to examples, mathematical distinctions and source files. The original atlas’s regression, ensembles, deep learning, language and systems threads each have a route into the current lessons.
+
+The [model-comparison study](docs/COMPARISON.md) makes the statistical reasoning explicit: a prior baseline, logistic regression and a shallow tree meet the same held-out rows. Brier score, log loss and a paired bootstrap interval show what the accuracy table leaves out. Run it with `python -m pearlmind.lessons.comparison`.
+
+[What changed, with commit references](ChangeLog.md) · [Cite a version of the work](CITATION.cff)
 
 ## One experiment, end to end
 

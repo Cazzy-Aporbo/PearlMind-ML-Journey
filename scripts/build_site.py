@@ -27,11 +27,81 @@ DOCS = {
     "docs/READINESS.md": "readiness.html",
     "docs/SETUP.md": "setup.html",
     "docs/CONTRACTS.md": "contracts.html",
+    "docs/CONCEPTS.md": "concepts.html",
+    "docs/COMPARISON.md": "comparison.html",
+    "ChangeLog.md": "changes.html",
 }
 
 
-def shell(title, content, prefix=""):
-    return f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)} · PearlMind</title><link rel="stylesheet" href="{prefix}style.css"><link rel="icon" href="{prefix}assets/loopchii-cloud-icon-v7.svg"></head><body><header class="nav"><a class="wordmark" href="{prefix}index.html">PearlMind<span>the learning room</span></a><nav><a href="{prefix}index.html#atlas">Source atlas</a><a href="{prefix}guide.html">Walkthrough</a><a href="https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey">GitHub ↗</a></nav></header><main class="document">{content}</main><footer><a href="{prefix}index.html">Back to the experiments →</a><span>Read the code. Question the result.</span></footer></body></html>'
+BASE = "https://cazzy-aporbo.github.io/PearlMind-ML-Journey/"
+PAGE_INFO = {
+    "guide.html": (
+        "Machine learning walkthrough",
+        "Trace regression, PyTorch tensors, language models, error costs and weighted gradients through runnable Python lessons.",
+    ),
+    "readiness.html": (
+        "Model readiness and limitations",
+        "Understand which PearlMind experiments are tested, which remain research studies, and what deployment would still require.",
+    ),
+    "setup.html": (
+        "Install and run PearlMind",
+        "Set up Python, Codespaces or Docker; run CPU machine-learning lessons and resolve common environment errors.",
+    ),
+    "contracts.html": (
+        "Machine learning input and output contracts",
+        "Find data shapes, file outputs, prerequisites and failure cases for PearlMind training, evaluation and local prediction.",
+    ),
+    "concepts.html": (
+        "Machine learning concept dictionary",
+        "Connect mathematical definitions, related terms, common confusions and runnable examples across data science and systems.",
+    ),
+    "comparison.html": (
+        "Compare models with paired uncertainty",
+        "Run a prior, logistic regression and shallow tree on matched test rows; inspect Brier scores and paired bootstrap intervals.",
+    ),
+    "changes.html": (
+        "PearlMind change record",
+        "Trace the learning-room updates to code, tests, dated commits and reproducible experiment artifacts.",
+    ),
+    "source-index.html": (
+        "PearlMind source index",
+        "Browse the complete source atlas by learning area, from original lessons to tested models and extended research studies.",
+    ),
+}
+
+
+def shell(title, content, prefix="", page="", description="", historical=False):
+    title, description = PAGE_INFO.get(
+        page,
+        (
+            title,
+            description
+            or f"Read {title}: source, definitions and connected learning notes in PearlMind.",
+        ),
+    )
+    canonical = BASE + quote(page)
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": title,
+        "description": description,
+        "url": canonical,
+        "inLanguage": "en",
+        "author": {
+            "@type": "Person",
+            "name": "Cazandra Aporbo",
+            "url": "https://github.com/Cazzy-Aporbo",
+        },
+        "isPartOf": {"@type": "WebSite", "name": "PearlMind ML Journey", "url": BASE},
+    }
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{html.escape(title)} · PearlMind</title><meta name="description" content="{html.escape(description, quote=True)}"><meta name="author" content="Cazandra Aporbo">
+<link rel="canonical" href="{canonical}"><meta name="robots" content="{"noindex,follow" if historical else "index,follow"}">
+<meta property="og:title" content="{html.escape(title, quote=True)} · PearlMind"><meta property="og:description" content="{html.escape(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{BASE}assets/social-preview.png"><meta property="og:image:alt" content="PearlMind — make a prediction, meet its consequences"><meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{json.dumps(schema).replace("<", chr(92) + "u003c")}</script>
+<link rel="stylesheet" href="{prefix}style.css"><link rel="icon" href="{prefix}assets/loopchii-cloud-icon-v7.svg"><script src="{prefix}guide.js" defer></script></head>
+<body><a class="skip" href="#document">Skip to content</a><header class="nav"><a class="wordmark" href="{prefix}index.html">PearlMind<span>the learning room</span></a><nav aria-label="Learning navigation"><a href="{prefix}source-index.html">Source atlas</a><a href="{prefix}concepts.html">Dictionary</a><a href="{prefix}guide.html">Walkthrough</a><a href="https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey">GitHub ↗</a></nav></header>
+<main class="document" id="document">{content}</main><footer><a href="{prefix}index.html">Back to the experiments →</a><a href="{prefix}changes.html">Change record</a><span>Read the code. Question the result.</span></footer></body></html>'''
 
 
 for source, target in DOCS.items():
@@ -46,6 +116,8 @@ for source, target in DOCS.items():
         base, sep, fragment = url.partition("#")
         path = (ROOT / source).parent / base
         relative = path.resolve().relative_to(ROOT).as_posix()
+        if not path.exists():
+            raise ValueError(f"Broken guide link in {source}: {url}")
         if relative in DOCS:
             destination = DOCS[relative]
         else:
@@ -53,7 +125,35 @@ for source, target in DOCS.items():
         return 'href="' + destination + (sep + fragment if sep else "") + '"'
 
     rendered = re.sub(r'href="([^"]+)"', link, rendered)
-    (OUT / target).write_text(shell(source.split("/")[-1].replace("_", " "), rendered))
+    if target == "comparison.html":
+        measured = json.loads(evidence.read_text())
+        experiment = measured["comparison"]
+        rows = "".join(
+            f'<tr><th scope="row">{name}</th><td>{v["accuracy"]:.1%}</td><td>{v["brier"]:.4f}</td><td>{v["log_loss"]:.4f}</td></tr>'
+            for name, v in experiment["metrics"].items()
+        )
+        interval = experiment["tree_minus_linear"]
+        crossing = interval["lower"] <= 0 <= interval["upper"]
+        interpretation = (
+            "The interval crosses zero: the direction of the probability-loss difference is unresolved under this design."
+            if crossing
+            else "The interval excludes zero under this fixed-model, independent-row design; it does not include retraining uncertainty."
+        )
+        observation = ""
+        if (
+            experiment["metrics"]["tree"]["accuracy"] > experiment["metrics"]["linear"]["accuracy"]
+            and experiment["metrics"]["tree"]["log_loss"]
+            > experiment["metrics"]["linear"]["log_loss"]
+        ):
+            observation = "In this run the tree makes more correct class decisions, yet pays a larger log-loss penalty. Inspect its confident errors before declaring a winner."
+        panel = f'<aside class="measured-comparison"><p class="eyebrow">Measured during this build</p><h2>Same rows. Different answers.</h2><table><thead><tr><th>Model</th><th>Accuracy ↑</th><th>Brier ↓</th><th>Log loss ↓</th></tr></thead><tbody>{rows}</tbody></table><p>{observation}</p><p>Tree minus linear Brier: <strong>{interval["mean_difference"]:.4f}</strong>; paired 95% percentile interval <strong>[{interval["lower"]:.4f}, {interval["upper"]:.4f}]</strong>. {interpretation}</p><p class="fine">150 synthetic held-out rows · seed {experiment["seed"]} · commit {measured["commit"][:8]} · {measured["created_at"]}. <a href="data/evidence.json">Read the full evidence</a>.</p></aside>'
+        rendered = rendered.replace("</h1>", "</h1>" + panel, 1)
+    if target == "concepts.html":
+        rendered = rendered.replace(
+            '<div class="toc">',
+            '<div class="dictionary-tools"><label for="term-search">Find a term or related idea</label><input id="term-search" type="search" placeholder="Try: probability, leakage, gradient…"><output id="term-count" aria-live="polite"></output></div><div class="toc">',
+        )
+    (OUT / target).write_text(shell(source.split("/")[-1].replace("_", " "), rendered, page=target))
 
 paths = (
     subprocess.check_output(
@@ -195,15 +295,54 @@ for path in paths:
         + html.escape(data)
         + "</code></pre>"
     )
-    (OUT / page).write_text(shell(Path(path).name, content, "../"))
+    (OUT / page).write_text(
+        shell(
+            path,
+            content,
+            "../",
+            page=page,
+            description=f"{path}: {description}",
+            historical=path.startswith("docs/reference/") or path == "docs/original-model-atlas.md",
+        )
+    )
+# A server-rendered index makes every source continuation discoverable without JavaScript.
+index_content = "<h1>The source atlas</h1><p>Browse by purpose, then follow the file to its imports, definitions and full source.</p>"
+for area in sorted({f["area"] for f in catalog}):
+    index_content += "<h2>" + html.escape(area) + '</h2><ul class="source-directory">'
+    for f in catalog:
+        if f["area"] == area:
+            index_content += f'<li><a href="{f["page"]}">{html.escape(f["path"])}</a><span>{html.escape(f["status"])}</span></li>'
+    index_content += "</ul>"
+(OUT / "source-index.html").write_text(
+    shell("Source index", index_content, page="source-index.html")
+)
 for old_guide in ["ds-ml-guide.html", "pearlmind_animations.html"]:
-    shutil.copy(ROOT / old_guide, OUT / old_guide)
+    legacy = (ROOT / old_guide).read_text()
+    legacy_description = (
+        "Explore PearlMind’s earlier illustrated data-science guide, with links to the current executable lessons and source atlas."
+        if old_guide == "ds-ml-guide.html"
+        else "Explore PearlMind’s original animated mathematical concepts, alongside the current tested machine-learning walkthrough."
+    )
+    legacy = re.sub(r'<meta\b[^>]*name=[\'"]description[\'"][^>]*>', "", legacy, flags=re.I)
+    metadata = f'<meta name="description" content="{legacy_description}"><link rel="canonical" href="{BASE}{old_guide}"><meta property="og:image" content="{BASE}assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="assets/loopchii-cloud-icon-v7.svg">'
+    legacy = legacy.replace("</head>", metadata + "</head>")
+    legacy = re.sub(
+        r"(<body[^>]*>)",
+        r'\1<nav style="padding:1rem;background:#090e1c;color:#b8dded;text-align:center"><a style="color:inherit" href="index.html">PearlMind learning room</a> · <a style="color:inherit" href="guide.html">Current walkthrough</a> · <a style="color:inherit" href="concepts.html">Concept dictionary</a></nav>',
+        legacy,
+        count=1,
+    )
+    (OUT / old_guide).write_text(legacy)
 (OUT / "data/catalog.json").write_text(json.dumps(catalog, indent=2))
 (OUT / ".nojekyll").touch()
 (OUT / "robots.txt").write_text(
     "User-agent: *\nAllow: /\nSitemap: https://cazzy-aporbo.github.io/PearlMind-ML-Journey/sitemap.xml\n"
 )
-urls = ["", "guide.html", "readiness.html", "setup.html", "contracts.html"]
+urls = ["", *DOCS.values(), "source-index.html"] + [
+    f["page"]
+    for f in catalog
+    if f["path"].endswith(".py") and f["status"] in {"tested path", "core tests", "extended lesson"}
+]
 (OUT / "sitemap.xml").write_text(
     '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
     + "".join(
@@ -212,4 +351,6 @@ urls = ["", "guide.html", "readiness.html", "setup.html", "contracts.html"]
     )
     + "</urlset>"
 )
-print(f"Built {len(catalog)} file views and four connected guides.")
+print(
+    f"Built {len(catalog)} file views, {len(DOCS)} connected guides and a crawlable source index."
+)

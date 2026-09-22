@@ -14,3 +14,7 @@
 | Original HTML guides | Browser | Visual reference material | Historical reference; does not establish executable coverage of every architecture |
 
 File-level import and definition inventories are generated for the Pages source atlas. A syntax check is not a training run, and a shape test is not scientific validation. Check the displayed status before using a file as an example.
+
+## Statistical comparison
+
+`python -m pearlmind.lessons.comparison` creates 600 synthetic two-feature rows, reserves 150, and saves matched probabilities plus metrics under `outputs/comparison/`. Configurations are fixed; scaling uses training rows. The paired interval takes aligned one-dimensional outcomes and probabilities in [0,1], at least two rows and at least 100 resamples. It describes fixed-model test-row uncertainty under independence, not retraining or deployment uncertainty. [Method and worked example](COMPARISON.md).

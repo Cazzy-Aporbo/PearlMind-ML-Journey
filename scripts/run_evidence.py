@@ -9,6 +9,7 @@ from importlib.metadata import version
 from pearlmind.lessons.tabular import run as tabular
 from pearlmind.lessons.torch_lab import run as torch_lab
 from pearlmind.lessons.systems import run as systems
+from pearlmind.lessons.comparison import run as comparison
 
 root = Path(__file__).resolve().parents[1]
 report = {
@@ -23,6 +24,7 @@ report = {
     "tabular": tabular(root / "outputs/tabular"),
     "torch": torch_lab(root / "outputs/torch"),
     "systems": systems(root / "outputs/systems"),
+    "comparison": comparison(root / "outputs/comparison"),
 }
 (root / "outputs/evidence.json").write_text(json.dumps(report, indent=2, allow_nan=False))
 print("Measured outputs written to outputs/evidence.json")

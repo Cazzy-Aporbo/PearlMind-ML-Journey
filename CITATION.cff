@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Please cite the commit you used; experiments and teaching notes evolve."
+title: "PearlMind ML Journey"
+authors:
+  - family-names: Aporbo
+    given-names: Cazandra
+type: software
+repository-code: "https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey"
+url: "https://cazzy-aporbo.github.io/PearlMind-ML-Journey/"
+license: MIT
+keywords:
+  - machine learning education
+  - PyTorch
+  - statistical evaluation
+  - reproducible experiments

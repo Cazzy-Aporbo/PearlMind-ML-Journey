@@ -147,6 +147,14 @@ async function loadEvidence() {
       ],
       ["Neural · trainable parameters", d.torch.parameters],
       [
+        "Comparison · tree minus linear Brier",
+        d.comparison.tree_minus_linear.mean_difference.toFixed(4),
+      ],
+      [
+        "Paired 95% interval",
+        `${d.comparison.tree_minus_linear.lower.toFixed(4)} to ${d.comparison.tree_minus_linear.upper.toFixed(4)}`,
+      ],
+      [
         "Weighted gradient equality",
         d.systems.gradient_aggregation.matches_full_batch
           ? "verified"

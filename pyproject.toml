@@ -20,10 +20,10 @@ keywords = [
     "ethical-ai",
     "fairness",
     "pytorch",
-    "tensorflow",
-    "transformers",
-    "rag",
-    "production-ml"
+    "statistics",
+    "model-evaluation",
+    "reproducible-research",
+    "machine-learning-education"
 ]
 classifiers = [
     "Development Status :: 4 - Beta",

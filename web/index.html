@@ -35,6 +35,37 @@
       content="https://cazzy-aporbo.github.io/PearlMind-ML-Journey/assets/social-preview.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="author" content="Cazandra Aporbo" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="PearlMind — make a prediction, meet its consequences"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "PearlMind ML Journey",
+        "url": "https://cazzy-aporbo.github.io/PearlMind-ML-Journey/",
+        "description": "Interactive machine-learning lessons with runnable PyTorch, statistical model comparison and source-linked explanations.",
+        "author": {
+          "@type": "Person",
+          "name": "Cazandra Aporbo",
+          "url": "https://github.com/Cazzy-Aporbo"
+        },
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "learningResourceType": "Interactive tutorial",
+        "about": [
+          "Machine learning",
+          "Data science",
+          "Statistical evaluation",
+          "PyTorch",
+          "Distributed gradient aggregation"
+        ]
+      }
+    </script>
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
@@ -61,8 +92,9 @@
             between the two, there is a question worth learning how to ask.
           </p>
           <p>
-            I’m Cazandra. This is where I take machine learning apart, keep the
-            useful mistakes, and put the pieces back together with evidence.
+            Follow an observation into a tensor, a fitted model and a decision.
+            Keep the useful mistakes. Check what the result can actually
+            support.
           </p>
           <div class="actions">
             <a class="button" href="#experiments"
@@ -306,6 +338,37 @@
           >
         </div>
       </section>
+      <section id="connections" class="section connections">
+        <div class="section-heading">
+          <p class="eyebrow">Connect the vocabulary to the work</p>
+          <h2>From a word<br /><em>to a testable idea.</em></h2>
+          <p>A definition is useful when it changes what you do next.</p>
+        </div>
+        <div class="journey-grid">
+          <a href="concepts.html"
+            ><span class="index">01 / CONCEPT DICTIONARY</span>
+            <h3>Related words.<br />Different consequences.</h3>
+            <p>
+              Precision, recall, calibration, leakage: follow each term to its
+              calculation, a common confusion and the code.
+            </p>
+            <span class="arrow">↗</span></a
+          >
+          <a href="comparison.html"
+            ><span class="index">02 / STATISTICAL COMPARISON</span>
+            <h3>Make complexity<br />earn its place.</h3>
+            <p>
+              Compare a prior, a line and a tree on the same test rows. Inspect
+              the uncertainty around the difference.
+            </p>
+            <span class="arrow">↗</span></a
+          >
+        </div>
+        <div class="method-ribbon" aria-label="Comparison process">
+          <span>fixed question</span><i>→</i><span>matched observations</span
+          ><i>→</i><span>paired losses</span><i>→</i><span>uncertainty</span>
+        </div>
+      </section>
       <section id="evidence" class="section evidence">
         <div>
           <p class="eyebrow">The lab notebook</p>
@@ -324,7 +387,7 @@
       </section>
       <section id="atlas" class="section">
         <div class="section-heading">
-          <p class="eyebrow">Nothing lost / a clearer home</p>
+          <p class="eyebrow">Code / connections / context</p>
           <h2>The source atlas.</h2>
           <p>
             Open a file’s readable view, inspect its imports and definitions, or
@@ -339,6 +402,11 @@
             >Animated concepts ↗</a
           >. These retain their original scope; use the current walkthrough for
           tested commands.
+        </p>
+        <p class="fine">
+          <a class="source" href="source-index.html"
+            >Browse the complete source index →</a
+          >
         </p>
         <div class="atlas-tools">
           <label

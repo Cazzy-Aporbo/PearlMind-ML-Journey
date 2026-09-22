@@ -892,3 +892,105 @@ footer {
     font-size: 11px;
   }
 }
+
+/* Connected reading tools use the same palette as the experiment desks. */
+.dictionary-tools {
+  padding: 1.4rem;
+  margin: 2rem 0;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: linear-gradient(120deg, #20474433, #55376522);
+}
+.dictionary-tools label,
+.dictionary-tools output {
+  display: block;
+}
+.dictionary-tools input {
+  width: 100%;
+  margin: 0.6rem 0;
+}
+.document [hidden] {
+  display: none !important;
+}
+.document table {
+  display: block;
+  overflow-x: auto;
+}
+.source-directory {
+  padding: 0;
+  list-style: none;
+}
+.source-directory li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.source-directory a {
+  overflow-wrap: anywhere;
+}
+.source-directory span {
+  color: var(--mint);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+.method-ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1.2rem;
+  border-block: 1px solid var(--line);
+  color: var(--mint);
+}
+.method-ribbon i {
+  color: var(--rose);
+  animation: thought-flow 3s ease-in-out infinite;
+}
+@keyframes thought-flow {
+  50% {
+    opacity: 0.4;
+    transform: translateX(3px);
+  }
+}
+body.motion-off .method-ribbon i {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .method-ribbon i {
+    animation: none;
+  }
+}
+@media (max-width: 600px) {
+  .source-directory li {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+.dictionary-tools input {
+  color: var(--ink);
+  background: #0d1527;
+  border: 1px solid #8495bb55;
+  border-radius: 0.6rem;
+  padding: 0.8rem 1rem;
+}
+.toc > ul {
+  padding-left: 1.3rem;
+}
+
+.measured-comparison {
+  padding: clamp(1rem, 3vw, 2rem);
+  margin: 2rem 0;
+  border: 1px solid #9ce7d44d;
+  border-radius: 1.2rem 3rem 1.2rem 1.2rem;
+  background: linear-gradient(125deg, #20474433, #55376522);
+}
+.measured-comparison strong {
+  color: var(--mint);
+}
+.measured-comparison h2 {
+  margin-top: 0.5rem;
+}

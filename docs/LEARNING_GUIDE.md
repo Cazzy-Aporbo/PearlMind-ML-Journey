@@ -1,6 +1,6 @@
 # Make a prediction. Keep the evidence.
 
-A learning path by Cazandra Aporbo. You do not need to understand every file before beginning. Each stop below makes one connection: a question becomes data, data becomes a calculation, and the calculation meets a decision.
+You do not need to understand every file before beginning. Each stop below makes one connection: a question becomes data, data becomes a calculation, and the calculation meets a decision.
 
 ## Three doors into the same idea
 
@@ -82,6 +82,10 @@ Run `python -m pearlmind.lessons.systems`. Two workers hold two and three observ
 This is a **single-process mathematical simulation**. Real distributed training adds synchronization, network failures, collective communication, numerical differences and stragglers. Multiple local optimizer steps are not generally equivalent to one global step. Try unequal class distributions and stale weights as follow-up experiments.
 
 The same module contains a bounded tool-routing state machine. Read-only inspection can complete; publishing needs review; unsupported requests defer. It does not use an LLM or deploy anything. The lesson is about explicit authority and termination before adding a probabilistic planner.
+
+## 7. Compare the claim, not just the score
+
+Run `python -m pearlmind.lessons.comparison`, then follow the [paired comparison walkthrough](COMPARISON.md). It connects a prior baseline, a linear model and a shallow tree to held-out probability loss, uncertainty and independent verification from saved rows. The [concept dictionary](CONCEPTS.md) links the terminology back to these calculations and the original model atlas.
 
 ## Sources for the next question
 
