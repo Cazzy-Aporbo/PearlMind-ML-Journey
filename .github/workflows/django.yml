@@ -13,6 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: docker build -t pearlmind-learning .
       - run: docker run --rm pearlmind-learning python -c "from pearlmind.lessons.systems import gradient_demo; assert gradient_demo()['matches_full_batch']"
