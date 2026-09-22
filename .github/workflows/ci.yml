@@ -57,7 +57,7 @@ jobs:
             coverage_html_report/
             dist/
           retention-days: 14
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         if: matrix.python == '3.12' && github.event_name != 'pull_request'
         with:
           path: site
