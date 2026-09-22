@@ -1,0 +1,8 @@
+**/.git
+.venv
+outputs
+site
+models
+coverage_html_report
+__pycache__
+.env

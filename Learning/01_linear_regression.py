@@ -1,34 +1,7 @@
-"""
-Linear Regression: Where Every ML Journey Begins
-================================================
-Author: Cazandra Aporbo (becaziam@gmail.com)
-Date: January 23 2025
-
-When I first started learning machine learning, linear regression seemed almost
-too simple. Just fitting a line? But then I realized - this "simple" line is
-the foundation of everything. Neural networks? Just many lines with non-linearity.
-Deep learning? Composed linear transformations. Everything builds from here.
-
-What took me months to understand: it's not about the complexity of the model,
-it's about understanding WHY it works. Once you truly grasp how a simple line
-finds its way through data points, minimizing error, updating weights - you've
-understood the core of all machine learning.
-
-Mathematical Beauty:
-    y = β₀ + β₁x + ε
-    
-    Where:
-    - y is what we're trying to understand (the unknown)
-    - x is what we know (our clues)
-    - β₀, β₁ are the patterns we're learning (the relationship)
-    - ε is the humility to admit we can't explain everything (noise, chaos, life)
-
-Personal Production Notes:
-    After deploying my first models, I learned:
-    - Simple models fail in obvious ways (easier to debug)
-    - Complex models fail in mysterious ways (good luck at 3 AM)
-    - Linear regression is often "good enough" (and that's beautiful)
-    - Interpretability beats accuracy when stakes are high
+"""Linear regression from first principles.
+Input: a numeric feature matrix and a target vector. Output: fitted weights, predictions and a loss trace.
+Start by predicting the direction of one gradient step, then compare it with the plotted result. The coffee data is synthetic; it does not measure wellbeing.
+Author: Cazandra Aporbo
 """
 
 import numpy as np
@@ -95,8 +68,8 @@ class GentleLinearRegression:
         n_samples, n_features = X.shape
         
         # Initialize with small random values
-        # I learned the hard way: initializing with zeros = dead neurons later
-        self.weights = np.random.randn(n_features) * 0.01
+        # Zero initialization is valid for linear regression; we use a small seeded start.
+        self.weights = np.random.default_rng(42).normal(0, 0.01, n_features)
         self.bias = 0
         
         # The learning loop - where math becomes intelligence
@@ -142,7 +115,10 @@ class GentleLinearRegression:
         In production, when a stakeholder asks "why did the model decide this?",
         you better have an answer. This method is that answer.
         """
-        prediction = x_sample.dot(self.weights) + self.bias
+        x_sample = np.asarray(x_sample, dtype=float).reshape(-1)
+        if len(x_sample) != len(self.weights):
+            raise ValueError("One sample must match the trained feature count")
+        prediction = float(x_sample.dot(self.weights) + self.bias)
         
         print("\n--- Prediction Breakdown ---")
         print(f"Starting with bias: {self.bias:.4f}")
@@ -294,15 +270,15 @@ def main():
     4. Understand what happened
     5. Extract lessons for next time
     """
-    print("=" * 60)
+    print("—" * 40)
     print("LINEAR REGRESSION: The Foundation of Everything")
-    print("=" * 60)
+    print("—" * 40)
     print("\nPersonal note: If you understand this deeply, you understand")
-    print("50% of machine learning. The rest is variations on this theme.")
+    print("a reusable pattern: predict, measure an error, and update.")
     
     # Create our story dataset
     print("\nCreating dataset: Coffee vs Happiness")
-    print("(Based on actual personal data from my coffee journal)")
+    print("(Seeded synthetic observations for this lesson)")
     X, y = create_story_dataset()
     
     # Split with care - training vs testing is like practice vs game day
@@ -338,8 +314,8 @@ def main():
         print("The model memorized training data instead of learning patterns.")
         print("In production, this model would fail on new data.")
     else:
-        print("\nGood generalization! The model learned patterns, not memorized data.")
-        print("This is what we want in production - robust patterns.")
+        print("\nThis held-out split has a similar error to training; test other splits before drawing a broader conclusion.")
+        print("The observations are synthetic and do not establish deployment performance.")
     
     # Explain a prediction - interpretability matters
     print("\nLet's explain a specific prediction:")
@@ -352,7 +328,7 @@ def main():
     visualize_learning_journey(model, X_train, y_train, X_test, y_test)
     
     # Final thoughts - lessons learned the hard way
-    print("\n" + "=" * 60)
+    print("\n" + "—" * 40)
     print("KEY INSIGHTS (from my journey):")
     print("1. Linear regression assumes a straight-line relationship")
     print("   (Life rarely gives us straight lines)")
@@ -364,9 +340,9 @@ def main():
     print("   (Training accuracy lies, testing accuracy tells truth)")
     print("5. Understanding > Accuracy")
     print("   (A model you understand beats a black box every time)")
-    print("=" * 60)
+    print("—" * 40)
     print("\nNext step: When straight lines aren't enough...")
-    print("See: 02_decision_trees_to_forests.py")
+    print("See: 02_decision_trees_to_forest.py")
 
 
 if __name__ == "__main__":

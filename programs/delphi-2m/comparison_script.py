@@ -223,9 +223,9 @@ def print_comparison():
     
     comp = ModelComparison()
     
-    print("\n" + "="*80)
+    print("\n" + '—')
     print("COMPREHENSIVE COMPARISON: DELPHI-2M vs CAZZY APORBO")
-    print("="*80)
+    print('—')
     
     print("\n📊 ARCHITECTURAL COMPARISON")
     print("-"*80)
@@ -262,9 +262,9 @@ def print_comparison():
         for key, value in details.items():
             print(f"  {key}: {value}")
     
-    print("\n\n" + "="*80)
+    print("\n\n" + '—')
     print("SUMMARY")
-    print("="*80)
+    print('—')
     print("""
 Cazzy Aporbo represents a significant theoretical improvement over Delphi-2M,
 incorporating state-of-the-art deep learning innovations specifically adapted
@@ -295,7 +295,7 @@ validation and regulatory approval, eventually support clinical decision-making
 and population health management.
     """)
     
-    print("="*80)
+    print('—')
 
 if __name__ == "__main__":
     print_comparison()

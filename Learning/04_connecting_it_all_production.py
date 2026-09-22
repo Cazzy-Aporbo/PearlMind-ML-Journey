@@ -1,37 +1,6 @@
-"""
-Connecting It All: A Production ML System
-=========================================
-Author: Cazandra Aporbo (becaziam@gmail.com)
-Date: Feb 19, 2025
-
-After years of building models in isolation, I had an epiphany:
-Production ML isn't about having the best model. It's about having
-the right model at the right time. This file represents everything
-I wish I'd known when I deployed my first production system.
-
-The painful lessons that led here:
-- My first production model: 99% accurate, 10 second latency (unusable)
-- My second: Neural network for a linear problem (overengineered)
-- My third: No fallback, crashed on edge cases (3 AM wake-up call)
-- My fourth: Perfect model, no monitoring (silent degradation)
-
-Now I know: Production ML is 20% modeling, 80% engineering.
-
-What This System Represents:
-    An intelligent router that sends queries to the right model.
-    Simple problems get simple models (fast, interpretable).
-    Complex problems get complex models (when justified).
-    Everything has a fallback (because Murphy's Law is real).
-    Everything is monitored (what you don't measure, you can't fix).
-
-Hard-Won Production Wisdom:
-    - Latency matters more than accuracy (usually)
-    - Simple models fail in predictable ways (good)
-    - Complex models fail in mysterious ways (bad)
-    - Always have a fallback (always)
-    - Log everything (you'll thank yourself later)
-    - Monitor drift (models decay like fruit)
-    - Explainability isn't optional (regulators will ask)
+"""Model routing and monitoring simulation.
+This local demonstration explores timing, fallback and model selection. It is a teaching simulation, not a deployed production service. Inspect the assumptions before transferring a pattern into a real system.
+Author: Cazandra Aporbo
 """
 
 import numpy as np
@@ -72,7 +41,7 @@ class ModelComplexity(Enum):
     
     This enum represents months of learning when to use which model.
     The temptation is always to use the most complex model.
-    The reality is that 80% of problems are SIMPLE.
+    Begin with a simple baseline and justify added complexity through evaluation.
     """
     SIMPLE = "simple"       # Linear model territory
     MODERATE = "moderate"   # Trees shine here
@@ -434,7 +403,7 @@ class ModelRouter:
         df = pd.DataFrame(self.performance_history)
         
         print("\nPERFORMANCE REPORT")
-        print("=" * 60)
+        print("—" * 40)
         print("(This is what I check every morning with coffee)")
         
         # Routing distribution - are we using models as expected?
@@ -681,7 +650,7 @@ class ModelOrchestrator:
                    color=PALETTE["lavender"], alpha=0.7)
             ax3.set_xlabel("Model", fontsize=10)
             ax3.set_ylabel("Usage Count", fontsize=10)
-            ax3.set_xticklabels(model_usage.keys(), rotation=45, ha='right')
+            ax3.tick_params(axis='x', labelrotation=45)
         ax3.set_title("Model Usage Statistics\n(Which models are doing the heavy lifting?)", 
                      fontsize=12, color=PALETTE["dusk"])
         ax3.grid(True, alpha=0.3, axis='y')
@@ -729,7 +698,7 @@ def simulate_production_traffic():
     - Performance varies throughout the day
     """
     print("\nSimulating Production Traffic...")
-    print("=" * 60)
+    print("—" * 40)
     print("Creating realistic request distribution...")
     print("(Based on actual production patterns I've observed)")
     
@@ -823,9 +792,9 @@ def main():
     data science second. The best model that doesn't work in production
     is worse than a simple model that does.
     """
-    print("="*70)
+    print('—')
     print("CONNECTING IT ALL: Production ML System")
-    print("="*70)
+    print('—')
     print("\nWelcome to the final lesson of our journey.")
     print("\nThis system represents years of hard-won wisdom:")
     print("- Use the right tool for the job (not always the fanciest)")
@@ -839,7 +808,7 @@ def main():
     orchestrator = simulate_production_traffic()
     
     # Production insights
-    print("\n" + "="*70)
+    print("\n" + '—')
     print("PRODUCTION INSIGHTS (learned the hard way):")
     print("-" * 70)
     print("1. Not every problem needs deep learning")
@@ -861,9 +830,9 @@ def main():
     print("\n9. System design > model complexity")
     print("   A well-designed system with simple models beats")
     print("   a poor system with complex models")
-    print("\n10. Production ML is 20% modeling, 80% engineering")
+    print("\n10. Deployment requires data, monitoring and operations as well as modeling")
     print("    The model is the easy part")
-    print("="*70)
+    print('—')
     
     print("\nCongratulations! You've completed the ML journey:")
     print("   From fundamentals → production systems")

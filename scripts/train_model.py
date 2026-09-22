@@ -3,6 +3,7 @@ Complete training script with fairness audit.
 Save as: scripts/train_model.py
 """
 
+import json
 import sys
 import argparse
 from pathlib import Path
@@ -18,7 +19,7 @@ import seaborn as sns
 sys.path.append(str(Path(__file__).parent.parent / "src"))
 
 # Import our model
-from pearlmind.models.ensemble.xgboost_model import XGBoostModel
+from pearlmind.models.ensemble.xgboost_complete_model import XGBoostModel
 
 
 def create_biased_dataset(n_samples=5000, bias_strength=0.7):
@@ -88,7 +89,7 @@ def plot_fairness_results(audit_report, save_path=None):
     
     # Plot 2: Positive rates by group (Demographic Parity)
     if "by_group" in audit_report:
-        positive_rates = [audit_report["by_group"][g]["positive_rate"] for g in groups]
+        positive_rates = [audit_report["by_group"][g]["selection_rate"] for g in groups]
         
         ax = axes[0, 1]
         bars = ax.bar(groups, positive_rates, color=['#A8E6CF', '#FFE4F1'])
@@ -109,7 +110,7 @@ def plot_fairness_results(audit_report, save_path=None):
         
         for group in groups:
             metrics = audit_report["by_group"][group]
-            if "true_positive_rate" in metrics:
+            if metrics.get("true_positive_rate") is not None and metrics.get("false_positive_rate") is not None:
                 tpr_values.append(metrics["true_positive_rate"])
                 fpr_values.append(metrics["false_positive_rate"])
         
@@ -130,7 +131,7 @@ def plot_fairness_results(audit_report, save_path=None):
     # Plot 4: Fairness metrics summary
     if "fairness" in audit_report:
         ax = axes[1, 1]
-        metrics = audit_report["fairness"]
+        metrics = {key: value for key, value in audit_report["fairness"].items() if value is not None}
         metric_names = list(metrics.keys())
         metric_values = list(metrics.values())
         
@@ -163,11 +164,13 @@ def main():
                        help="Number of samples for synthetic data")
     parser.add_argument("--bias_strength", type=float, default=0.7, 
                        help="Bias strength (0-1) for synthetic data")
-    parser.add_argument("--save_model", type=str, default="models/xgboost_model.pkl",
+    parser.add_argument("--save_model", type=str, default="models/xgboost_model",
                        help="Path to save trained model")
     parser.add_argument("--save_plots", type=str, default="outputs/fairness_audit.png",
                        help="Path to save fairness plots")
     args = parser.parse_args()
+    np.random.seed(42)
+    Path(args.save_plots).parent.mkdir(parents=True, exist_ok=True)
     
     # Load or create dataset
     if args.dataset == "synthetic":
@@ -212,9 +215,9 @@ def main():
     X_test = scaler.transform(X_test)
     
     # Train model
-    print("\n" + "="*50)
+    print("\n" + '—')
     print("Training XGBoost Model with Fairness Auditing")
-    print("="*50)
+    print('—')
     
     model = XGBoostModel(
         n_estimators=100,
@@ -235,9 +238,9 @@ def main():
     )
     
     # Evaluate on test set
-    print("\n" + "="*50)
+    print("\n" + '—')
     print("Model Evaluation")
-    print("="*50)
+    print('—')
     
     # Get predictions
     y_pred = model.predict(X_test)
@@ -255,9 +258,9 @@ def main():
         print(f"  Feature {idx}: {importance[idx]:.4f}")
     
     # Fairness Audit
-    print("\n" + "="*50)
+    print("\n" + '—')
     print("Fairness Audit Report")
-    print("="*50)
+    print('—')
     
     audit_report = model.audit_fairness(
         X_test, y_test, 
@@ -267,9 +270,6 @@ def main():
     # Print overall metrics
     print("\nOverall Performance:")
     print(f"  Accuracy: {audit_report['overall']['accuracy']:.4f}")
-    print(f"  Precision: {audit_report['overall']['precision']:.4f}")
-    print(f"  Recall: {audit_report['overall']['recall']:.4f}")
-    print(f"  F1 Score: {audit_report['overall']['f1_score']:.4f}")
     if 'auc' in audit_report['overall']:
         print(f"  AUC: {audit_report['overall']['auc']:.4f}")
     
@@ -277,10 +277,10 @@ def main():
     if "by_group" in audit_report:
         print("\nPerformance by Sensitive Group:")
         for group_name, metrics in audit_report["by_group"].items():
-            print(f"\n  {group_name} (n={metrics['size']}):")
+            print(f"\n  {group_name} (n={metrics['count']}):")
             print(f"    Accuracy: {metrics['accuracy']:.4f}")
-            print(f"    Positive Rate: {metrics['positive_rate']:.4f}")
-            if 'true_positive_rate' in metrics:
+            print(f"    Positive Rate: {metrics['selection_rate']:.4f}")
+            if metrics.get('true_positive_rate') is not None and metrics.get('false_positive_rate') is not None:
                 print(f"    True Positive Rate: {metrics['true_positive_rate']:.4f}")
                 print(f"    False Positive Rate: {metrics['false_positive_rate']:.4f}")
     
@@ -288,22 +288,10 @@ def main():
     if "fairness" in audit_report:
         print("\nFairness Metrics:")
         for metric_name, value in audit_report["fairness"].items():
-            print(f"  {metric_name}: {value:.4f}")
+            print(f"  {metric_name}: {value if value is not None else 'undefined'}")
         
-        # Interpret results
-        print("\nFairness Interpretation:")
-        dp_diff = audit_report["fairness"].get("demographic_parity_diff", 0)
-        if dp_diff < 0.1:
-            print("  ✓ Good demographic parity (difference < 0.1)")
-        else:
-            print(f"  ⚠ Demographic parity difference is {dp_diff:.3f} (> 0.1)")
-        
-        eo_diff = audit_report["fairness"].get("equal_opportunity_diff", 0)
-        if eo_diff < 0.1:
-            print("  ✓ Good equal opportunity (difference < 0.1)")
-        else:
-            print(f"  ⚠ Equal opportunity difference is {eo_diff:.3f} (> 0.1)")
-    
+        print("These sample gaps describe observations, not a fairness or compliance certificate.")
+
     # Create visualizations
     print("\nCreating fairness visualizations...")
     Path(args.save_plots).parent.mkdir(parents=True, exist_ok=True)
@@ -313,10 +301,11 @@ def main():
     print(f"\nSaving model to {args.save_model}...")
     Path(args.save_model).parent.mkdir(parents=True, exist_ok=True)
     model.save(args.save_model)
+    Path(args.save_model).with_suffix(".preprocessing.json").write_text(json.dumps({"mean": scaler.mean_.tolist(), "scale": scaler.scale_.tolist()}))
     
-    print("\n" + "="*50)
+    print("\n" + '—')
     print("Training Complete!")
-    print("="*50)
+    print('—')
     print(f"Model saved to: {args.save_model}")
     print(f"Fairness plots saved to: {args.save_plots}")
     

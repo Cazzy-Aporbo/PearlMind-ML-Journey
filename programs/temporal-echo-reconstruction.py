@@ -1400,7 +1400,7 @@ class TemporalEchoReconstructionEngine:
         report = []
         
         report.append("TEMPORAL ECHO RECONSTRUCTION REPORT")
-        report.append("=" * 50)
+        report.append('—')
         
         # Sample information
         sample = results['sample']
@@ -1530,10 +1530,10 @@ if __name__ == "__main__":
     # Run the demonstration
     engine = demonstrate_temporal_echo_reconstruction()
     
-    print("\n" + "=" * 60)
+    print("\n" + '—')
     print("TEMPORAL ECHO RECONSTRUCTION ENGINE")
     print("A Paradigm Shift in Archaeological Science")
-    print("=" * 60)
+    print('—')
     print("\nThis system represents a theoretical breakthrough that could")
     print("revolutionize our understanding of human history by extracting")
     print("quantum-preserved information from archaeological materials.")

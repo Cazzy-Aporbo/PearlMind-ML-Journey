@@ -1620,10 +1620,10 @@ def demo_pearlmind_platform():
     5. Performance visualization
     """
     
-    print("\n" + "="*80)
+    print("\n" + '—')
     print("PearlMind ML Journey - Complete Platform Demo")
     print("Author: Cazandra Aporbo")
-    print("="*80 + "\n")
+    print('—' + "\n")
     
     # Generate synthetic dataset with realistic properties
     print("Generating synthetic dataset...")
@@ -1747,9 +1747,9 @@ def demo_pearlmind_platform():
     plt.xlabel('Predicted Label')
     plt.show()
     
-    print("\n" + "="*80)
+    print("\n" + '—')
     print("Demo complete!")
-    print("="*80)
+    print('—')
 
 
 if __name__ == "__main__":

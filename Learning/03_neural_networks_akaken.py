@@ -1,36 +1,6 @@
-"""
-Neural Networks: Where Math Meets Magic (But It's Still Just Math)
-==================================================================
-Author: Cazandra Aporbo (becaziam@gmail.com)
-Date: January 2025
-
-The moment I understood backpropagation, I literally couldn't sleep.
-Not from confusion - from excitement. Here was calculus, the chain rule
-I'd learned years ago, creating something that felt like intelligence.
-
-My neural network journey has been humbling:
-- Started thinking they were magic (they're not)
-- Tried to use them for everything (terrible idea)  
-- Watched them fail spectacularly (vanishing gradients are real)
-- Finally understood when to use them (and when not to)
-
-The biggest revelation: Neural networks are just function composition.
-Layer after layer of simple operations, creating complexity. It's like
-building a symphony from individual notes - simple units, infinite possibilities.
-
-What Makes Neural Networks Special (and Frustrating):
-    - Universal approximators (can learn any function... theoretically)
-    - Feature learning (they create their own representations)
-    - Composition (simple operations create complexity)
-    - Black boxes (good luck explaining that prediction to your boss)
-
-Hard-Won Production Wisdom:
-    - They need LOTS of data (I mean LOTS)
-    - Initialization matters more than you think (Xavier/He for life)
-    - Batch norm is not optional for deep networks
-    - The "magic" is really just matrix multiplication
-    - When they work, they REALLY work
-    - When they fail, good luck debugging
+"""Neural networks with explicit training and validation.
+Follow a two-dimensional input through hidden activations, logits and cross entropy. Gradients connect each weight to the loss; they do not explain whether the task itself is appropriate.
+Author: Cazandra Aporbo
 """
 
 import numpy as np
@@ -535,9 +505,9 @@ def main():
     
     Each step builds on the previous, creating something greater.
     """
-    print("="*70)
+    print('—')
     print("NEURAL NETWORKS: From Simple Units to Complex Intelligence")
-    print("="*70)
+    print('—')
     print("\nPersonal journey: It took me 6 months to truly understand")
     print("backpropagation. Then everything clicked. Neural networks")
     print("aren't magic - they're calculus and linear algebra having a party.")
@@ -623,29 +593,29 @@ def main():
     visualize_decision_boundary(model, X_test, y_test)
     
     # Key insights
-    print("\n" + "="*70)
+    print("\n" + '—')
     print("KEY INSIGHTS FROM MY NEURAL NETWORK JOURNEY:")
     print("-" * 70)
     print("1. Neural networks are universal function approximators")
-    print("   (Given enough neurons, they can learn any pattern)")
+    print("   (Approximation results require assumptions and do not guarantee learnability or generalization)")
     print("2. Depth allows learning hierarchical representations")
     print("   (Each layer builds on the previous)")
     print("3. Non-linearity is essential")
     print("   (Without it, it's just expensive linear regression)")
     print("4. Initialization matters")
     print("   (Bad init = vanishing/exploding gradients)")
-    print("5. Regularization prevents memorization")
+    print("5. Regularization can reduce overfitting")
     print("   (Dropout, weight decay, early stopping)")
     print("6. The 'black box' problem is real")
     print("   (Good luck explaining that 10-layer network to your manager)")
     print("7. More parameters != better performance")
     print("   (Overparameterization can hurt generalization)")
     print("8. They need lots of data")
-    print("   (Rule of thumb: 10x parameters as samples, minimum)")
+    print("   (Data needs depend on noise, task, architecture and evaluation; there is no universal sample-to-parameter ratio)")
     print("9. But when they work, they're incredible")
-    print("   (Nothing beats a well-trained neural network on complex patterns)")
-    print("="*70)
-    print("\nNext step: Bringing it all together in production...")
+    print("   (Compare against simpler baselines under the same evaluation design)")
+    print('—')
+    print("\nNext step: Exploring routing and monitoring in a local simulation...")
     print("See: 04_connecting_it_all_production.py")
 
 

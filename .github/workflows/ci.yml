@@ -1,50 +1,77 @@
-name: CI Pipeline
-
+name: Tests and learning site
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
     branches: [main]
-
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: learning-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  test:
+  verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.10", "3.11"]
-    
+        python: ["3.11", "3.12"]
+    env:
+      MPLBACKEND: Agg
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
-    
-    - name: Install dependencies
-      run: |
-        pip install -e ".[dev]"
-    
-    - name: Run tests
-      run: |
-        pytest tests/ --cov=pearlmind --cov-report=xml
-    
-    - name: Run fairness audit
-      run: |
-        python scripts/fairness_audit.py --model baseline
-    
-    - name: Upload coverage
-      uses: codecov/codecov-action@v3
-
-  docker:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Install learning environment
+        run: |
+          python -m pip install "torch>=2.6,<3" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e ".[ci,api,learning]"
+      - name: Source syntax and behavioral tests
+        run: |
+          python scripts/check_source.py
+          pytest
+      - name: Run experiments and build the learning site
+        run: |
+          python scripts/run_evidence.py
+          python scripts/build_site.py
+          python scripts/check_site.py
+      - name: Build and verify an installed wheel
+        run: |
+          python -m build
+          python -m venv /tmp/pearlmind-wheel
+          /tmp/pearlmind-wheel/bin/pip install dist/*.whl
+          cd /tmp
+          /tmp/pearlmind-wheel/bin/python -c "from pearlmind.models import XGBoostModel; from pearlmind.evaluation import FairnessAuditor; from pearlmind.lessons.systems import gradient_demo; assert gradient_demo()['matches_full_batch']"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: evidence-python-${{ matrix.python }}
+          path: |
+            outputs/
+            coverage.xml
+            coverage_html_report/
+            dist/
+          retention-days: 14
+      - uses: actions/upload-pages-artifact@v3
+        if: matrix.python == '3.12' && github.event_name != 'pull_request'
+        with:
+          path: site
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: verify
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Build Docker image
-      run: |
-        docker build -t pearlmind:latest .
-    
-    - name: Run Docker tests
-      run: |
-        docker run pearlmind:latest pytest tests/
+      - name: Deploy the verified learning site
+        id: deployment
+        uses: actions/deploy-pages@v4

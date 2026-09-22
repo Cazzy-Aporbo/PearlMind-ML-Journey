@@ -443,9 +443,9 @@ class CazzyTrainer:
         best_val_loss = float('inf')
         
         for epoch in range(1, num_epochs + 1):
-            print(f"\n{'='*50}")
+            print(f"\n{'—'}")
             print(f"Epoch {epoch}/{num_epochs}")
-            print('='*50)
+            print('—')
             
             # Training
             train_loss = self.train_epoch(train_loader, epoch)

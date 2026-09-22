@@ -25,18 +25,18 @@ class Ψ(nn.Module):
 class ℵ(nn.Module):
     def __init__(self, cardinality: int = 512):
         super().__init__()
-        self.א₀ = nn.Parameter(torch.randn(cardinality) * 0.1)
-        self.א₁ = nn.Parameter(torch.randn(cardinality, cardinality) * 0.01)
-        self.א₂ = nn.Parameter(torch.randn(cardinality, cardinality, cardinality) * 0.001)
+        self.aleph_0 = nn.Parameter(torch.randn(cardinality) * 0.1)
+        self.aleph_1 = nn.Parameter(torch.randn(cardinality, cardinality) * 0.01)
+        self.aleph_2 = nn.Parameter(torch.randn(cardinality, cardinality, cardinality) * 0.001)
         self.continuum = nn.Linear(cardinality, cardinality * 2)
         
     def forward(self, x: torch.Tensor, depth: int = 0) -> torch.Tensor:
         if depth > 3:
             return x
         
-        aleph_null = x + self.א₀
-        aleph_one = torch.matmul(aleph_null, self.א₁)
-        aleph_two = torch.einsum('bti,ijk->btjk', aleph_one, self.א₂).mean(dim=-1)
+        aleph_null = x + self.aleph_0
+        aleph_one = torch.matmul(aleph_null, self.aleph_1)
+        aleph_two = torch.einsum('bti,ijk->btjk', aleph_one, self.aleph_2).mean(dim=-1)
         
         continuum_hypothesis = self.continuum(aleph_two)
         real, imaginary = continuum_hypothesis.chunk(2, dim=-1)
@@ -63,7 +63,7 @@ class 〇(nn.Module):
         
         return existence * (1 - torch.sigmoid(void_interaction)) + nothingness * torch.sigmoid(void_interaction)
 
-class ∞(nn.Module):
+class InfinityLayer(nn.Module):
     def __init__(self, dimensions: int = 512):
         super().__init__()
         self.infinity_kernel = nn.Parameter(torch.randn(dimensions, dimensions))
@@ -71,7 +71,7 @@ class ∞(nn.Module):
             nn.Linear(dimensions, dimensions) for _ in range(8)
         ])
         
-    def forward(self, finite: torch.Tensor, iterations: int = ∞ if isinstance(∞, int) else 100) -> torch.Tensor:
+    def forward(self, finite: torch.Tensor, iterations: int = InfinityLayer if isinstance(InfinityLayer, int) else 100) -> torch.Tensor:
         x = finite
         convergence = 0
         
@@ -90,7 +90,7 @@ class ∞(nn.Module):
                 
         return x + torch.log(torch.abs(x) + 1) * finite
 
-class ⊗(nn.Module):
+class TensorProduct(nn.Module):
     def __init__(self, left_dim: int = 512, right_dim: int = 512):
         super().__init__()
         self.left_dim = left_dim
@@ -131,7 +131,7 @@ class ℂ(nn.Module):
         
         return cauchy_riemann.real + torch.sin(cauchy_riemann.imag)
 
-class ∇(nn.Module):
+class GradientField(nn.Module):
     def __init__(self, manifold_dim: int = 512, coord_charts: int = 7):
         super().__init__()
         self.manifold_dim = manifold_dim
@@ -184,7 +184,7 @@ class ℘(nn.Module):
         
         return lattice + wp * 0.1
 
-class ⟨BRA(nn.Module):
+class BraProjection(nn.Module):
     def __init__(self, hilbert_dim: int = 512):
         super().__init__()
         self.hilbert_dim = hilbert_dim
@@ -195,7 +195,7 @@ class ⟨BRA(nn.Module):
         bra = bra.conj() if torch.is_complex(bra) else bra
         return bra
         
-class KET⟩(nn.Module):
+class KetProjection(nn.Module):
     def __init__(self, hilbert_dim: int = 512):
         super().__init__()
         self.hilbert_dim = hilbert_dim
@@ -232,7 +232,7 @@ class Δt(nn.Module):
             
         return causal_evolution + events * dt
 
-class ⊕(nn.Module):
+class DirectSum(nn.Module):
     def __init__(self, space_dims: List[int] = [512, 256, 128]):
         super().__init__()
         self.spaces = nn.ModuleList([
@@ -263,15 +263,15 @@ class Ξ(nn.Module):
                 'psi': Ψ(512),
                 'aleph': ℵ(512),
                 'void': 〇(512),
-                'infinity': ∞(512),
-                'tensor': ⊗(512, 512),
+                'infinity': InfinityLayer(512),
+                'tensor': TensorProduct(512, 512),
                 'complex': ℂ(512),
-                'gradient': ∇(512),
+                'gradient': GradientField(512),
                 'weierstrass': ℘(512),
-                'bra': ⟨BRA(512),
-                'ket': KET⟩(512),
+                'bra': BraProjection(512),
+                'ket': KetProjection(512),
                 'delta_t': Δt(512),
-                'direct_sum': ⊕([512, 256, 128])
+                'direct_sum': DirectSum([512, 256, 128])
             }) for _ in range(cascade_depth)
         ])
         

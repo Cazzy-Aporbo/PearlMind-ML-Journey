@@ -1,29 +1,18 @@
-name: Django CI
-
+name: Learning container
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
+    paths: [Dockerfile, .devcontainer/**, pyproject.toml, src/**, .github/workflows/django.yml]
   pull_request:
-    branches: [ "main" ]
-
+    paths: [Dockerfile, .devcontainer/**, pyproject.toml, src/**, .github/workflows/django.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
 jobs:
-  build:
+  container:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.8, 3.9, 3.10]  # Removed 3.7, added 3.10
-
+    timeout-minutes: 15
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4       # Use v4 for latest features/support
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Run Tests
-      run: |
-        python manage.py test
+      - uses: actions/checkout@v4
+      - run: docker build -t pearlmind-learning .
+      - run: docker run --rm pearlmind-learning python -c "from pearlmind.lessons.systems import gradient_demo; assert gradient_demo()['matches_full_batch']"

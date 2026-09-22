@@ -1,63 +1,65 @@
-# src/pearlmind/deployment/api.py
-"""FastAPI service for model serving."""
+"""Local teaching API: bounded numeric inputs, real labels required for an audit."""
 
-from typing import Dict, List, Optional
+from contextlib import asynccontextmanager
+import os
 import numpy as np
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-import uvicorn
-
+from pydantic import BaseModel, Field, ConfigDict
 from pearlmind.models import load_model
-from pearlmind.evaluation import FairnessAuditor
 
-app = FastAPI(title="PearlMind ML API", version="2.0.0")
-
-# Global model registry
-MODELS = {}
 
 class PredictionRequest(BaseModel):
-    features: List[List[float]]
-    model_name: str = "default"
+    model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
+    features: list[list[float]] = Field(min_length=1, max_length=1000)
     include_fairness: bool = False
-    sensitive_features: Optional[List[int]] = None
+    labels: list[int] | None = None
+    sensitive_features: list[str] | None = None
 
-class PredictionResponse(BaseModel):
-    predictions: List[float]
-    probabilities: Optional[List[List[float]]]
-    fairness_metrics: Optional[Dict]
-    model_version: str
 
-@app.on_event("startup")
-async def load_models():
-    """Load models on startup."""
-    MODELS["default"] = load_model("models/production/xgboost_v2.pkl")
+def create_app(model_path=None):
+    @asynccontextmanager
+    async def lifespan(app):
+        path = model_path or os.environ.get("PEARLMIND_MODEL_PATH")
+        app.state.model = load_model(path) if path else None
+        yield
 
-@app.post("/predict", response_model=PredictionResponse)
-async def predict(request: PredictionRequest):
-    """Make predictions with optional fairness audit."""
-    
-    if request.model_name not in MODELS:
-        raise HTTPException(status_code=404, detail="Model not found")
-    
-    model = MODELS[request.model_name]
-    X = np.array(request.features)
-    
-    predictions = model.predict(X)
-    probabilities = model.predict_proba(X).tolist()
-    
-    fairness_metrics = None
-    if request.include_fairness and request.sensitive_features:
-        fairness_metrics = model.audit_fairness(
-            X, predictions, request.sensitive_features
-        )
-    
-    return PredictionResponse(
-        predictions=predictions.tolist(),
-        probabilities=probabilities,
-        fairness_metrics=fairness_metrics,
-        model_version=model.version
-    )
+    app = FastAPI(title="PearlMind local teaching API", lifespan=lifespan)
 
-@app.get("/health")
-async def health():
-    return {"status": "healthy", "models_loaded": list(MODELS.keys())}
+    @app.get("/health")
+    def health():
+        loaded = app.state.model is not None
+        if not loaded:
+            raise HTTPException(503, "No model configured; train and set PEARLMIND_MODEL_PATH")
+        return {"status": "ready", "model_version": app.state.model.version}
+
+    @app.post("/predict")
+    def predict(request: PredictionRequest):
+        model = app.state.model
+        if model is None:
+            raise HTTPException(503, "No model loaded")
+        try:
+            X = np.asarray(request.features, dtype=float)
+            if X.ndim != 2 or X.shape[1] != model._model.n_features_in_ or not np.isfinite(X).all():
+                raise ValueError(
+                    "Feature matrix must be finite and match the trained feature count"
+                )
+            metrics = None
+            if request.include_fairness:
+                if request.labels is None or request.sensitive_features is None:
+                    raise ValueError(
+                        "Audit requires observed labels and group labels; predictions are not ground truth"
+                    )
+                metrics = model.audit_fairness(X, request.labels, request.sensitive_features)
+            return {
+                "predictions": model.predict(X).tolist(),
+                "probabilities": model.predict_proba(X).tolist(),
+                "fairness_metrics": metrics,
+                "model_version": model.version,
+            }
+        except ValueError as exc:
+            raise HTTPException(422, str(exc)) from exc
+
+    return app
+
+
+app = create_app()

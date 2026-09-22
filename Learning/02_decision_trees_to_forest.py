@@ -1,36 +1,6 @@
-"""
-From Single Trees to Random Forests: When Linear Isn't Enough
-=============================================================
-Author: Cazandra Aporbo (becaziam@gmail.com)
-Date: Feb 10, 2025
-
-After months of trying to force linear models to work on non-linear problems
-(and failing spectacularly), I discovered decision trees. The moment I understood
-them, I felt like I'd been trying to paint with one color and suddenly discovered
-the entire palette.
-
-My journey with trees:
-- Started with single decision trees (overfit everything)
-- Discovered random forests (wisdom of crowds)
-- Mastered gradient boosting (learning from mistakes)
-- Learned when NOT to use them (interpretability matters)
-
-The humbling realization: Trees think like humans do. "If this, then that."
-No complex math, no assumptions about distributions, just simple questions
-leading to answers. Yet from this simplicity emerges remarkable power.
-
-Why Trees Changed Everything for Me:
-    - They handle non-linearity naturally (life isn't linear)
-    - No scaling needed (trees don't care if age is 0-100 or salary is 0-1M)
-    - Feature interactions for free (they find them automatically)
-    - Can actually explain decisions (try that with a neural network)
-
-Hard-Learned Production Lessons:
-    - Single trees overfit like crazy (learned this in my first production model)
-    - Random forests are embarrassingly parallel (use all those cores)
-    - Feature importance can lie (especially with correlated features)
-    - Memory usage grows fast (each tree stores the training data structure)
-    - But for tabular data? Often unbeatable.
+"""Decision trees and forests.
+A split partitions observations; an ensemble combines several partitions. Compare held-out errors as depth changes. Feature importance describes this fitted model, not a causal effect.
+Author: Cazandra Aporbo
 """
 
 import numpy as np
@@ -307,9 +277,9 @@ def compare_model_evolution(X_train, y_train, X_test, y_test, feature_names):
     """
     results = {}
     
-    print("\n" + "="*60)
+    print("\n" + '—')
     print("MODEL EVOLUTION: My Journey from Simple to Sophisticated")
-    print("="*60)
+    print('—')
     
     # 1. Single Decision Tree - My first non-linear model
     print("\n1. SINGLE DECISION TREE (depth=3)")
@@ -497,9 +467,9 @@ def main():
     got drunk on complexity with deep trees, found balance with forests,
     and reached sophistication with boosting. Each step was necessary.
     """
-    print("="*70)
+    print('—')
     print("FROM TREES TO FORESTS: My Non-Linear Awakening")
-    print("="*70)
+    print('—')
     print("\nPersonal story: I spent 3 months trying to make linear models")
     print("work on customer churn data. Trees solved it in 30 minutes.")
     print("Sometimes the problem isn't you - it's the tool.")
@@ -526,9 +496,9 @@ def main():
     )
     
     # Explain a single prediction
-    print("\n" + "="*60)
+    print("\n" + '—')
     print("EXPLAINABILITY DEMONSTRATION")
-    print("="*60)
+    print('—')
     print("This is why I love trees - I can explain every decision.")
     
     sample_idx = 0
@@ -545,23 +515,23 @@ def main():
     
     # Visualize comparisons
     print("\nGenerating visualizations...")
-    print("(These plots show why ensemble methods dominate competitions)")
+    print("(These plots compare the fitted models on this synthetic task)")
     visualize_model_comparison(results, X_test, y_test, feature_names)
     
     # Lessons learned
-    print("\n" + "="*60)
+    print("\n" + '—')
     print("LESSONS FROM THE FOREST (learned through trial and error):")
     print("1. Single trees are glass cannons - powerful but fragile")
-    print("2. Deep trees memorize, shallow trees generalize")
+    print("2. Depth trades flexibility against variance; validate it for your data")
     print("3. Random forests are my Swiss Army knife - always solid")
-    print("4. Gradient boosting wins Kaggle (but needs babysitting)")
+    print("4. Gradient boosting is a strong tabular baseline, with tuning and leakage risks")
     print("5. Feature importance lies sometimes (validate by removal)")
     print("6. Trees find interactions linear models miss")
     print("7. No scaling needed = one less thing to mess up")
     print("8. But trees can't extrapolate (predictions are bounded by training data)")
-    print("="*60)
+    print('—')
     print("\nNext step: When even trees aren't enough...")
-    print("See: 03_neural_networks_awakening.py")
+    print("See: 03_neural_networks_akaken.py")
 
 
 if __name__ == "__main__":

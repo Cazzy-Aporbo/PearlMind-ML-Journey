@@ -3,6 +3,7 @@
 
 from pathlib import Path
 import pandas as pd
+import numpy as np
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 
@@ -23,7 +24,7 @@ def main():
     )
     
     # Create synthetic sensitive attribute
-    sensitive_attr = np.random.choice([0, 1], size=len(y), p=[0.3, 0.7])
+    sensitive_attr = np.random.default_rng(42).choice([0, 1], size=len(y), p=[0.3, 0.7])
     
     # Split data
     X_train, X_test, y_train, y_test, s_train, s_test = train_test_split(

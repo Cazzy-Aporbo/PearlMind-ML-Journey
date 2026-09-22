@@ -681,7 +681,7 @@ def main():
     """Main demonstration script"""
     
     print("Cazzy Aporbo Model - Advanced Health Trajectory Prediction")
-    print("="*60)
+    print('—')
     
     # Load model
     print("\nLoading trained model...")

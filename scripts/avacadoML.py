@@ -179,9 +179,9 @@ class AvocadoMLGame:
         self.last_played_date = None
         
     def start_game(self):
-        print("=" * 70)
+        print('—')
         print("    AVOCADO ML: THE NEURAL HARVEST")
-        print("=" * 70)
+        print('—')
         print("\nWelcome to the world's first AI-powered avocado farming simulator!")
         print("Train machine learning models to optimize your avocado empire!")
         print("\nUnique Features:")

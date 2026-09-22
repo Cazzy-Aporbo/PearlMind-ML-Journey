@@ -158,9 +158,9 @@ class MLForgeGame:
         }
         
     def start_game(self):
-        print("=" * 70)
+        print('—')
         print("    WELCOME TO MLFORGE: THE DATA SCIENTIST'S ODYSSEY")
-        print("=" * 70)
+        print('—')
         print("\nIn a world where data holds magical power, you are a Data Mage")
         print("Train AI creatures, explore data dungeons, and master machine learning!")
         print("\nUnlike other ML games that focus on concepts, MLForge lets you:")
@@ -196,8 +196,8 @@ class MLForgeGame:
         self.save_game()
     
     def tutorial(self):
-        print("\n" + "=" * 50)
+        print("\n" + '—')
         print("    TUTORIAL: YOUR FIRST DATA DUNGEON")
-        print("=" * 50)
+        print('—')
         
         print("\nA simple classification dungeon has appeared!")

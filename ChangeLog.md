@@ -1,3 +1,13 @@
+# September 2026 — learning room and executable foundations
+
+- Repaired missing package modules, discovery and the local CLI/API path.
+- Added seeded tabular, PyTorch and systems experiments with retained evidence.
+- Corrected overlapping-window text validation, prompt handling and tied embedding initialization.
+- Kept earlier material, with mixed-language scaffolding and obsolete placeholder implementations archived as references.
+- Added the searchable Pages atlas, interactive mathematics, explicit contracts and teaching notes.
+- Replaced unrelated Django/missing-script workflow steps with real tests, packaging, container and Pages checks.
+- Core validation and syntax checks do not certify every extended research model. See `docs/READINESS.md`.
+
 <div align="center">
 
 <!-- Sophisticated animated header -->
