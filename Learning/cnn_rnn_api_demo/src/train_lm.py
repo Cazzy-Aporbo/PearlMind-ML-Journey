@@ -163,7 +163,7 @@ def train(args):
         if val_loss < best_val:
             best_val = val_loss
             # Save retained model
-            ts = datetime.datetime.now().strftime("v%Y-%m-%d_%H-%M-%S")
+            ts = datetime.datetime.now().strftime("v%Y-%m-%d_%H-%M-%S-%f")
             run_dir = os.path.join(args.models_root, args.model, ts)
             meta = {"vocab": tokenizer.itos}
             save_retained(run_dir, model, tokenizer_meta=meta, score=val_loss, args=args)

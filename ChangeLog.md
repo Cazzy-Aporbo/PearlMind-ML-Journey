@@ -6,6 +6,7 @@
 - Kept earlier material, with mixed-language scaffolding and obsolete placeholder implementations archived as references.
 - Added the searchable Pages atlas, interactive mathematics, explicit contracts and teaching notes.
 - Replaced unrelated Django/missing-script workflow steps with real tests, packaging, container and Pages checks.
+- Repaired health-study graph attention dimensions, causal masking and unsafe forward-pass memory writes; added synthetic shape/causality tests. Replaced unmeasured improvement claims with a runnable inspection, preserving the earlier comparison as historical material.
 - Core validation and syntax checks do not certify every extended research model. See `docs/READINESS.md`.
 
 <div align="center">

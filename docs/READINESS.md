@@ -22,7 +22,7 @@ PearlMind is an educational repository. “It runs” is a beginning, not a depl
 
 **Character LSTM / TCN:** next-character modeling on a local corpus. Data source, rights and representativeness must be reviewed for any replacement corpus. The bundled corpus supports teaching, not a general-purpose language product. Sampling is stochastic; generated text can be incoherent or unsuitable.
 
-**Experimental health, temporal and quantum-themed studies:** preserved as work to examine and challenge. Names and mathematical imagery are not evidence of biological validity, quantum advantage, forecasting accuracy or clinical utility. The file atlas marks these as extended studies; current CI does not train or validate every such model.
+**Experimental health, temporal and quantum-themed studies:** preserved as work to examine and challenge. Names and mathematical imagery are not evidence of biological validity, quantum advantage, forecasting accuracy or clinical utility. The file atlas marks these as extended studies; current CI does not train or validate every such model. The health-sequence prototype now has synthetic forward/backward, finite-output, causality and state-isolation tests; those tests are explicitly not clinical evidence.
 
 ## Compute, cost and growth
 

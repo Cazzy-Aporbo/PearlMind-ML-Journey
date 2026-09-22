@@ -1,13 +1,385 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PearlMind — learn machine learning by changing something</title><meta name="description" content="Cazandra Aporbo’s interactive machine-learning notebook: runnable PyTorch, tree models, language experiments, evaluation and systems reasoning. Follow inputs to measured outputs."><link rel="canonical" href="https://cazzy-aporbo.github.io/PearlMind-ML-Journey/"><link rel="icon" href="assets/loopchii-cloud-icon-v7.svg" type="image/svg+xml"><meta property="og:title" content="PearlMind · Make a prediction. Meet its consequences."><meta property="og:description" content="A learning room by Cazandra Aporbo. Explore the mathematics, run the code, and question the result."><meta property="og:type" content="website"><meta property="og:url" content="https://cazzy-aporbo.github.io/PearlMind-ML-Journey/"><meta property="og:image" content="https://cazzy-aporbo.github.io/PearlMind-ML-Journey/assets/social-preview.png"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="style.css"><script src="app.js" defer></script></head>
-<body><a class="skip" href="#main">Skip to experiments</a><header class="nav"><a class="wordmark" href="#">PearlMind<span>by Cazandra Aporbo</span></a><nav aria-label="Main"><a href="#experiments">Experiment</a><a href="#journeys">Learn</a><a href="#atlas">Source atlas</a><a href="https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey">GitHub ↗</a></nav><button id="motion" aria-pressed="false">Pause motion</button></header>
-<main id="main"><section class="hero"><div class="hero-copy"><p class="eyebrow">An open notebook / a living learning room</p><h1>Make a prediction.<br>Meet its <em>consequences.</em></h1><p class="lede">A number becomes a decision. A decision touches a life. Somewhere between the two, there is a question worth learning how to ask.</p><p>I’m Cazandra. This is where I take machine learning apart, keep the useful mistakes, and put the pieces back together with evidence.</p><div class="actions"><a class="button" href="#experiments">Change something. See what happens <span>↗</span></a><a class="quiet" href="guide.html">Start with the walkthrough →</a></div><p class="fine">No account. No API key. Curiosity is a sufficient prerequisite.</p></div><div class="orbital" aria-hidden="true"><div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div><div class="pearl"></div><span class="satellite s1"></span><span class="satellite s2"></span><span class="orb-label l1">observation</span><span class="orb-label l2">evidence</span><span class="orb-label l3">consequence</span><div class="orb-caption">a little uncertainty<br><i>is a useful beginning.</i></div></div></section>
-<div class="ribbon"><span>01 / Follow the inputs</span><span>02 / Touch the mathematics</span><span>03 / Inspect the evidence</span><span>04 / Ask a better question</span></div>
-<section id="experiments" class="section"><div class="section-heading"><p class="eyebrow">The experiment desks</p><h2>Less watching.<br><em>More finding out.</em></h2><p>These are deliberately small worlds. You can see every assumption, change one, and watch the result answer back.</p></div>
-<article id="gradient" class="desk"><div class="desk-copy"><span class="index">01 / OPTIMIZATION</span><h3>A wrong answer,<br><em>moving in the right direction.</em></h3><p>Teach a line to predict twice its input. A learning rate is the size of its next step. Too timid? Slow progress. Too bold? A rather educational escape.</p><label for="rate">Learning rate <output id="rate-value">0.05</output></label><input id="rate" type="range" min="0.01" max="0.30" step="0.01" value="0.05"><div class="actions"><button class="button" id="step">Take one step ↗</button><button class="quiet" id="reset">Start again</button></div><a class="source" href="guide.html#1-a-line-learns-a-slope">Read the derivative →</a></div><div class="experiment"><svg id="loss-chart" viewBox="0 0 500 310" role="img" aria-label="Quadratic loss curve. The current weight is marked with a pearl."><defs><linearGradient id="curve-gradient"><stop stop-color="#8aeee1"/><stop offset="1" stop-color="#f0b9d5"/></linearGradient></defs><path d="M40 265H475 M40 265V20" class="axis"/><path id="loss-curve" class="curve"/><path id="trace" class="trace"/><circle id="weight-dot" r="8" fill="#f6d5a5"/><text x="390" y="298" class="chart-text">weight w →</text><text x="12" y="16" class="chart-text">loss</text></svg><div class="readouts" aria-live="polite"><span>weight <b id="weight">0.000</b></span><span>loss <b id="loss">18.667</b></span><span>step <b id="iteration">0</b></span></div><p class="fine" id="gradient-note">Synthetic points: (1,2), (2,4), (3,6). Model: ŷ = wx.</p></div></article>
-<article id="threshold" class="desk reverse"><div class="desk-copy"><span class="index">02 / EVALUATION</span><h3>The score is not<br><em>the decision.</em></h3><p>Twelve synthetic observations. One threshold. Move it and see which mistakes change places. The labels stay visible; there is nowhere for a flattering average to hide.</p><label for="cutoff">Decision threshold <output id="cutoff-value">0.50</output></label><input id="cutoff" type="range" min="0" max="1" step="0.05" value="0.5"><label for="cost">Cost of a missed positive <output id="cost-value">3</output></label><input id="cost" type="range" min="1" max="10" step="1" value="3"><p class="fine">Illustrative cost = false positives + cost × false negatives. This is a chosen assumption, not a policy recommendation.</p><a class="source" href="guide.html#5-a-threshold-allocates-errors">When a metric needs context →</a></div><div class="experiment"><div id="observations" class="observations" aria-label="Synthetic observations"></div><div class="legend"><span>● observed positive</span><span>○ observed negative</span><span>rose border = error</span></div><div class="matrix" id="matrix" aria-live="polite"></div><p class="fine" id="threshold-note"></p></div></article>
-<article id="systems" class="desk"><div class="desk-copy"><span class="index">03 / SYSTEMS</span><h3>Every worker counts.<br><em>Not always equally.</em></h3><p>Two workers see different numbers of examples. Their mean gradients are −4 and −10. The larger shard should carry more of the update.</p><label for="workers">Examples on worker B <output id="workers-value">3</output></label><input id="workers" type="range" min="1" max="12" step="1" value="3"><p class="fine">Worker A keeps two examples. This desk holds local gradients fixed to isolate weighting. The Python lesson computes real gradients from synthetic shards.</p><a class="source" href="guide.html#6-many-workers-one-update">From this diagram to the code →</a></div><div class="experiment flow"><div class="workers"><span>A <b>2 examples</b><i>g = −4</i></span><span>B <b id="worker-count">3 examples</b><i>g = −10</i></span></div><svg viewBox="0 0 460 130" aria-hidden="true"><path class="stream" d="M100 0C100 70 230 35 230 120M360 0C360 70 230 35 230 120"/></svg><div class="merge">weighted update <strong id="aggregate">−7.600</strong><small id="formula">(2 × −4 + 3 × −10) / 5</small></div><p class="fine">Arithmetic simulation · no cluster or network required.</p></div></article></section>
-<section id="journeys" class="section"><div class="section-heading"><p class="eyebrow">Choose a thread</p><h2>One idea opens<br><em>the next.</em></h2><p>Begin with the explanation you need. Come back for the mathematics when the question gets more interesting.</p></div><div class="journey-grid"><a href="guide.html#1-a-line-learns-a-slope"><span class="index">01 / FOUNDATIONS</span><h3>A line, a loss,<br>a first step.</h3><p>Features, targets, gradients and the difference between fitting and understanding.</p><span class="arrow">↗</span></a><a href="guide.html#2-a-neural-network-you-can-account-for"><span class="index">02 / PYTORCH</span><h3>82 parameters.<br>Nothing hidden.</h3><p>Trace a tensor through forward pass, loss, backpropagation and a held-out test.</p><span class="arrow">↗</span></a><a href="guide.html#4-a-sequence-is-more-than-its-last-character"><span class="index">03 / LANGUAGE</span><h3>A sentence has<br>a memory.</h3><p>Compare recurrence with causal convolution. Keep the future out of the answer.</p><span class="arrow">↗</span></a><a href="guide.html#5-a-threshold-allocates-errors"><span class="index">04 / CONSEQUENCES</span><h3>Ask who lives<br>with the error.</h3><p>Thresholds, group metrics and the limits of what a sample can tell us.</p><span class="arrow">↗</span></a></div></section>
-<section id="evidence" class="section evidence"><div><p class="eyebrow">The lab notebook</p><h2>Let the run<br><em>speak for itself.</em></h2><p>These values come from CPU experiments run while building this site. They describe small synthetic tasks, not real-world capability.</p><a href="data/evidence.json" class="source">Open the measured evidence JSON ↗</a></div><div id="evidence-content" class="evidence-grid">Loading the build’s measured results…</div></section>
-<section id="atlas" class="section"><div class="section-heading"><p class="eyebrow">Nothing lost / a clearer home</p><h2>The source atlas.</h2><p>Open a file’s readable view, inspect its imports and definitions, or follow it to GitHub. “Extended study” means there is more to investigate—not a tested deployment promise.</p></div><p class="fine">Earlier visual notebooks: <a class="source" href="ds-ml-guide.html">Data science guide ↗</a> · <a class="source" href="pearlmind_animations.html">Animated concepts ↗</a>. These retain their original scope; use the current walkthrough for tested commands.</p><div class="atlas-tools"><label>Find a file or concept<input type="search" id="search" placeholder="Try: PyTorch, tokenizer, ethics…"></label><label>Learning area<select id="area"><option value="">Every area</option></select></label><span id="count" aria-live="polite"></span></div><div id="file-list" class="file-list"></div><button id="more-files" class="quiet">Show more files ↓</button></section>
-<section class="section closing"><div class="pearl small" aria-hidden="true"></div><p class="eyebrow">A notebook is better with margins</p><h2>Bring the question<br><em>that doesn’t quite fit.</em></h2><p>A counterexample, a clearer explanation, a test that fails for an interesting reason. There is room for that here.</p><div class="actions"><a class="button" href="https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey/issues/new/choose">Leave a useful question ↗</a><a class="quiet" href="https://github.com/loopchii">Follow the work into <span class="brand">LOOPCHii</span> →</a></div></section></main><footer><span>PearlMind / Cazandra Aporbo</span><a href="readiness.html">Scope & readiness</a><a href="setup.html">Run locally</a><a href="https://github.com/Cazzy-Aporbo">Meet the maker ↗</a><span>Small experiments. Serious questions.</span></footer></body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PearlMind — learn machine learning by changing something</title>
+    <meta
+      name="description"
+      content="Cazandra Aporbo’s interactive machine-learning notebook: runnable PyTorch, tree models, language experiments, evaluation and systems reasoning. Follow inputs to measured outputs."
+    />
+    <link
+      rel="canonical"
+      href="https://cazzy-aporbo.github.io/PearlMind-ML-Journey/"
+    />
+    <link
+      rel="icon"
+      href="assets/loopchii-cloud-icon-v7.svg"
+      type="image/svg+xml"
+    />
+    <meta
+      property="og:title"
+      content="PearlMind · Make a prediction. Meet its consequences."
+    />
+    <meta
+      property="og:description"
+      content="A learning room by Cazandra Aporbo. Explore the mathematics, run the code, and question the result."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://cazzy-aporbo.github.io/PearlMind-ML-Journey/"
+    />
+    <meta
+      property="og:image"
+      content="https://cazzy-aporbo.github.io/PearlMind-ML-Journey/assets/social-preview.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to experiments</a>
+    <header class="nav">
+      <a class="wordmark" href="#">PearlMind<span>by Cazandra Aporbo</span></a>
+      <nav aria-label="Main">
+        <a href="#experiments">Experiment</a><a href="#journeys">Learn</a
+        ><a href="#atlas">Source atlas</a
+        ><a href="https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey"
+          >GitHub ↗</a
+        >
+      </nav>
+      <button id="motion" aria-pressed="false">Pause motion</button>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">An open notebook / a living learning room</p>
+          <h1>Make a prediction.<br />Meet its <em>consequences.</em></h1>
+          <p class="lede">
+            A number becomes a decision. A decision touches a life. Somewhere
+            between the two, there is a question worth learning how to ask.
+          </p>
+          <p>
+            I’m Cazandra. This is where I take machine learning apart, keep the
+            useful mistakes, and put the pieces back together with evidence.
+          </p>
+          <div class="actions">
+            <a class="button" href="#experiments"
+              >Change something. See what happens <span>↗</span></a
+            ><a class="quiet" href="guide.html">Start with the walkthrough →</a>
+          </div>
+          <p class="fine">
+            No account. No API key. Curiosity is a sufficient prerequisite.
+          </p>
+        </div>
+        <div class="orbital" aria-hidden="true">
+          <div class="orbit o1"></div>
+          <div class="orbit o2"></div>
+          <div class="orbit o3"></div>
+          <div class="pearl"></div>
+          <span class="satellite s1"></span><span class="satellite s2"></span
+          ><span class="orb-label l1">observation</span
+          ><span class="orb-label l2">evidence</span
+          ><span class="orb-label l3">consequence</span>
+          <div class="orb-caption">
+            a little uncertainty<br /><i>is a useful beginning.</i>
+          </div>
+        </div>
+      </section>
+      <div class="ribbon">
+        <span>01 / Follow the inputs</span
+        ><span>02 / Touch the mathematics</span
+        ><span>03 / Inspect the evidence</span
+        ><span>04 / Ask a better question</span>
+      </div>
+      <section id="experiments" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">The experiment desks</p>
+          <h2>Less watching.<br /><em>More finding out.</em></h2>
+          <p>
+            These are deliberately small worlds. You can see every assumption,
+            change one, and watch the result answer back.
+          </p>
+        </div>
+        <article id="gradient" class="desk">
+          <div class="desk-copy">
+            <span class="index">01 / OPTIMIZATION</span>
+            <h3>
+              A wrong answer,<br /><em>moving in the right direction.</em>
+            </h3>
+            <p>
+              Teach a line to predict twice its input. A learning rate is the
+              size of its next step. Too timid? Slow progress. Too bold? A
+              rather educational escape.
+            </p>
+            <label for="rate"
+              >Learning rate <output id="rate-value">0.05</output></label
+            ><input
+              id="rate"
+              type="range"
+              min="0.01"
+              max="0.30"
+              step="0.01"
+              value="0.05"
+            />
+            <div class="actions">
+              <button class="button" id="step">Take one step ↗</button
+              ><button class="quiet" id="reset">Start again</button>
+            </div>
+            <a class="source" href="guide.html#1-a-line-learns-a-slope"
+              >Read the derivative →</a
+            >
+          </div>
+          <div class="experiment">
+            <svg
+              id="loss-chart"
+              viewBox="0 0 500 310"
+              role="img"
+              aria-label="Quadratic loss curve. The current weight is marked with a pearl."
+            >
+              <defs>
+                <linearGradient id="curve-gradient">
+                  <stop stop-color="#8aeee1" />
+                  <stop offset="1" stop-color="#f0b9d5" />
+                </linearGradient>
+              </defs>
+              <path d="M40 265H475 M40 265V20" class="axis" />
+              <path id="loss-curve" class="curve" />
+              <path id="trace" class="trace" />
+              <circle id="weight-dot" r="8" fill="#f6d5a5" />
+              <text x="390" y="298" class="chart-text">weight w →</text>
+              <text x="12" y="16" class="chart-text">loss</text>
+            </svg>
+            <div class="readouts" aria-live="polite">
+              <span>weight <b id="weight">0.000</b></span
+              ><span>loss <b id="loss">18.667</b></span
+              ><span>step <b id="iteration">0</b></span>
+            </div>
+            <p class="fine" id="gradient-note">
+              Synthetic points: (1,2), (2,4), (3,6). Model: ŷ = wx.
+            </p>
+          </div>
+        </article>
+        <article id="threshold" class="desk reverse">
+          <div class="desk-copy">
+            <span class="index">02 / EVALUATION</span>
+            <h3>The score is not<br /><em>the decision.</em></h3>
+            <p>
+              Twelve synthetic observations. One threshold. Move it and see
+              which mistakes change places. The labels stay visible; there is
+              nowhere for a flattering average to hide.
+            </p>
+            <label for="cutoff"
+              >Decision threshold <output id="cutoff-value">0.50</output></label
+            ><input
+              id="cutoff"
+              type="range"
+              min="0"
+              max="1"
+              step="0.05"
+              value="0.5"
+            /><label for="cost"
+              >Cost of a missed positive
+              <output id="cost-value">3</output></label
+            ><input
+              id="cost"
+              type="range"
+              min="1"
+              max="10"
+              step="1"
+              value="3"
+            />
+            <p class="fine">
+              Illustrative cost = false positives + cost × false negatives. This
+              is a chosen assumption, not a policy recommendation.
+            </p>
+            <a class="source" href="guide.html#5-a-threshold-allocates-errors"
+              >When a metric needs context →</a
+            >
+          </div>
+          <div class="experiment">
+            <div
+              id="observations"
+              class="observations"
+              aria-label="Synthetic observations"
+            ></div>
+            <div class="legend">
+              <span>● observed positive</span><span>○ observed negative</span
+              ><span>rose border = error</span>
+            </div>
+            <div class="matrix" id="matrix" aria-live="polite"></div>
+            <p class="fine" id="threshold-note"></p>
+          </div>
+        </article>
+        <article id="systems" class="desk">
+          <div class="desk-copy">
+            <span class="index">03 / SYSTEMS</span>
+            <h3>Every worker counts.<br /><em>Not always equally.</em></h3>
+            <p>
+              Two workers see different numbers of examples. Their mean
+              gradients are −4 and −10. The larger shard should carry more of
+              the update.
+            </p>
+            <label for="workers"
+              >Examples on worker B <output id="workers-value">3</output></label
+            ><input
+              id="workers"
+              type="range"
+              min="1"
+              max="12"
+              step="1"
+              value="3"
+            />
+            <p class="fine">
+              Worker A keeps two examples. This desk holds local gradients fixed
+              to isolate weighting. The Python lesson computes real gradients
+              from synthetic shards.
+            </p>
+            <a class="source" href="guide.html#6-many-workers-one-update"
+              >From this diagram to the code →</a
+            >
+          </div>
+          <div class="experiment flow">
+            <div class="workers">
+              <span>A <b>2 examples</b><i>g = −4</i></span
+              ><span>B <b id="worker-count">3 examples</b><i>g = −10</i></span>
+            </div>
+            <svg viewBox="0 0 460 130" aria-hidden="true">
+              <path
+                class="stream"
+                d="M100 0C100 70 230 35 230 120M360 0C360 70 230 35 230 120"
+              />
+            </svg>
+            <div class="merge">
+              weighted update <strong id="aggregate">−7.600</strong
+              ><small id="formula">(2 × −4 + 3 × −10) / 5</small>
+            </div>
+            <p class="fine">
+              Arithmetic simulation · no cluster or network required.
+            </p>
+          </div>
+        </article>
+      </section>
+      <section id="journeys" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Choose a thread</p>
+          <h2>One idea opens<br /><em>the next.</em></h2>
+          <p>
+            Begin with the explanation you need. Come back for the mathematics
+            when the question gets more interesting.
+          </p>
+        </div>
+        <div class="journey-grid">
+          <a href="guide.html#1-a-line-learns-a-slope"
+            ><span class="index">01 / FOUNDATIONS</span>
+            <h3>A line, a loss,<br />a first step.</h3>
+            <p>
+              Features, targets, gradients and the difference between fitting
+              and understanding.
+            </p>
+            <span class="arrow">↗</span></a
+          ><a href="guide.html#2-a-neural-network-you-can-account-for"
+            ><span class="index">02 / PYTORCH</span>
+            <h3>82 parameters.<br />Nothing hidden.</h3>
+            <p>
+              Trace a tensor through forward pass, loss, backpropagation and a
+              held-out test.
+            </p>
+            <span class="arrow">↗</span></a
+          ><a href="guide.html#4-a-sequence-is-more-than-its-last-character"
+            ><span class="index">03 / LANGUAGE</span>
+            <h3>A sentence has<br />a memory.</h3>
+            <p>
+              Compare recurrence with causal convolution. Keep the future out of
+              the answer.
+            </p>
+            <span class="arrow">↗</span></a
+          ><a href="guide.html#5-a-threshold-allocates-errors"
+            ><span class="index">04 / CONSEQUENCES</span>
+            <h3>Ask who lives<br />with the error.</h3>
+            <p>
+              Thresholds, group metrics and the limits of what a sample can tell
+              us.
+            </p>
+            <span class="arrow">↗</span></a
+          >
+        </div>
+      </section>
+      <section id="evidence" class="section evidence">
+        <div>
+          <p class="eyebrow">The lab notebook</p>
+          <h2>Let the run<br /><em>speak for itself.</em></h2>
+          <p>
+            These values come from CPU experiments run while building this site.
+            They describe small synthetic tasks, not real-world capability.
+          </p>
+          <a href="data/evidence.json" class="source"
+            >Open the measured evidence JSON ↗</a
+          >
+        </div>
+        <div id="evidence-content" class="evidence-grid">
+          Loading the build’s measured results…
+        </div>
+      </section>
+      <section id="atlas" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Nothing lost / a clearer home</p>
+          <h2>The source atlas.</h2>
+          <p>
+            Open a file’s readable view, inspect its imports and definitions, or
+            follow it to GitHub. “Extended study” means there is more to
+            investigate—not a tested deployment promise.
+          </p>
+        </div>
+        <p class="fine">
+          Earlier visual notebooks:
+          <a class="source" href="ds-ml-guide.html">Data science guide ↗</a> ·
+          <a class="source" href="pearlmind_animations.html"
+            >Animated concepts ↗</a
+          >. These retain their original scope; use the current walkthrough for
+          tested commands.
+        </p>
+        <div class="atlas-tools">
+          <label
+            >Find a file or concept<input
+              type="search"
+              id="search"
+              placeholder="Try: PyTorch, tokenizer, ethics…" /></label
+          ><label
+            >Learning area<select id="area">
+              <option value="">Every area</option>
+            </select></label
+          ><span id="count" aria-live="polite"></span>
+        </div>
+        <div id="file-list" class="file-list"></div>
+        <button id="more-files" class="quiet">Show more files ↓</button>
+      </section>
+      <section class="section closing">
+        <div class="pearl small" aria-hidden="true"></div>
+        <p class="eyebrow">A notebook is better with margins</p>
+        <h2>Bring the question<br /><em>that doesn’t quite fit.</em></h2>
+        <p>
+          A counterexample, a clearer explanation, a test that fails for an
+          interesting reason. There is room for that here.
+        </p>
+        <div class="actions">
+          <a
+            class="button"
+            href="https://github.com/Cazzy-Aporbo/PearlMind-ML-Journey/issues/new/choose"
+            >Leave a useful question ↗</a
+          ><a class="quiet" href="https://github.com/loopchii"
+            >Follow the work into <span class="brand">LOOPCHii</span> →</a
+          >
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span>PearlMind / Cazandra Aporbo</span
+      ><a href="readiness.html">Scope & readiness</a
+      ><a href="setup.html">Run locally</a
+      ><a href="https://github.com/Cazzy-Aporbo">Meet the maker ↗</a
+      ><span>Small experiments. Serious questions.</span>
+    </footer>
+  </body>
+</html>

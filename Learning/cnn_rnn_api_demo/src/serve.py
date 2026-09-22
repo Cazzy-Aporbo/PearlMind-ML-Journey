@@ -1,13 +1,21 @@
 # src/serve.py
 import os, json, glob
 from typing import Optional
+from contextlib import asynccontextmanager
 import torch
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from models import RNNLanguageModel, TCNLanguageModel
 from tokenizer import CharTokenizer
 
-app = FastAPI(title="Retained LM API", version="1.0")
+
+@asynccontextmanager
+async def lifespan(app):
+    _load()
+    yield
+
+
+app = FastAPI(title="Retained LM API", version="1.0", lifespan=lifespan)
 
 
 class GenRequest(BaseModel):
@@ -82,7 +90,6 @@ MODEL_VERSION_PATH = os.environ.get("MODEL_VERSION_PATH")
 _MODEL, _TOK, _DEVICE = None, None, None
 
 
-@app.on_event("startup")
 def _load():
     global _MODEL, _TOK, _DEVICE
     _MODEL, _TOK, _DEVICE = load_model_and_tokenizer(MODEL_TYPE, MODEL_VERSION_PATH)

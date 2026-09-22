@@ -64,6 +64,8 @@ The response contains a prediction and class probabilities. The eight zeros are 
 - A systems lesson shows when sample-weighted worker gradients equal a full-batch gradient—and why averaging workers equally can be wrong.
 - CI runs tests, CPU experiments, a wheel installation, source checks and a link-checked Pages build. Download its evidence artifact to inspect outputs from that commit.
 
+The [health-sequence study](programs/delphi-2m/README.md) also exposes its synthetic tensor checks. Its comparison reports measured shapes and parameter counts; projected clinical gains are not treated as findings.
+
 These are educational experiments. They do not establish medical effectiveness, compliance, secure deployment or performance on unseen real-world populations. [Read the model and readiness notes](docs/READINESS.md) before adapting them.
 
 ## A useful way to teach this
